@@ -7,6 +7,7 @@ import rocketImg from "@assets/generated_images/Vintage_retro_rocket_illustratio
 import robotImg from "@assets/generated_images/Vintage_retro_robot_illustration_b3d7b1a6.png";
 import monitorImg from "@assets/generated_images/Vintage_monitor_with_code_6cd2a93a.png";
 import statueImg from "@assets/generated_images/Classical_statue_with_grid_overlay_e17eec96.png";
+import rietLogo from "@assets/1000166910-removebg-preview_1762022522986.png";
 
 export default function HeroSection() {
   const [animatedElements, setAnimatedElements] = useState(false);
@@ -32,21 +33,22 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-24 md:pt-0">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black pt-24 md:pt-0">
       {/* Cursor trail particles */}
       {cursorParticles.map(particle => (
         <div
           key={particle.id}
-          className="absolute w-2 h-2 rounded-full bg-primary/60 pointer-events-none animate-fade-out"
+          className="absolute w-2 h-2 rounded-full bg-gradient-to-br from-primary to-secondary pointer-events-none animate-fade-out"
           style={{
             left: `${particle.x}px`,
             top: `${particle.y}px`,
+            boxShadow: '0 0 10px currentColor',
           }}
         />
       ))}
       
       <div 
-        className="absolute w-96 h-96 rounded-full bg-primary/20 blur-[100px] pointer-events-none transition-all duration-300"
+        className="absolute w-96 h-96 rounded-full bg-gradient-radial from-primary/15 via-secondary/10 to-transparent blur-[120px] pointer-events-none transition-all duration-500"
         style={{
           left: `${mousePosition.x - 192}px`,
           top: `${mousePosition.y - 192}px`,
@@ -73,12 +75,22 @@ export default function HeroSection() {
           <div 
             className={`transition-all duration-1000 ${animatedElements ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}
           >
-            <div className="inline-flex flex-col items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary/10 via-orange-500/10 to-primary/10 border-2 border-primary/30 rounded-full mb-4 backdrop-blur-xl shadow-[0_0_40px_rgba(255,94,0,0.3)] hover:shadow-[0_0_60px_rgba(255,94,0,0.5)] hover:scale-105 transition-all duration-500 cursor-pointer group">
-              <span className="text-xs text-primary/60 uppercase tracking-[0.3em] font-mono">Presented By</span>
-              <span className="text-sm md:text-base font-bold text-foreground tracking-wider group-hover:text-primary transition-colors">
-                RIET
-              </span>
-              <span className="text-xs text-muted-foreground text-center leading-tight max-w-xs">
+            <div className="inline-flex flex-col items-center gap-3 px-8 py-4 bg-gradient-to-br from-card/80 via-card/60 to-card/80 border border-primary/20 rounded-2xl mb-6 backdrop-blur-2xl shadow-[0_8px_32px_rgba(192,38,48,0.15)] hover:shadow-[0_12px_48px_rgba(192,38,48,0.3)] hover:scale-[1.02] hover:border-primary/40 transition-all duration-700 cursor-pointer group relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <span className="text-xs text-foreground/50 uppercase tracking-[0.35em] font-light relative z-10">Presented By</span>
+              <div className="flex items-center gap-3 relative z-10">
+                <img 
+                  src={rietLogo} 
+                  alt="RIET" 
+                  className="w-10 h-10 object-contain group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 filter drop-shadow-[0_0_10px_rgba(192,38,48,0.5)]"
+                />
+                <span className="text-lg md:text-xl font-bold text-foreground tracking-wide group-hover:text-primary transition-colors duration-300">
+                  RIET
+                </span>
+              </div>
+              <span className="text-xs text-foreground/60 text-center leading-tight max-w-xs font-light relative z-10 group-hover:text-foreground/80 transition-colors">
                 Rajasthan Institute of Engineering and Technology
               </span>
             </div>
@@ -166,11 +178,13 @@ export default function HeroSection() {
             <Button
               size="lg"
               onClick={() => setShowRegistration(true)}
-              className="relative text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-12 py-6 md:py-8 rounded-none bg-gradient-to-r from-primary via-orange-500 to-primary bg-[length:200%_100%] hover:bg-right-bottom text-background font-bold tracking-wider border-2 border-primary hover:scale-105 md:hover:scale-110 hover:rotate-1 md:hover:rotate-2 transition-all duration-500 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.3)] md:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.5)] md:hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.5)] animate-glow-pulse group overflow-hidden active:scale-95"
+              className="relative text-base sm:text-lg md:text-xl px-10 sm:px-12 md:px-16 py-6 md:py-8 rounded-xl bg-gradient-to-r from-primary via-red-600 to-primary bg-[length:200%_100%] hover:bg-right-bottom text-white font-bold tracking-wider border-2 border-primary/50 hover:border-secondary hover:scale-105 md:hover:scale-110 hover:-translate-y-1 transition-all duration-500 shadow-[0_10px_30px_rgba(192,38,48,0.3)] hover:shadow-[0_15px_50px_rgba(192,38,48,0.5),0_0_30px_rgba(218,165,32,0.3)] group overflow-hidden active:scale-95"
               data-testid="button-register"
             >
-              <span className="relative z-10">REGISTER NOW</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              <span className="relative z-10 group-hover:tracking-widest transition-all duration-300">REGISTER NOW</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-secondary/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-secondary/20 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary via-secondary to-primary rounded-xl blur opacity-30 group-hover:opacity-60 transition-opacity duration-500 -z-10" />
             </Button>
           </div>
 

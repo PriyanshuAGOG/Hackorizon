@@ -155,8 +155,21 @@ export default {
           "75%": { transform: "rotate(-0.5deg)" },
         },
         "gradient-shift": {
-          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "0%": { backgroundPosition: "0% 50%" },
           "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
+        },
+        "border-glow": {
+          "0%, 100%": { 
+            boxShadow: "0 0 20px rgba(192, 38, 48, 0.3), inset 0 0 20px rgba(192, 38, 48, 0.1)" 
+          },
+          "50%": { 
+            boxShadow: "0 0 40px rgba(192, 38, 48, 0.6), inset 0 0 30px rgba(192, 38, 48, 0.2)" 
+          },
+        },
+        "text-shimmer": {
+          "0%": { backgroundPosition: "-200% center" },
+          "100%": { backgroundPosition: "200% center" },
         },
         "bounce-slow": {
           "0%, 100%": { transform: "translateY(0)" },
@@ -192,6 +205,8 @@ export default {
         "bounce-slow": "bounce-slow 3s ease-in-out infinite",
         "spin-slow": "spin-slow 8s linear infinite",
         "fade-out": "fade-out 0.5s ease-in-out",
+        "border-glow": "border-glow 2s ease-in-out infinite",
+        "text-shimmer": "text-shimmer 3s linear infinite",
       },
     },
   },
