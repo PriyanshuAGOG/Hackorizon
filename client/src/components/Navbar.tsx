@@ -25,32 +25,38 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       scrolled 
-        ? 'bg-black/90 backdrop-blur-md border-b border-foreground/20' 
+        ? 'bg-black/95 backdrop-blur-xl border-b-2 border-primary/30 shadow-[0_10px_40px_rgba(0,0,0,0.3)]' 
         : 'bg-transparent'
     }`}>
-      <div className="container mx-auto px-4">
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-orange-500/5 opacity-0 hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+      <div className="container mx-auto px-4 relative">
         <div className="flex items-center justify-between h-20">
-          <div className="flex items-center gap-3">
-            <span className="text-2xl font-bold text-foreground tracking-widest" data-testid="text-logo">
+          <div className="flex items-center gap-3 group cursor-pointer">
+            <span className="text-2xl font-bold text-foreground tracking-widest hover:text-primary transition-all duration-300 hover:scale-110 inline-block" data-testid="text-logo">
               RIET
             </span>
-            <span className="text-xs text-foreground/60 uppercase tracking-[0.2em] hidden sm:block">
+            <div className="h-8 w-px bg-gradient-to-b from-transparent via-primary to-transparent opacity-50 group-hover:opacity-100 transition-opacity" />
+            <span className="text-xs text-foreground/60 uppercase tracking-[0.2em] hidden sm:block group-hover:text-primary/80 transition-colors">
               Presented By
             </span>
           </div>
 
           <div className="hidden md:flex items-center gap-2">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <Button
                 key={item.name}
                 variant="ghost"
-                className="text-foreground/80 hover:text-foreground hover:bg-foreground/5 transition-all font-medium tracking-wide"
+                className="relative text-foreground/80 hover:text-primary hover:bg-primary/10 transition-all duration-300 font-medium tracking-wide hover:scale-110 group overflow-hidden"
                 asChild
                 data-testid={`link-nav-${item.name.toLowerCase()}`}
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <a href={item.href}>{item.name}</a>
+                <a href={item.href}>
+                  <span className="relative z-10">{item.name}</span>
+                  <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                </a>
               </Button>
             ))}
           </div>

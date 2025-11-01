@@ -129,6 +129,35 @@ export default {
           "0%": { transform: "translateX(-20px)", opacity: "0" },
           "100%": { transform: "translateX(0)", opacity: "1" },
         },
+        "wiggle": {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "scale-in": {
+          "0%": { transform: "scale(0.9)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
+        "glow-pulse": {
+          "0%, 100%": { 
+            boxShadow: "0 0 20px rgba(255, 94, 0, 0.3), 0 0 40px rgba(255, 94, 0, 0.2)" 
+          },
+          "50%": { 
+            boxShadow: "0 0 30px rgba(255, 94, 0, 0.6), 0 0 60px rgba(255, 94, 0, 0.4)" 
+          },
+        },
+        "tilt": {
+          "0%, 100%": { transform: "rotate(0deg)" },
+          "25%": { transform: "rotate(0.5deg)" },
+          "75%": { transform: "rotate(-0.5deg)" },
+        },
+        "gradient-shift": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",

@@ -68,20 +68,25 @@ export default function FeatureGrid() {
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="group relative p-8 bg-card/50 backdrop-blur-sm border border-border hover:border-foreground/40 transition-all duration-500 overflow-hidden"
+              className="group relative p-8 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl border-2 border-border hover:border-primary/60 transition-all duration-700 overflow-hidden hover:scale-105 hover:-translate-y-2 cursor-pointer animate-fade-in shadow-lg hover:shadow-[0_20px_60px_rgba(255,94,0,0.3)]"
               data-testid={`card-feature-${index}`}
+              style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <Diamond className="w-4 h-4 text-primary" />
+              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:rotate-180">
+                <Diamond className="w-4 h-4 text-primary animate-pulse" />
               </div>
               
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              
               <div className="relative">
-                <div className="w-16 h-16 border-2 border-foreground/30 flex items-center justify-center mb-6 group-hover:border-primary/60 transition-all">
-                  <feature.icon className="w-8 h-8 text-foreground/70 group-hover:text-primary transition-colors" />
+                <div className="w-16 h-16 border-2 border-foreground/30 flex items-center justify-center mb-6 group-hover:border-primary/60 transition-all duration-500 group-hover:rotate-12 group-hover:scale-110 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <feature.icon className="w-8 h-8 text-foreground/70 group-hover:text-primary transition-all duration-500 relative z-10 group-hover:scale-125" />
                 </div>
                 
-                <h3 className="text-2xl font-bold mb-4 text-foreground tracking-wide">{feature.title}</h3>
-                <p className="text-foreground/70 text-base leading-relaxed">{feature.description}</p>
+                <h3 className="text-2xl font-bold mb-4 text-foreground tracking-wide group-hover:text-primary transition-colors duration-500">{feature.title}</h3>
+                <p className="text-foreground/70 text-base leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">{feature.description}</p>
+                <div className="mt-6 h-1 w-0 group-hover:w-full bg-gradient-to-r from-primary to-orange-500 transition-all duration-700 rounded-full" />
               </div>
             </Card>
           ))}

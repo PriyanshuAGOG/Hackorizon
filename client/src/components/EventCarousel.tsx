@@ -51,14 +51,15 @@ export default function EventCarousel() {
           </h2>
         </div>
 
-        <div className="relative max-w-5xl mx-auto">
-          <Card className="overflow-hidden border-2 border-border bg-card/50">
-            <div className="relative aspect-video">
+        <div className="relative max-w-5xl mx-auto group">
+          <Card className="overflow-hidden border-2 border-border bg-card/50 hover:border-primary/60 transition-all duration-700 shadow-2xl hover:shadow-[0_30px_80px_rgba(255,94,0,0.4)] animate-scale-in">
+            <div className="relative aspect-video overflow-hidden">
               <img
                 src={slides[currentSlide].image}
                 alt={slides[currentSlide].caption}
-                className="w-full h-full object-cover opacity-90"
+                className="w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-1000 group-hover:opacity-100"
                 data-testid={`img-carousel-${currentSlide}`}
+                key={currentSlide}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
               
@@ -75,7 +76,7 @@ export default function EventCarousel() {
             <Button
               size="icon"
               variant="outline"
-              className="pointer-events-auto w-12 h-12 border-2 border-foreground/30 bg-black/50 hover:bg-black/70 hover:border-foreground text-foreground rounded-none"
+              className="pointer-events-auto w-14 h-14 border-2 border-foreground/30 bg-black/70 backdrop-blur-xl hover:bg-primary hover:border-primary text-foreground hover:text-background rounded-none hover:scale-125 hover:-rotate-12 transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(255,94,0,0.6)]"
               onClick={prevSlide}
               data-testid="button-carousel-prev"
             >
@@ -85,7 +86,7 @@ export default function EventCarousel() {
             <Button
               size="icon"
               variant="outline"
-              className="pointer-events-auto w-12 h-12 border-2 border-foreground/30 bg-black/50 hover:bg-black/70 hover:border-foreground text-foreground rounded-none"
+              className="pointer-events-auto w-14 h-14 border-2 border-foreground/30 bg-black/70 backdrop-blur-xl hover:bg-primary hover:border-primary text-foreground hover:text-background rounded-none hover:scale-125 hover:rotate-12 transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(255,94,0,0.6)]"
               onClick={nextSlide}
               data-testid="button-carousel-next"
             >
