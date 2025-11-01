@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Brain, Wifi, Blocks, Heart, Database, Globe } from "lucide-react";
 import { Star, Cross } from "./DecorativeElements";
 import { useState } from "react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const tracks = [
   {
@@ -69,9 +70,10 @@ const tracks = [
 
 export default function TracksSection() {
   const [activeTab, setActiveTab] = useState("ai");
+  const { ref: sectionRef, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-32 bg-card/30 relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 bg-card/30 relative overflow-hidden">
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
           backgroundImage: `
@@ -83,7 +85,7 @@ export default function TracksSection() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-20">
+        <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           <div className="flex items-center justify-center gap-4 mb-6">
             <Cross className="w-6 h-6 text-primary" />
             <div className="h-px w-16 bg-foreground/30" />

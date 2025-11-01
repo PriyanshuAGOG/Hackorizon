@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Clock, MapPin, Calendar, Zap } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const schedule = [
   {
@@ -79,25 +79,7 @@ const schedule = [
 ];
 
 export default function ScheduleSection() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const { ref: sectionRef, isVisible } = useScrollAnimation();
 
   return (
     <section ref={sectionRef} className="py-32 bg-gradient-to-b from-card to-background relative overflow-hidden">
@@ -125,12 +107,15 @@ export default function ScheduleSection() {
           {schedule.map((event, index) => (
             <Card
               key={index}
-              className={`group relative p-8 transition-all duration-500 hover:scale-[1.02] animate-slide-in overflow-hidden ${
+              className={`group relative p-8 transition-all duration-500 hover:scale-[1.02] overflow-hidden ${
                 event.highlight
                   ? "bg-gradient-to-r from-orange-500/20 via-primary/20 to-orange-500/20 border-2 border-primary/70 shadow-[0_0_40px_rgba(255,94,0,0.4)] hover:shadow-[0_0_60px_rgba(255,94,0,0.6)]"
                   : "bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl border-2 border-card-border hover:border-primary/50"
-              }`}
-              style={{ animationDelay: `${index * 0.05}s` }}
+              } ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}
+              style={{ 
+                transitionDelay: isVisible ? `${index * 0.05}s` : '0s',
+                transitionDuration: '0.6s'
+              }}
               data-testid={`schedule-item-${index}`}
             >
               {event.highlight && (

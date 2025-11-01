@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Trophy, Users, Cpu, Rocket, Lightbulb, Award } from "lucide-react";
 import { Star, Diamond } from "./DecorativeElements";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const features = [
   {
@@ -36,8 +37,10 @@ const features = [
 ];
 
 export default function FeatureGrid() {
+  const { ref: sectionRef, isVisible } = useScrollAnimation();
+
   return (
-    <section className="py-32 bg-black relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 bg-black relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.08]">
         <div className="absolute inset-0" style={{
           backgroundImage: `
@@ -49,7 +52,7 @@ export default function FeatureGrid() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-20">
+        <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-px w-24 bg-foreground/30" />
             <Star className="w-8 h-8 text-primary" />
@@ -68,9 +71,14 @@ export default function FeatureGrid() {
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="group relative p-8 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl border-2 border-border hover:border-primary/60 transition-all duration-700 overflow-hidden hover:scale-105 hover:-translate-y-2 cursor-pointer animate-fade-in shadow-lg hover:shadow-[0_20px_60px_rgba(255,94,0,0.3)]"
+              className={`group relative p-8 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl border-2 border-border hover:border-primary/60 transition-all duration-700 overflow-hidden hover:scale-105 hover:-translate-y-2 cursor-pointer shadow-lg hover:shadow-[0_20px_60px_rgba(255,94,0,0.3)] ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+              }`}
               data-testid={`card-feature-${index}`}
-              style={{ animationDelay: `${index * 0.15}s` }}
+              style={{ 
+                transitionDelay: isVisible ? `${index * 0.1}s` : '0s',
+                transitionDuration: '0.8s'
+              }}
             >
               <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:rotate-180">
                 <Diamond className="w-4 h-4 text-primary animate-pulse" />

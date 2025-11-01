@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Trophy, Medal, Award, Star, Sparkles, Gem, Crown } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const prizes = [
   {
@@ -47,25 +48,7 @@ const prizes = [
 
 export default function PrizesSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const { ref: sectionRef, isVisible } = useScrollAnimation();
 
   return (
     <section ref={sectionRef} className="py-32 bg-gradient-to-b from-card to-background relative overflow-hidden">

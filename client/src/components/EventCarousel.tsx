@@ -1,8 +1,9 @@
 import { Card } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Star } from "./DecorativeElements";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import img1 from "@assets/generated_images/Students_coding_at_hackathon_678fb8fd.png";
 import img2 from "@assets/generated_images/Team_celebrating_hackathon_win_10a7e6e8.png";
 import img3 from "@assets/generated_images/Hackathon_project_presentation_stage_f1e43ba2.png";
@@ -27,25 +28,7 @@ const slides = [
 
 export default function EventCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const { ref: sectionRef, isVisible } = useScrollAnimation();
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -58,7 +41,7 @@ export default function EventCarousel() {
   return (
     <section ref={sectionRef} className="py-32 bg-black relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-px w-24 bg-foreground/30" />
             <Star className="w-8 h-8 text-primary" />
@@ -70,8 +53,8 @@ export default function EventCarousel() {
           </h2>
         </div>
 
-        <div className="relative max-w-5xl mx-auto group">
-          <Card className={`overflow-hidden border-2 border-border bg-card/50 transition-all duration-700 shadow-2xl hover:shadow-[0_30px_80px_rgba(255,94,0,0.4)] ${isVisible ? "animate-scale-in" : ""}`}>
+        <div className={`relative max-w-5xl mx-auto group transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ transitionDelay: '0.2s' }}>
+          <Card className="overflow-hidden border-2 border-border bg-card/50 transition-all duration-700 shadow-2xl hover:shadow-[0_30px_80px_rgba(255,94,0,0.4)]">
             <div className="relative aspect-video overflow-hidden">
               <img
                 src={slides[currentSlide].image}

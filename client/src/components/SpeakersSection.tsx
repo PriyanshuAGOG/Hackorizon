@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Linkedin, Twitter, Sparkles, Star, Award } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import speaker1 from "@assets/generated_images/Female_engineer_speaker_headshot_28df80eb.png";
 import speaker2 from "@assets/generated_images/Male_developer_speaker_headshot_dd4fee6e.png";
 import speaker3 from "@assets/generated_images/Senior_tech_judge_headshot_341a1309.png";
@@ -52,8 +53,10 @@ const speakers = [
 ];
 
 export default function SpeakersSection() {
+  const { ref: sectionRef, isVisible } = useScrollAnimation();
+
   return (
-    <section className="py-32 bg-gradient-to-b from-background to-card relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 bg-gradient-to-b from-background to-card relative overflow-hidden">
       <div className="absolute inset-0">
         {speakers.filter(s => s.role === "Judge").map((_, i) => (
           <div
@@ -70,7 +73,7 @@ export default function SpeakersSection() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
             <Award className="w-4 h-4 text-primary animate-pulse" />
             <span className="text-sm font-mono text-primary uppercase tracking-wider">Industry Experts</span>
@@ -88,8 +91,13 @@ export default function SpeakersSection() {
           {speakers.map((speaker, index) => (
             <Card
               key={index}
-              className="group relative p-8 bg-gradient-to-br from-card/90 to-card/40 backdrop-blur-2xl border-2 border-card-border hover:border-primary/70 transition-all duration-500 hover:scale-105 animate-slide-up overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.2)] hover:shadow-[0_0_50px_rgba(255,94,0,0.4)]"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={`group relative p-8 bg-gradient-to-br from-card/90 to-card/40 backdrop-blur-2xl border-2 border-card-border hover:border-primary/70 transition-all duration-500 hover:scale-105 overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.2)] hover:shadow-[0_0_50px_rgba(255,94,0,0.4)] ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+              }`}
+              style={{ 
+                transitionDelay: isVisible ? `${index * 0.1}s` : '0s',
+                transitionDuration: '0.8s'
+              }}
               data-testid={`card-speaker-${index}`}
             >
               {speaker.role === "Judge" && (
