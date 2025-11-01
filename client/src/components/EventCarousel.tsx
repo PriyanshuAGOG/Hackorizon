@@ -1,7 +1,8 @@
 import { Card } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight, Play, Sparkles } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { Star } from "./DecorativeElements";
 import img1 from "@assets/generated_images/Students_coding_at_hackathon_678fb8fd.png";
 import img2 from "@assets/generated_images/Team_celebrating_hackathon_win_10a7e6e8.png";
 import img3 from "@assets/generated_images/Hackathon_project_presentation_stage_f1e43ba2.png";
@@ -10,17 +11,17 @@ const slides = [
   {
     image: img1,
     caption: "Intense Coding Sessions",
-    description: "Teams collaborating on innovative solutions with cutting-edge technology",
+    description: "Teams collaborating on innovative solutions",
   },
   {
     image: img2,
     caption: "Victory Celebrations",
-    description: "Winners celebrating their incredible achievements and hard work",
+    description: "Winners celebrating their achievements",
   },
   {
     image: img3,
     caption: "Project Presentations",
-    description: "Showcasing groundbreaking ideas and innovations on the main stage",
+    description: "Showcasing groundbreaking ideas",
   },
 ];
 
@@ -36,77 +37,70 @@ export default function EventCarousel() {
   };
 
   return (
-    <section className="py-32 bg-gradient-to-b from-background to-card relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,94,0,0.05),transparent_70%)]" />
-      
+    <section className="py-32 bg-black relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
-            <Play className="w-4 h-4 text-primary" />
-            <span className="text-sm font-mono text-primary uppercase tracking-wider">Live Moments</span>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="h-px w-24 bg-foreground/30" />
+            <Star className="w-8 h-8 text-primary" />
+            <div className="h-px w-24 bg-foreground/30" />
           </div>
           
-          <h2 className="text-5xl md:text-7xl font-display font-black mb-6 bg-gradient-to-r from-orange-500 via-primary to-orange-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,94,0,0.3)]" data-testid="text-event-moments-title">
+          <h2 className="text-5xl md:text-7xl font-serif font-bold text-foreground mb-4" style={{ fontFamily: '"Playfair Display", serif' }} data-testid="text-event-moments-title">
             Event Moments
           </h2>
-          <p className="text-xl text-muted-foreground">
-            Experience the energy and excitement of previous hackathons
-          </p>
         </div>
 
         <div className="relative max-w-5xl mx-auto">
-          <Card className="overflow-hidden border-2 border-primary/30 shadow-[0_0_60px_rgba(255,94,0,0.3)] hover:shadow-[0_0_100px_rgba(255,94,0,0.5)] transition-all duration-500 bg-gradient-to-br from-card to-background">
-            <div className="relative aspect-video group">
+          <Card className="overflow-hidden border-2 border-border bg-card/50">
+            <div className="relative aspect-video">
               <img
                 src={slides[currentSlide].image}
                 alt={slides[currentSlide].caption}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover opacity-90"
                 data-testid={`img-carousel-${currentSlide}`}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
               
               <div className="absolute bottom-0 left-0 right-0 p-10">
-                <div className="flex items-start gap-4 mb-4">
-                  <Sparkles className="w-8 h-8 text-primary animate-pulse flex-shrink-0" />
-                  <div>
-                    <h3 className="text-4xl font-black text-white mb-3 drop-shadow-[0_0_20px_rgba(255,94,0,0.5)]" data-testid="text-carousel-caption">
-                      {slides[currentSlide].caption}
-                    </h3>
-                    <p className="text-xl text-gray-200 drop-shadow-lg">{slides[currentSlide].description}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="absolute top-1/2 -translate-y-1/2 left-6 right-6 flex justify-between pointer-events-none">
-                <Button
-                  size="icon"
-                  className="pointer-events-auto w-14 h-14 rounded-full bg-primary/90 backdrop-blur-xl border-2 border-white/50 hover:bg-primary hover:scale-110 shadow-[0_0_30px_rgba(255,94,0,0.5)] transition-all"
-                  onClick={prevSlide}
-                  data-testid="button-carousel-prev"
-                >
-                  <ChevronLeft className="w-8 h-8" />
-                </Button>
-
-                <Button
-                  size="icon"
-                  className="pointer-events-auto w-14 h-14 rounded-full bg-primary/90 backdrop-blur-xl border-2 border-white/50 hover:bg-primary hover:scale-110 shadow-[0_0_30px_rgba(255,94,0,0.5)] transition-all"
-                  onClick={nextSlide}
-                  data-testid="button-carousel-next"
-                >
-                  <ChevronRight className="w-8 h-8" />
-                </Button>
+                <h3 className="text-3xl font-bold text-foreground mb-2" data-testid="text-carousel-caption">
+                  {slides[currentSlide].caption}
+                </h3>
+                <p className="text-xl text-foreground/80">{slides[currentSlide].description}</p>
               </div>
             </div>
           </Card>
+
+          <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between px-4 pointer-events-none">
+            <Button
+              size="icon"
+              variant="outline"
+              className="pointer-events-auto w-12 h-12 border-2 border-foreground/30 bg-black/50 hover:bg-black/70 hover:border-foreground text-foreground rounded-none"
+              onClick={prevSlide}
+              data-testid="button-carousel-prev"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </Button>
+
+            <Button
+              size="icon"
+              variant="outline"
+              className="pointer-events-auto w-12 h-12 border-2 border-foreground/30 bg-black/50 hover:bg-black/70 hover:border-foreground text-foreground rounded-none"
+              onClick={nextSlide}
+              data-testid="button-carousel-next"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </Button>
+          </div>
 
           <div className="flex justify-center gap-3 mt-8">
             {slides.map((_, index) => (
               <button
                 key={index}
-                className={`transition-all duration-300 rounded-full ${
+                className={`transition-all duration-300 ${
                   index === currentSlide
-                    ? "w-12 h-4 bg-gradient-to-r from-orange-500 to-primary shadow-[0_0_20px_rgba(255,94,0,0.6)]"
-                    : "w-4 h-4 bg-muted-foreground/30 hover:bg-muted-foreground/50 hover:scale-110"
+                    ? "w-12 h-2 bg-primary"
+                    : "w-2 h-2 bg-foreground/30 hover:bg-foreground/50"
                 }`}
                 onClick={() => setCurrentSlide(index)}
                 data-testid={`button-carousel-dot-${index}`}
