@@ -467,7 +467,7 @@
 }
 
 @keyframes gradient-shift {
-  0% {
+  0%, 100% {
     background-position: 0% 50%;
   }
   50% {
@@ -476,4 +476,9 @@
   100% {
     background-position: 0% 50%;
   }
+}
+
+@keyframes fade-out {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0); }
 }

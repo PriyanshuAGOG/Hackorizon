@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import CircuitPattern from "./CircuitPattern";
 import { Star, Cross, Diamond } from "./DecorativeElements";
+import RegistrationForm from "./RegistrationForm";
 import rocketImg from "@assets/generated_images/Vintage_retro_rocket_illustration_118f7ced.png";
 import robotImg from "@assets/generated_images/Vintage_retro_robot_illustration_b3d7b1a6.png";
 import monitorImg from "@assets/generated_images/Vintage_monitor_with_code_6cd2a93a.png";
@@ -10,12 +11,20 @@ import statueImg from "@assets/generated_images/Classical_statue_with_grid_overl
 export default function HeroSection() {
   const [animatedElements, setAnimatedElements] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [cursorParticles, setCursorParticles] = useState<Array<{x: number, y: number, id: number}>>([]);
+  const [showRegistration, setShowRegistration] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setAnimatedElements(true), 100);
     
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
+      
+      // Create cursor trail particles
+      if (Math.random() > 0.8) {
+        const newParticle = { x: e.clientX, y: e.clientY, id: Date.now() };
+        setCursorParticles(prev => [...prev.slice(-10), newParticle]);
+      }
     };
     
     window.addEventListener('mousemove', handleMouseMove);
@@ -23,7 +32,19 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-24 md:pt-0">
+      {/* Cursor trail particles */}
+      {cursorParticles.map(particle => (
+        <div
+          key={particle.id}
+          className="absolute w-2 h-2 rounded-full bg-primary/60 pointer-events-none animate-fade-out"
+          style={{
+            left: `${particle.x}px`,
+            top: `${particle.y}px`,
+          }}
+        />
+      ))}
+      
       <div 
         className="absolute w-96 h-96 rounded-full bg-primary/20 blur-[100px] pointer-events-none transition-all duration-300"
         style={{
@@ -48,6 +69,21 @@ export default function HeroSection() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center space-y-6 max-w-6xl mx-auto">
+          {/* RIET Presented By Badge */}
+          <div 
+            className={`transition-all duration-1000 ${animatedElements ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}
+          >
+            <div className="inline-flex flex-col items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary/10 via-orange-500/10 to-primary/10 border-2 border-primary/30 rounded-full mb-4 backdrop-blur-xl shadow-[0_0_40px_rgba(255,94,0,0.3)] hover:shadow-[0_0_60px_rgba(255,94,0,0.5)] hover:scale-105 transition-all duration-500 cursor-pointer group">
+              <span className="text-xs text-primary/60 uppercase tracking-[0.3em] font-mono">Presented By</span>
+              <span className="text-sm md:text-base font-bold text-foreground tracking-wider group-hover:text-primary transition-colors">
+                RIET
+              </span>
+              <span className="text-xs text-muted-foreground text-center leading-tight max-w-xs">
+                Rajasthan Institute of Engineering and Technology
+              </span>
+            </div>
+          </div>
+
           <div 
             className={`transition-all duration-1000 ${animatedElements ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
@@ -79,9 +115,9 @@ export default function HeroSection() {
               <img
                 src={rocketImg}
                 alt="Rocket"
-                className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain filter drop-shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 animate-bounce-slow group-hover:animate-none"
+                className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain filter drop-shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 animate-bounce-slow group-hover:animate-none mix-blend-lighten"
                 style={{
-                  filter: 'drop-shadow(0 0 20px rgba(255, 94, 0, 0.5))',
+                  filter: 'drop-shadow(0 0 20px rgba(255, 94, 0, 0.5)) brightness(1.1) contrast(1.2)',
                 }}
                 data-testid="img-rocket"
               />
@@ -93,9 +129,9 @@ export default function HeroSection() {
               <img
                 src={statueImg}
                 alt="Classical Art"
-                className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-56 lg:h-56 object-contain filter drop-shadow-2xl opacity-90 group-hover:scale-105 group-hover:-rotate-6 transition-all duration-700 animate-tilt"
+                className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-56 lg:h-56 object-contain filter drop-shadow-2xl opacity-90 group-hover:scale-105 group-hover:-rotate-6 transition-all duration-700 animate-tilt mix-blend-lighten"
                 style={{
-                  filter: 'drop-shadow(0 0 30px rgba(232, 220, 196, 0.4))',
+                  filter: 'drop-shadow(0 0 30px rgba(232, 220, 196, 0.4)) brightness(1.1) contrast(1.2)',
                 }}
                 data-testid="img-statue"
               />
@@ -107,9 +143,9 @@ export default function HeroSection() {
               <img
                 src={robotImg}
                 alt="Robot"
-                className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain filter drop-shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 animate-float"
+                className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain filter drop-shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 animate-float mix-blend-lighten"
                 style={{
-                  filter: 'drop-shadow(0 0 20px rgba(255, 94, 0, 0.5))',
+                  filter: 'drop-shadow(0 0 20px rgba(255, 94, 0, 0.5)) brightness(1.1) contrast(1.2)',
                 }}
                 data-testid="img-robot"
               />
@@ -129,7 +165,8 @@ export default function HeroSection() {
           >
             <Button
               size="lg"
-              className="relative text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-12 py-6 md:py-8 rounded-none bg-gradient-to-r from-primary via-orange-500 to-primary bg-[length:200%_100%] hover:bg-right-bottom text-background font-bold tracking-wider border-2 border-primary hover:scale-105 md:hover:scale-110 hover:rotate-1 md:hover:rotate-2 transition-all duration-500 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.3)] md:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.5)] md:hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.5)] animate-glow-pulse group overflow-hidden"
+              onClick={() => setShowRegistration(true)}
+              className="relative text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-12 py-6 md:py-8 rounded-none bg-gradient-to-r from-primary via-orange-500 to-primary bg-[length:200%_100%] hover:bg-right-bottom text-background font-bold tracking-wider border-2 border-primary hover:scale-105 md:hover:scale-110 hover:rotate-1 md:hover:rotate-2 transition-all duration-500 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.3)] md:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.5)] md:hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.5)] animate-glow-pulse group overflow-hidden active:scale-95"
               data-testid="button-register"
             >
               <span className="relative z-10">REGISTER NOW</span>
@@ -151,7 +188,10 @@ export default function HeroSection() {
             <img
               src={monitorImg}
               alt="Monitor"
-              className="w-24 h-24 object-contain"
+              className="w-24 h-24 object-contain mix-blend-lighten hover:scale-110 transition-all duration-300"
+              style={{
+                filter: 'brightness(1.1) contrast(1.2)',
+              }}
               data-testid="img-monitor"
             />
           </div>
@@ -175,6 +215,8 @@ export default function HeroSection() {
           className="text-foreground"
         />
       </svg>
+
+      <RegistrationForm open={showRegistration} onOpenChange={setShowRegistration} />
     </section>
   );
 }

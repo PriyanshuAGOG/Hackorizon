@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import { Star } from "./DecorativeElements";
 import img1 from "@assets/generated_images/Students_coding_at_hackathon_678fb8fd.png";
 import img2 from "@assets/generated_images/Team_celebrating_hackathon_win_10a7e6e8.png";
@@ -27,6 +27,25 @@ const slides = [
 
 export default function EventCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -37,7 +56,7 @@ export default function EventCarousel() {
   };
 
   return (
-    <section className="py-32 bg-black relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 bg-black relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-4 mb-6">
@@ -45,24 +64,24 @@ export default function EventCarousel() {
             <Star className="w-8 h-8 text-primary" />
             <div className="h-px w-24 bg-foreground/30" />
           </div>
-          
+
           <h2 className="text-5xl md:text-7xl font-serif font-bold text-foreground mb-4" style={{ fontFamily: '"Playfair Display", serif' }} data-testid="text-event-moments-title">
             Event Moments
           </h2>
         </div>
 
         <div className="relative max-w-5xl mx-auto group">
-          <Card className="overflow-hidden border-2 border-border bg-card/50 hover:border-primary/60 transition-all duration-700 shadow-2xl hover:shadow-[0_30px_80px_rgba(255,94,0,0.4)] animate-scale-in">
+          <Card className={`overflow-hidden border-2 border-border bg-card/50 transition-all duration-700 shadow-2xl hover:shadow-[0_30px_80px_rgba(255,94,0,0.4)] ${isVisible ? "animate-scale-in" : ""}`}>
             <div className="relative aspect-video overflow-hidden">
               <img
                 src={slides[currentSlide].image}
                 alt={slides[currentSlide].caption}
-                className="w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-1000 group-hover:opacity-100"
+                className="w-full aspect-video object-cover group-hover:scale-110 transition-transform duration-700"
                 data-testid={`img-carousel-${currentSlide}`}
                 key={currentSlide}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              
+
               <div className="absolute bottom-0 left-0 right-0 p-10">
                 <h3 className="text-3xl font-bold text-foreground mb-2" data-testid="text-carousel-caption">
                   {slides[currentSlide].caption}

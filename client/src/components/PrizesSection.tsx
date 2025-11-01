@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Trophy, Medal, Award, Star, Sparkles, Gem, Crown } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const prizes = [
   {
@@ -47,9 +47,28 @@ const prizes = [
 
 export default function PrizesSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="py-32 bg-gradient-to-b from-card to-background relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 bg-gradient-to-b from-card to-background relative overflow-hidden">
       <div className="absolute inset-0">
         {[...Array(100)].map((_, i) => (
           <div
@@ -76,7 +95,7 @@ export default function PrizesSection() {
             <span className="text-sm font-mono text-primary uppercase tracking-wider">Rewards Await</span>
           </div>
           
-          <h2 className="text-5xl md:text-7xl font-display font-black mb-6 bg-gradient-to-r from-orange-500 via-primary to-orange-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,94,0,0.3)]" data-testid="text-prizes-title">
+          <h2 className={`text-5xl md:text-7xl font-display font-black mb-6 bg-gradient-to-r from-orange-500 via-primary to-orange-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,94,0,0.3)] transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} data-testid="text-prizes-title">
             Prizes & Rewards
           </h2>
           <p className="text-xl text-muted-foreground mb-4">
@@ -108,9 +127,9 @@ export default function PrizesSection() {
                   <prize.badge className="absolute -top-2 -right-2 w-8 h-8 text-white animate-pulse" />
                 </div>
 
-                <h3 className="text-3xl font-black text-foreground mb-3 group-hover:text-primary transition-colors">{prize.place}</h3>
+                <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-foreground mb-3 group-hover:text-primary transition-colors">{prize.place}</h3>
                 <div className="relative inline-block mb-6">
-                  <p className={`text-5xl font-black bg-gradient-to-r ${prize.color} bg-clip-text text-transparent drop-shadow-lg ${hoveredIndex === index ? 'animate-pulse-glow' : ''}`}>
+                  <p className={`text-3xl md:text-4xl lg:text-5xl font-black bg-gradient-to-r ${prize.color} bg-clip-text text-transparent drop-shadow-lg ${hoveredIndex === index ? 'animate-pulse-glow' : ''}`}>
                     {prize.amount}
                   </p>
                   <div className={`absolute -inset-2 bg-gradient-to-r ${prize.color} opacity-20 blur-xl -z-10`} />

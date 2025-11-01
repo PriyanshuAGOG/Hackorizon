@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Clock, MapPin, Calendar, Zap } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 
 const schedule = [
   {
@@ -78,8 +79,28 @@ const schedule = [
 ];
 
 export default function ScheduleSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="py-32 bg-gradient-to-b from-card to-background relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 bg-gradient-to-b from-card to-background relative overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-primary/5 rounded-full blur-[120px] animate-pulse-glow" />
         <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-orange-500/5 rounded-full blur-[120px] animate-pulse-glow" style={{ animationDelay: '1s' }} />
@@ -135,14 +156,14 @@ export default function ScheduleSection() {
                 </div>
 
                 <div className="flex-1">
-                  <h3 className={`text-2xl font-black mb-2 ${
+                  <h3 className={`text-lg md:text-xl lg:text-2xl font-black mb-2 ${
                     event.highlight 
                       ? 'bg-gradient-to-r from-orange-500 to-primary bg-clip-text text-transparent'
                       : 'text-foreground group-hover:text-primary transition-colors'
                   }`}>
                     {event.title}
                   </h3>
-                  <p className="text-lg text-muted-foreground mb-3">{event.description}</p>
+                  <p className="text-sm md:text-base lg:text-lg text-muted-foreground mb-3">{event.description}</p>
                   <div className="flex items-center gap-2 text-sm font-medium">
                     <MapPin className={`w-4 h-4 ${event.highlight ? 'text-primary' : 'text-muted-foreground'}`} />
                     <span className={event.highlight ? 'text-primary' : 'text-muted-foreground'}>{event.location}</span>

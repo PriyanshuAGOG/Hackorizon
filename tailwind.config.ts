@@ -166,6 +166,10 @@ export default {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
         },
+        "fade-out": {
+          "0%": { opacity: "1", transform: "scale(1)" },
+          "100%": { opacity: "0", transform: "scale(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -185,6 +189,9 @@ export default {
         "glow-pulse": "glow-pulse 2s ease-in-out infinite",
         "tilt": "tilt 10s ease-in-out infinite",
         "gradient-shift": "gradient-shift 3s ease infinite",
+        "bounce-slow": "bounce-slow 3s ease-in-out infinite",
+        "spin-slow": "spin-slow 8s linear infinite",
+        "fade-out": "fade-out 0.5s ease-in-out",
       },
     },
   },
