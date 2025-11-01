@@ -76,17 +76,17 @@ export default function EventCarousel() {
             <Button
               size="icon"
               variant="outline"
-              className="pointer-events-auto w-14 h-14 border-2 border-foreground/30 bg-black/70 backdrop-blur-xl hover:bg-primary hover:border-primary text-foreground hover:text-background rounded-none hover:scale-125 hover:-rotate-12 transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(255,94,0,0.6)]"
+              className="pointer-events-auto w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 border-2 border-foreground/30 bg-black/70 backdrop-blur-xl hover:bg-primary hover:border-primary text-foreground hover:text-background rounded-none hover:scale-110 md:hover:scale-125 hover:-rotate-6 md:hover:-rotate-12 transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(255,94,0,0.6)]"
               onClick={prevSlide}
               data-testid="button-carousel-prev"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
             </Button>
 
             <Button
               size="icon"
               variant="outline"
-              className="pointer-events-auto w-14 h-14 border-2 border-foreground/30 bg-black/70 backdrop-blur-xl hover:bg-primary hover:border-primary text-foreground hover:text-background rounded-none hover:scale-125 hover:rotate-12 transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(255,94,0,0.6)]"
+              className="pointer-events-auto w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 border-2 border-foreground/30 bg-black/70 backdrop-blur-xl hover:bg-primary hover:border-primary text-foreground hover:text-background rounded-none hover:scale-110 md:hover:scale-125 hover:rotate-6 md:hover:rotate-12 transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(255,94,0,0.6)]"
               onClick={nextSlide}
               data-testid="button-carousel-next"
             >

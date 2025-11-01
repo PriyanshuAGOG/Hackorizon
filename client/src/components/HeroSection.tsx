@@ -52,7 +52,7 @@ export default function HeroSection() {
             className={`transition-all duration-1000 ${animatedElements ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
             <h1
-              className="text-7xl md:text-9xl lg:text-[10rem] font-serif font-bold text-foreground mb-8 tracking-tight hover:scale-105 transition-all duration-700 cursor-default group"
+              className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-serif font-bold text-foreground mb-6 md:mb-8 tracking-tight hover:scale-105 transition-all duration-700 cursor-default group px-4"
               style={{
                 fontFamily: '"Playfair Display", serif',
                 letterSpacing: '0.02em',
@@ -72,14 +72,14 @@ export default function HeroSection() {
             </h1>
           </div>
 
-          <div className="flex items-center justify-center gap-8 md:gap-16 my-12">
+          <div className="flex items-center justify-center gap-4 sm:gap-8 md:gap-12 lg:gap-16 my-8 md:my-12">
             <div 
               className={`transition-all duration-1000 delay-200 ${animatedElements ? 'opacity-100 scale-100' : 'opacity-0 scale-75'} group cursor-pointer`}
             >
               <img
                 src={rocketImg}
                 alt="Rocket"
-                className="w-32 h-32 md:w-48 md:h-48 object-contain filter drop-shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 animate-bounce-slow group-hover:animate-none"
+                className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain filter drop-shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 animate-bounce-slow group-hover:animate-none"
                 style={{
                   filter: 'drop-shadow(0 0 20px rgba(255, 94, 0, 0.5))',
                 }}
@@ -88,12 +88,12 @@ export default function HeroSection() {
             </div>
 
             <div 
-              className={`hidden md:block transition-all duration-1000 delay-400 ${animatedElements ? 'opacity-100 scale-100' : 'opacity-0 scale-75'} group cursor-pointer`}
+              className={`hidden sm:block transition-all duration-1000 delay-400 ${animatedElements ? 'opacity-100 scale-100' : 'opacity-0 scale-75'} group cursor-pointer`}
             >
               <img
                 src={statueImg}
                 alt="Classical Art"
-                className="w-40 h-40 md:w-56 md:h-56 object-contain filter drop-shadow-2xl opacity-90 group-hover:scale-105 group-hover:-rotate-6 transition-all duration-700 animate-tilt"
+                className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-56 lg:h-56 object-contain filter drop-shadow-2xl opacity-90 group-hover:scale-105 group-hover:-rotate-6 transition-all duration-700 animate-tilt"
                 style={{
                   filter: 'drop-shadow(0 0 30px rgba(232, 220, 196, 0.4))',
                 }}
@@ -107,7 +107,7 @@ export default function HeroSection() {
               <img
                 src={robotImg}
                 alt="Robot"
-                className="w-32 h-32 md:w-48 md:h-48 object-contain filter drop-shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 animate-float"
+                className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain filter drop-shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 animate-float"
                 style={{
                   filter: 'drop-shadow(0 0 20px rgba(255, 94, 0, 0.5))',
                 }}
@@ -129,7 +129,7 @@ export default function HeroSection() {
           >
             <Button
               size="lg"
-              className="relative text-xl px-12 py-8 rounded-none bg-gradient-to-r from-primary via-orange-500 to-primary bg-[length:200%_100%] hover:bg-right-bottom text-background font-bold tracking-wider border-2 border-primary hover:scale-110 hover:rotate-2 transition-all duration-500 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.5)] animate-glow-pulse group overflow-hidden"
+              className="relative text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-12 py-6 md:py-8 rounded-none bg-gradient-to-r from-primary via-orange-500 to-primary bg-[length:200%_100%] hover:bg-right-bottom text-background font-bold tracking-wider border-2 border-primary hover:scale-105 md:hover:scale-110 hover:rotate-1 md:hover:rotate-2 transition-all duration-500 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.3)] md:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.5)] md:hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.5)] animate-glow-pulse group overflow-hidden"
               data-testid="button-register"
             >
               <span className="relative z-10">REGISTER NOW</span>
