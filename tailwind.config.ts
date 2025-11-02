@@ -114,8 +114,12 @@ export default {
           "50%": { transform: "translateY(-20px)" },
         },
         "shimmer": {
-          "0%": { backgroundPosition: "-1000px 0" },
-          "100%": { backgroundPosition: "1000px 0" },
+          "0%": { backgroundPosition: "-200% center" },
+          "100%": { backgroundPosition: "200% center" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { opacity: "0.5" },
+          "50%": { opacity: "0.8" },
         },
         "rocket-ascend": {
           "0%": { transform: "translateY(0) rotate(0deg)" },
@@ -300,7 +304,8 @@ export default {
         "glitch": "glitch 0.3s ease-in-out infinite",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         "float": "float 3s ease-in-out infinite",
-        "shimmer": "shimmer 3s linear infinite",
+        "shimmer": "shimmer 8s linear infinite",
+        "pulse-glow": "pulse-glow 4s ease-in-out infinite",
         "rocket-ascend": "rocket-ascend 2s ease-in-out infinite",
         "slide-up": "slide-up 0.5s ease-out",
         "slide-in": "slide-in 0.5s ease-out",

@@ -1,306 +1,182 @@
-
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
-import CircuitPattern from "./CircuitPattern";
-import { Star, Cross, Diamond } from "./DecorativeElements";
+import { ChevronDown, Sparkles, Zap, Code2 } from "lucide-react";
 import RegistrationForm from "./RegistrationForm";
-import rocketImg from "@assets/generated_images/Vintage_retro_rocket_illustration_118f7ced.png";
-import robotImg from "@assets/generated_images/Vintage_retro_robot_illustration_b3d7b1a6.png";
-import monitorImg from "@assets/generated_images/Vintage_monitor_with_code_6cd2a93a.png";
-import statueImg from "@assets/generated_images/Classical_statue_with_grid_overlay_e17eec96.png";
 import rietLogo from "@assets/1000166910-removebg-preview_1762022522986.png";
 
 export default function HeroSection() {
-  const [animatedElements, setAnimatedElements] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [scrollY, setScrollY] = useState(0);
-  const [cursorParticles, setCursorParticles] = useState<Array<{x: number, y: number, id: number}>>([]);
   const [showRegistration, setShowRegistration] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    setTimeout(() => setAnimatedElements(true), 100);
-    
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
-      
-      // Create cursor trail particles
-      if (Math.random() > 0.7) {
-        const newParticle = { x: e.clientX, y: e.clientY, id: Date.now() + Math.random() };
-        setCursorParticles(prev => [...prev.slice(-20), newParticle]);
-      }
     };
 
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  const scrollToContent = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+  };
+
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black pt-24 md:pt-0">
-      {/* Enhanced cursor trail particles */}
-      {cursorParticles.map(particle => (
-        <div
-          key={particle.id}
-          className="absolute w-3 h-3 rounded-full pointer-events-none animate-fade-out"
+    <section 
+      ref={sectionRef} 
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-gray-950 to-black"
+    >
+      {/* Animated gradient orbs */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div 
+          className="absolute w-[600px] h-[600px] rounded-full opacity-20 blur-[100px] transition-all duration-300 ease-out"
           style={{
-            left: `${particle.x}px`,
-            top: `${particle.y}px`,
-            background: `radial-gradient(circle, ${Math.random() > 0.5 ? '#C02630' : '#DAA520'}, transparent)`,
-            boxShadow: `0 0 ${10 + Math.random() * 10}px currentColor`,
+            background: 'radial-gradient(circle, #C02630 0%, transparent 70%)',
+            left: `${mousePosition.x - 300}px`,
+            top: `${mousePosition.y - 300}px`,
           }}
         />
-      ))}
-      
-      {/* Parallax mouse-following glow */}
-      <div 
-        className="absolute w-[500px] h-[500px] rounded-full bg-gradient-radial from-primary/20 via-secondary/15 to-transparent blur-[150px] pointer-events-none transition-all duration-300"
-        style={{
-          left: `${mousePosition.x - 250}px`,
-          top: `${mousePosition.y - 250}px`,
-        }}
-      />
-
-      {/* Parallax background elements */}
-      <div 
-        className="absolute inset-0 opacity-30"
-        style={{
-          transform: `translateY(${scrollY * 0.3}px)`,
-        }}
-      >
-        <CircuitPattern />
-      </div>
-      
-      {/* Floating decorative elements with parallax */}
-      <div 
-        className="absolute top-8 right-8 animate-float"
-        style={{ transform: `translateY(${scrollY * 0.1}px)` }}
-      >
-        <Star className="w-16 h-16 text-primary/60 animate-spin-slow" />
-      </div>
-      <div 
-        className="absolute top-1/4 left-12 animate-bounce-slow" 
-        style={{ 
-          animationDelay: '0.5s',
-          transform: `translateY(${scrollY * 0.15}px)`,
-        }}
-      >
-        <Cross className="w-10 h-10 text-foreground/40 animate-pulse" />
-      </div>
-      <div 
-        className="absolute bottom-1/4 right-20 animate-wiggle" 
-        style={{ 
-          animationDelay: '1s',
-          transform: `translateY(${scrollY * 0.2}px)`,
-        }}
-      >
-        <Diamond className="w-8 h-8 text-primary/50 animate-heartbeat" />
-      </div>
-      <div 
-        className="absolute top-1/2 right-32 animate-swing" 
-        style={{ 
-          animationDelay: '1.5s',
-          transform: `translateY(${scrollY * 0.12}px)`,
-        }}
-      >
-        <Cross className="w-7 h-7 text-foreground/30" />
-      </div>
-      <div 
-        className="absolute top-1/3 left-1/4 animate-tada" 
-        style={{ 
-          animationDelay: '2s',
-          transform: `translateY(${scrollY * 0.18}px)`,
-        }}
-      >
-        <Star className="w-12 h-12 text-secondary/40" />
-      </div>
-      <div 
-        className="absolute bottom-1/3 left-1/3 animate-rubber-band" 
-        style={{ 
-          animationDelay: '2.5s',
-          transform: `translateY(${scrollY * 0.25}px)`,
-        }}
-      >
-        <Diamond className="w-6 h-6 text-primary/60" />
+        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-orange-600/20 to-transparent blur-[120px] animate-pulse-glow" />
+        <div className="absolute bottom-1/3 left-1/3 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-red-600/15 to-transparent blur-[100px] animate-pulse-glow" style={{ animationDelay: '1s' }} />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center space-y-6 max-w-6xl mx-auto">
-          {/* RIET Presented By Badge with enhanced animations */}
-          <div 
-            className={`transition-all duration-1000 ${animatedElements ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-0 rotate-180'}`}
-          >
-            <div className="inline-flex flex-col items-center gap-3 px-8 py-4 bg-gradient-to-br from-card/90 via-card/70 to-card/90 border-2 border-primary/30 rounded-2xl mb-6 backdrop-blur-2xl shadow-[0_8px_32px_rgba(192,38,48,0.15)] hover:shadow-[0_12px_48px_rgba(192,38,48,0.4)] hover:scale-105 hover:border-primary/60 transition-all duration-700 cursor-pointer group relative overflow-hidden animate-border-glow">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-shift" />
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-shimmer" />
-              
-              <span className="text-xs text-foreground/50 uppercase tracking-[0.35em] font-light relative z-10 group-hover:text-foreground/70 transition-colors">Presented By</span>
-              <div className="flex items-center gap-3 relative z-10">
-                <img 
-                  src={rietLogo} 
-                  alt="RIET" 
-                  className="w-12 h-12 object-contain group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 filter drop-shadow-[0_0_15px_rgba(192,38,48,0.6)] group-hover:drop-shadow-[0_0_30px_rgba(192,38,48,1)] animate-pulse-glow"
-                />
-                <span className="text-xl md:text-2xl font-bold text-foreground tracking-wide group-hover:text-primary transition-colors duration-300 group-hover:animate-tada">
-                  RIET
-                </span>
-              </div>
-              <span className="text-xs text-foreground/60 text-center leading-tight max-w-xs font-light relative z-10 group-hover:text-foreground/80 transition-colors animate-text-shimmer" style={{ backgroundImage: 'linear-gradient(90deg, currentColor 0%, currentColor 40%, rgba(192,38,48,0.8) 50%, currentColor 60%, currentColor 100%)', backgroundSize: '200% auto', backgroundClip: 'text', WebkitBackgroundClip: 'text' }}>
-                Rajasthan Institute of Engineering and Technology
+      {/* Grid overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
+
+      {/* Floating particles */}
+      <div className="absolute inset-0">
+        {[...Array(30)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-white/30 rounded-full animate-float"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${5 + Math.random() * 10}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-6xl mx-auto text-center space-y-12">
+          {/* Logo Badge */}
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full hover:bg-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer group">
+            <img 
+              src={rietLogo} 
+              alt="RIET Logo" 
+              className="w-10 h-10 object-contain transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
+            />
+            <div className="flex flex-col items-start">
+              <span className="text-xs text-white/60 uppercase tracking-widest font-light">Presented by</span>
+              <span className="text-sm font-semibold text-white tracking-wide">Rajasthan Institute of Engineering & Technology</span>
+            </div>
+          </div>
+
+          {/* Main Heading */}
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 backdrop-blur-sm border border-primary/30 rounded-full">
+              <Sparkles className="w-4 h-4 text-primary animate-pulse" />
+              <span className="text-sm font-medium text-primary uppercase tracking-wider">India's Premier Hackathon 2025</span>
+            </div>
+
+            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight">
+              <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
+                CODEVEDANS
               </span>
-            </div>
-          </div>
-
-          {/* Enhanced title with letter-by-letter animations */}
-          <div 
-            className={`transition-all duration-1000 ${animatedElements ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-          >
-            <h1
-              className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-serif font-bold text-foreground mb-6 md:mb-8 tracking-tight hover:scale-105 transition-all duration-700 cursor-default group px-4"
-              style={{
-                fontFamily: '"Playfair Display", serif',
-                letterSpacing: '0.02em',
-                textShadow: '0 0 40px rgba(232, 220, 196, 0.3)',
-              }}
-              data-testid="hero-title"
-            >
-              {['C','O','D','E','V','E','D','A','N','S'].map((letter, i) => (
-                <span
-                  key={i}
-                  className="inline-block hover:text-primary hover:scale-150 hover:-rotate-12 hover:animate-bounce-in transition-all duration-300 animate-slide-up"
-                  style={{ animationDelay: `${i * 0.1}s` }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.classList.add('animate-jello');
-                    setTimeout(() => e.currentTarget.classList.remove('animate-jello'), 1000);
-                  }}
-                >
-                  {letter}
-                </span>
-              ))}
             </h1>
+
+            <p className="text-2xl md:text-3xl lg:text-4xl font-light text-white/80 tracking-wide max-w-4xl mx-auto">
+              Where Innovation Meets{" "}
+              <span className="font-semibold text-transparent bg-gradient-to-r from-primary via-orange-500 to-primary bg-clip-text animate-shimmer bg-[length:200%_auto]">
+                Excellence
+              </span>
+            </p>
           </div>
 
-          {/* Enhanced images with parallax */}
-          <div className="flex items-center justify-center gap-4 sm:gap-8 md:gap-12 lg:gap-16 my-8 md:my-12">
-            <div 
-              className={`transition-all duration-1000 delay-200 ${animatedElements ? 'opacity-100 scale-100' : 'opacity-0 scale-75'} group cursor-pointer`}
-              style={{ transform: `translateY(${scrollY * 0.05}px)` }}
-            >
-              <img
-                src={rocketImg}
-                alt="Rocket"
-                className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain filter drop-shadow-lg group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 animate-bounce-slow group-hover:animate-rocket-ascend mix-blend-lighten hover-glow-primary"
-                style={{
-                  filter: 'drop-shadow(0 0 20px rgba(255, 94, 0, 0.5)) brightness(1.1) contrast(1.2)',
-                }}
-                data-testid="img-rocket"
-              />
-            </div>
-
-            <div 
-              className={`hidden sm:block transition-all duration-1000 delay-400 ${animatedElements ? 'opacity-100 scale-100' : 'opacity-0 scale-75'} group cursor-pointer`}
-              style={{ transform: `translateY(${scrollY * 0.08}px)` }}
-            >
-              <img
-                src={statueImg}
-                alt="Classical Art"
-                className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-56 lg:h-56 object-contain filter drop-shadow-2xl opacity-90 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-700 animate-tilt group-hover:animate-flip mix-blend-lighten"
-                style={{
-                  filter: 'drop-shadow(0 0 30px rgba(232, 220, 196, 0.4)) brightness(1.1) contrast(1.2)',
-                }}
-                data-testid="img-statue"
-              />
-            </div>
-
-            <div 
-              className={`transition-all duration-1000 delay-300 ${animatedElements ? 'opacity-100 scale-100' : 'opacity-0 scale-75'} group cursor-pointer`}
-              style={{ transform: `translateY(${scrollY * 0.06}px)` }}
-            >
-              <img
-                src={robotImg}
-                alt="Robot"
-                className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain filter drop-shadow-lg group-hover:scale-125 group-hover:-rotate-6 transition-all duration-500 animate-float group-hover:animate-wobble mix-blend-lighten hover-glow-secondary"
-                style={{
-                  filter: 'drop-shadow(0 0 20px rgba(255, 94, 0, 0.5)) brightness(1.1) contrast(1.2)',
-                }}
-                data-testid="img-robot"
-              />
-            </div>
+          {/* Stats Bar */}
+          <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-3xl mx-auto">
+            {[
+              { value: "48", label: "Hours", icon: Zap },
+              { value: "500+", label: "Participants", icon: Code2 },
+              { value: "₹5L+", label: "Prizes", icon: Sparkles },
+            ].map((stat, i) => (
+              <div 
+                key={i}
+                className="relative group"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-orange-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                <div className="relative px-4 py-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all duration-500">
+                  <stat.icon className="w-5 h-5 text-primary mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />
+                  <div className="text-3xl md:text-4xl font-bold text-white mb-1">{stat.value}</div>
+                  <div className="text-xs md:text-sm text-white/60 uppercase tracking-wider">{stat.label}</div>
+                </div>
+              </div>
+            ))}
           </div>
 
-          <div 
-            className={`transition-all duration-1000 delay-500 ${animatedElements ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-          >
-            <h2 className="text-4xl md:text-6xl font-bold text-primary mb-8 animate-glow-pulse hover:animate-tada transition-all duration-300" data-testid="text-tagline">
-              BLAST OFF INTO CODING!
-            </h2>
-          </div>
+          {/* Description */}
+          <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed font-light">
+            Join India's most prestigious hackathon at RIET Jaipur. Experience 48 hours of 
+            cutting-edge innovation, collaborate with brilliant minds, and build solutions 
+            that shape the future of technology.
+          </p>
 
-          <div 
-            className={`transition-all duration-1000 delay-600 ${animatedElements ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-          >
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button
               size="lg"
               onClick={() => setShowRegistration(true)}
-              className="relative text-base sm:text-lg md:text-xl px-10 sm:px-12 md:px-16 py-6 md:py-8 rounded-xl bg-gradient-to-r from-primary via-red-600 to-primary bg-[length:200%_100%] hover:bg-right-bottom text-white font-bold tracking-wider border-2 border-primary/50 hover:border-secondary hover:scale-110 md:hover:scale-125 hover:-translate-y-2 transition-all duration-500 shadow-[0_10px_30px_rgba(192,38,48,0.3)] hover:shadow-[0_20px_60px_rgba(192,38,48,0.6),0_0_40px_rgba(218,165,32,0.4)] group overflow-hidden active:scale-95 animate-heartbeat hover:animate-rubber-band"
-              data-testid="button-register"
+              className="relative group px-8 py-6 text-lg font-semibold bg-gradient-to-r from-primary to-red-700 hover:from-primary/90 hover:to-red-700/90 text-white border-0 rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_20px_60px_rgba(192,38,48,0.4)]"
             >
-              <span className="relative z-10 group-hover:tracking-[0.3em] transition-all duration-300">REGISTER NOW</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-secondary/60 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 animate-shimmer" />
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-secondary/30 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute -inset-2 bg-gradient-to-r from-primary via-secondary to-primary rounded-xl blur opacity-30 group-hover:opacity-80 transition-opacity duration-500 -z-10 animate-pulse-glow" />
+              <span className="relative z-10 flex items-center gap-2">
+                Register Now
+                <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+            </Button>
+
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={scrollToContent}
+              className="px-8 py-6 text-lg font-semibold bg-white/5 backdrop-blur-xl border-white/20 text-white hover:bg-white/10 hover:border-white/30 rounded-xl transition-all duration-300 hover:scale-105"
+            >
+              Learn More
+              <ChevronDown className="w-5 h-5 ml-2 animate-bounce" />
             </Button>
           </div>
 
-          <div 
-            className={`transition-all duration-1000 delay-700 ${animatedElements ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-          >
-            <p className="text-2xl md:text-3xl text-primary font-bold tracking-widest mb-6 animate-text-shimmer" style={{ backgroundImage: 'linear-gradient(90deg, #C02630 0%, #DAA520 50%, #C02630 100%)', backgroundSize: '200% auto', backgroundClip: 'text', WebkitBackgroundClip: 'text' }}>
-              CODE. COLLABORATE. INNOVATE.
-            </p>
-          </div>
-
-          <div 
-            className={`flex items-center justify-center gap-4 transition-all duration-1000 delay-800 ${animatedElements ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}
-          >
-            <img
-              src={monitorImg}
-              alt="Monitor"
-              className="w-24 h-24 object-contain mix-blend-lighten hover:scale-125 hover:rotate-6 transition-all duration-300 animate-float cursor-pointer hover:animate-jello"
-              style={{
-                filter: 'brightness(1.1) contrast(1.2)',
-              }}
-              data-testid="img-monitor"
-            />
-          </div>
-
-          <div 
-            className={`transition-all duration-1000 delay-900 ${animatedElements ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-          >
-            <p className="text-foreground/90 max-w-3xl mx-auto text-lg leading-relaxed font-light hover:text-foreground transition-colors duration-300">
-              Join us for the most prestigious hackathon of 2025. Experience 48 hours of innovation,
-              collaboration, and cutting-edge technology. Build the future, win amazing prizes worth ₹5L+, and connect
-              with 500+ fellow developers in an unforgettable journey at RIET Jaipur.
-            </p>
+          {/* Tags */}
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-8">
+            {['AI/ML', 'Web3', 'IoT', 'Full Stack', 'Cloud'].map((tag, i) => (
+              <span 
+                key={i}
+                className="px-4 py-2 text-sm font-medium text-white/80 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full hover:bg-white/10 hover:border-primary/30 hover:text-white transition-all duration-300 cursor-default"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Animated wave at bottom */}
-      <svg className="absolute bottom-0 left-0 w-full h-32 opacity-20 animate-wave" viewBox="0 0 1200 100" preserveAspectRatio="none">
-        <path 
-          d="M0,50 Q150,20 300,50 T600,50 T900,50 T1200,50 L1200,100 L0,100 Z" 
-          fill="currentColor"
-          className="text-foreground"
-        />
-      </svg>
+      {/* Scroll Indicator */}
+      <button
+        onClick={scrollToContent}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors duration-300 cursor-pointer group"
+        aria-label="Scroll to content"
+      >
+        <span className="text-xs uppercase tracking-wider font-light">Scroll to explore</span>
+        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2 group-hover:border-white/60 transition-colors duration-300">
+          <div className="w-1 h-2 bg-white/60 rounded-full animate-bounce" />
+        </div>
+      </button>
 
       <RegistrationForm open={showRegistration} onOpenChange={setShowRegistration} />
     </section>
