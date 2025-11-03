@@ -87,14 +87,14 @@ export default function FeatureGrid() {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               
               <div className="relative">
-                <div className="w-16 h-16 border-2 border-foreground/30 flex items-center justify-center mb-6 group-hover:border-primary/60 transition-all duration-500 group-hover:rotate-12 group-hover:scale-110 relative overflow-hidden">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 border-2 border-foreground/30 flex items-center justify-center mb-4 md:mb-6 group-hover:border-primary/60 transition-all duration-500 group-hover:rotate-12 group-hover:scale-110 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <feature.icon className="w-8 h-8 text-foreground/70 group-hover:text-primary transition-all duration-500 relative z-10 group-hover:scale-125" />
+                  <feature.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-foreground/70 group-hover:text-primary transition-all duration-500 relative z-10 group-hover:scale-125" />
                 </div>
                 
-                <h3 className="text-2xl font-bold mb-4 text-foreground tracking-wide group-hover:text-primary transition-colors duration-500">{feature.title}</h3>
-                <p className="text-foreground/70 text-base leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">{feature.description}</p>
-                <div className="mt-6 h-1 w-0 group-hover:w-full bg-gradient-to-r from-primary to-orange-500 transition-all duration-700 rounded-full" />
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 md:mb-4 text-foreground tracking-wide group-hover:text-primary transition-colors duration-500">{feature.title}</h3>
+                <p className="text-foreground/70 text-sm sm:text-base leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">{feature.description}</p>
+                <div className="mt-4 md:mt-6 h-0.5 md:h-1 w-0 group-hover:w-full bg-gradient-to-r from-primary to-orange-500 transition-all duration-700 rounded-full" />
               </div>
             </Card>
           ))}

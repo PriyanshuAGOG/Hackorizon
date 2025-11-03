@@ -87,14 +87,14 @@ export default function ScheduleSection() {
         <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-primary/5 rounded-full blur-[120px] animate-pulse-glow" />
         <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-orange-500/5 rounded-full blur-[120px] animate-pulse-glow" style={{ animationDelay: '1s' }} />
       </div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
             <Calendar className="w-4 h-4 text-primary animate-pulse" />
             <span className="text-sm font-mono text-primary uppercase tracking-wider">48 Hours</span>
           </div>
-          
+
           <h2 className="text-5xl md:text-7xl font-display font-black mb-6 bg-gradient-to-r from-orange-500 via-primary to-orange-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,94,0,0.3)]" data-testid="text-schedule-title">
             Event Schedule
           </h2>
@@ -124,7 +124,7 @@ export default function ScheduleSection() {
                   <Zap className="absolute top-4 right-4 w-6 h-6 text-primary animate-pulse" />
                 </>
               )}
-              
+
               <div className="flex flex-col md:flex-row gap-6 md:items-center relative">
                 <div className="flex items-center gap-4 md:w-64">
                   <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${

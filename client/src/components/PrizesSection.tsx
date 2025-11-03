@@ -77,7 +77,7 @@ export default function PrizesSection() {
             <Trophy className="w-4 h-4 text-primary animate-pulse" />
             <span className="text-sm font-mono text-primary uppercase tracking-wider">Rewards Await</span>
           </div>
-          
+
           <h2 className={`text-5xl md:text-7xl font-display font-black mb-6 bg-gradient-to-r from-orange-500 via-primary to-orange-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,94,0,0.3)] transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} data-testid="text-prizes-title">
             Prizes & Rewards
           </h2>
@@ -89,7 +89,7 @@ export default function PrizesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {prizes.map((prize, index) => (
             <Card
               key={index}
@@ -103,7 +103,7 @@ export default function PrizesSection() {
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${prize.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
               <div className={`absolute -right-12 -top-12 w-48 h-48 bg-gradient-to-br ${prize.color} opacity-10 rounded-full blur-3xl group-hover:blur-2xl transition-all`} />
-              
+
               <div className="relative text-center">
                 <div className={`w-28 h-28 mx-auto mb-6 rounded-3xl bg-gradient-to-br ${prize.color} flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-[0_0_40px_rgba(255,94,0,0.3)] ${hoveredIndex === index ? 'animate-pulse-glow' : ''} relative`}>
                   <prize.icon className="w-14 h-14 text-white drop-shadow-lg" />
