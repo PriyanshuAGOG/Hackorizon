@@ -1,163 +1,195 @@
+
 import { Button } from "@/components/ui/button";
-import { useState, useEffect, useRef } from "react";
-import { ChevronDown, Sparkles, Zap, Code2 } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Zap, Code2, Users, Trophy, Terminal, Cpu, Binary } from "lucide-react";
 import RegistrationForm from "./RegistrationForm";
-import rietLogo from "@assets/1000166910-removebg-preview_1762022522986.png";
 
 export default function HeroSection() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [glitchActive, setGlitchActive] = useState(false);
   const [showRegistration, setShowRegistration] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
+  const [timeLeft, setTimeLeft] = useState({ days: 15, hours: 12, minutes: 34, seconds: 56 });
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
+    const glitchInterval = setInterval(() => {
+      setGlitchActive(true);
+      setTimeout(() => setGlitchActive(false), 200);
+    }, 5000);
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    return () => clearInterval(glitchInterval);
   }, []);
 
-  const scrollToContent = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth'
-    });
-  };
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        if (prev.seconds > 0) return { ...prev, seconds: prev.seconds - 1 };
+        if (prev.minutes > 0) return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+        if (prev.hours > 0) return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
+        if (prev.days > 0) return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 };
+        return prev;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-gray-950 to-black"
-    >
-      {/* Animated gradient orbs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div 
-          className="absolute w-[400px] h-[400px] md:w-[600px] md:h-[600px] rounded-full opacity-15 blur-[80px] md:blur-[100px] transition-all duration-300 ease-out"
-          style={{
-            background: 'radial-gradient(circle, #C02630 0%, transparent 70%)',
-            left: `${mousePosition.x - 200}px`,
-            top: `${mousePosition.y - 200}px`,
-          }}
-        />
-        <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] md:w-[500px] md:h-[500px] rounded-full bg-gradient-to-br from-orange-600/15 to-transparent blur-[100px] md:blur-[120px] animate-pulse-glow" />
-        <div className="absolute bottom-1/3 left-1/3 w-[250px] h-[250px] md:w-[400px] md:h-[400px] rounded-full bg-gradient-to-tr from-red-600/10 to-transparent blur-[80px] md:blur-[100px] animate-pulse-glow" style={{ animationDelay: '1s' }} />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-blue-950/20 to-background">
+      {/* Animated grid background */}
+      <div className="absolute inset-0 overflow-hidden opacity-20">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            linear-gradient(rgba(59, 130, 246, 0.5) 2px, transparent 2px),
+            linear-gradient(90deg, rgba(59, 130, 246, 0.5) 2px, transparent 2px)
+          `,
+          backgroundSize: '40px 40px',
+          animation: 'slide-up 20s linear infinite'
+        }} />
       </div>
 
-      {/* Grid overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:60px_60px] md:bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
-
-      {/* Floating particles - hidden on mobile */}
-      <div className="absolute inset-0 hidden md:block">
-        {[...Array(20)].map((_, i) => (
+      {/* Floating binary code */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(15)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-white/20 rounded-full animate-float"
+            className="absolute text-primary/20 font-mono text-sm animate-float"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 5}s`,
               animationDuration: `${5 + Math.random() * 10}s`,
             }}
-          />
+          >
+            {Math.random() > 0.5 ? '1010' : '0101'}
+          </div>
         ))}
       </div>
 
+      {/* Scan line effect */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent animate-scan-line" 
+             style={{ animation: 'scan-line 4s linear infinite' }} />
+      </div>
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-6xl mx-auto text-center space-y-6 md:space-y-10">
+        <div className="max-w-6xl mx-auto text-center space-y-8 md:space-y-12">
+          
           {/* Logo Badge */}
-          <div className="inline-flex items-center gap-2 md:gap-3 px-3 py-2 md:px-5 md:py-2.5 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full hover:bg-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer group">
-            <img 
-              src={rietLogo} 
-              alt="RIET Logo" 
-              className="w-7 h-7 md:w-9 md:h-9 object-contain transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
-            />
-            <div className="flex flex-col items-start">
-              <span className="text-[9px] md:text-xs text-white/60 uppercase tracking-widest font-light">Presented by</span>
-              <span className="text-[10px] md:text-xs font-semibold text-white tracking-wide">Rajasthan Institute of Engineering & Technology</span>
+          <div className="inline-flex items-center justify-center">
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary via-secondary to-primary rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition-opacity animate-pulse-glow" />
+              <div className="relative bg-card border-4 border-primary pixel-corners p-1">
+                <img 
+                  src="/attached_assets/file_0000000055f87230863e4b71fc29a1d1_1762020347759.png"
+                  alt="Hackorizon Logo" 
+                  className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-contain"
+                />
+              </div>
             </div>
           </div>
 
-          {/* Main Heading */}
-          <div className="space-y-3 md:space-y-5">
-            <div className="inline-flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-primary/10 backdrop-blur-sm border border-primary/30 rounded-full">
-              <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-primary animate-pulse" />
-              <span className="text-[10px] md:text-sm font-medium text-primary uppercase tracking-wider">India's Premier Hackathon 2025</span>
+          {/* Main Title */}
+          <div className="space-y-4 md:space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border-2 border-primary/50 pixel-corners neon-border">
+              <Binary className="w-4 h-4 text-primary animate-pulse" />
+              <span className="text-xs md:text-sm font-mono text-primary uppercase tracking-widest">36 Hours • Code • Create • Conquer</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-none">
-              <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
-                CODEVEDANS
+            <h1 className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight leading-none ${glitchActive ? 'animate-glitch' : ''}`}>
+              <span className="block font-mono bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent neon-glow"
+                    style={{ animation: 'shimmer 3s linear infinite', backgroundSize: '200% auto' }}>
+                HACKORIZON
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg md:text-2xl lg:text-3xl font-light text-white/80 tracking-wide max-w-4xl mx-auto px-4">
-              Where Innovation Meets{" "}
-              <span className="font-semibold text-transparent bg-gradient-to-r from-primary via-orange-500 to-primary bg-clip-text animate-shimmer bg-[length:200%_auto]">
-                Excellence
-              </span>
+            <div className="flex items-center justify-center gap-3 flex-wrap">
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-primary/20 border-2 border-primary pixel-corners">
+                <Terminal className="w-4 h-4 text-primary" />
+                <span className="text-sm md:text-base font-mono text-primary">2025</span>
+              </div>
+              <div className="text-2xl md:text-3xl font-mono text-muted-foreground">×</div>
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-secondary/20 border-2 border-secondary pixel-corners">
+                <Zap className="w-4 h-4 text-secondary" />
+                <span className="text-sm md:text-base font-mono text-secondary">36 HOURS</span>
+              </div>
+            </div>
+
+            <p className="text-lg sm:text-xl md:text-2xl font-light text-muted-foreground max-w-3xl mx-auto px-4">
+              Where <span className="font-bold text-primary neon-glow">Innovation</span> meets{" "}
+              <span className="font-bold text-secondary">Execution</span>
             </p>
           </div>
 
-          {/* Stats Bar */}
-          <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-6 max-w-3xl mx-auto px-2">
+          {/* Countdown Timer */}
+          <div className="grid grid-cols-4 gap-2 sm:gap-4 max-w-2xl mx-auto px-4">
             {[
-              { value: "48", label: "Hours", icon: Zap },
-              { value: "500+", label: "Participants", icon: Code2 },
-              { value: "₹5L+", label: "Prizes", icon: Sparkles },
-            ].map((stat, i) => (
-              <div 
-                key={i}
-                className="relative group"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-orange-500/20 rounded-xl md:rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                <div className="relative px-2 py-3 sm:px-3 sm:py-4 md:px-4 md:py-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl md:rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all duration-500">
-                  <stat.icon className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary mx-auto mb-1 md:mb-2 group-hover:scale-110 transition-transform duration-300" />
-                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-0.5 md:mb-1">{stat.value}</div>
-                  <div className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm text-white/60 uppercase tracking-wider">{stat.label}</div>
+              { value: timeLeft.days, label: 'DAYS' },
+              { value: timeLeft.hours, label: 'HRS' },
+              { value: timeLeft.minutes, label: 'MIN' },
+              { value: timeLeft.seconds, label: 'SEC' }
+            ].map((item, i) => (
+              <div key={i} className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 blur-xl opacity-50 group-hover:opacity-100 transition-opacity" />
+                <div className="relative bg-card border-2 border-primary/50 pixel-corners p-3 sm:p-4 md:p-6 hover:border-primary transition-all neon-border">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black font-mono text-primary neon-glow">
+                    {String(item.value).padStart(2, '0')}
+                  </div>
+                  <div className="text-[10px] sm:text-xs font-mono text-muted-foreground uppercase tracking-wider mt-1">
+                    {item.label}
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Description */}
-          <p className="text-xs sm:text-sm md:text-lg lg:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed font-light px-4">
-            Join India's most prestigious hackathon at RIET Jaipur. Experience 48 hours of 
-            cutting-edge innovation, collaborate with brilliant minds, and build solutions 
-            that shape the future of technology.
-          </p>
+          {/* Stats Bar */}
+          <div className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 max-w-3xl mx-auto px-4">
+            {[
+              { icon: Users, value: "500+", label: "HACKERS" },
+              { icon: Trophy, value: "₹5L+", label: "PRIZES" },
+              { icon: Code2, value: "100+", label: "PROJECTS" }
+            ].map((stat, i) => (
+              <div key={i} className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative bg-card/50 backdrop-blur-sm border-2 border-primary/30 pixel-corners p-4 sm:p-6 hover:border-primary transition-all neon-border">
+                  <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                  <div className="text-xl sm:text-2xl md:text-3xl font-black font-mono text-foreground">{stat.value}</div>
+                  <div className="text-[10px] sm:text-xs font-mono text-muted-foreground uppercase tracking-wider">{stat.label}</div>
+                </div>
+              </div>
+            ))}
+          </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 pt-2 md:pt-4 px-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 pt-4">
             <Button
               size="lg"
               onClick={() => setShowRegistration(true)}
-              className="w-full sm:w-auto relative group px-6 py-4 md:px-8 md:py-6 text-sm md:text-lg font-semibold bg-gradient-to-r from-primary to-red-700 hover:from-primary/90 hover:to-red-700/90 text-white border-0 rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_20px_60px_rgba(192,38,48,0.4)]"
+              className="w-full sm:w-auto relative group px-8 py-6 text-lg font-bold font-mono bg-primary hover:bg-primary/90 text-primary-foreground border-4 border-primary-border pixel-corners neon-border overflow-hidden transition-all hover:scale-105"
             >
-              <span className="relative z-10 flex items-center justify-center gap-2">
+              <span className="relative z-10 flex items-center justify-center gap-2 uppercase tracking-wider">
+                <Terminal className="w-5 h-5" />
                 Register Now
-                <Sparkles className="w-4 h-4 md:w-5 md:h-5 group-hover:rotate-12 transition-transform duration-300" />
+                <Zap className="w-5 h-5 group-hover:rotate-12 transition-transform" />
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
             </Button>
 
             <Button
               size="lg"
               variant="outline"
-              onClick={scrollToContent}
-              className="w-full sm:w-auto px-6 py-4 md:px-8 md:py-6 text-sm md:text-lg font-semibold bg-white/5 backdrop-blur-xl border-white/20 text-white hover:bg-white/10 hover:border-white/30 rounded-xl transition-all duration-300 hover:scale-105"
+              className="w-full sm:w-auto px-8 py-6 text-lg font-bold font-mono bg-card/50 backdrop-blur-sm border-4 border-primary/50 text-primary hover:bg-primary/10 hover:border-primary pixel-corners neon-border transition-all hover:scale-105 uppercase tracking-wider"
             >
+              <Cpu className="w-5 h-5 mr-2" />
               Learn More
-              <ChevronDown className="w-4 h-4 md:w-5 md:h-5 ml-2 animate-bounce" />
             </Button>
           </div>
 
-          {/* Tags */}
-          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 pt-4 md:pt-8 px-4">
-            {['AI/ML', 'Web3', 'IoT', 'Full Stack', 'Cloud'].map((tag, i) => (
+          {/* Tech Tags */}
+          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 pt-4 px-4">
+            {['AI/ML', 'Web3', 'IoT', 'Cloud', 'Mobile', 'AR/VR'].map((tag, i) => (
               <span 
                 key={i}
-                className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-medium text-white/80 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full hover:bg-white/10 hover:border-primary/30 hover:text-white transition-all duration-300 cursor-default"
+                className="px-3 py-1.5 text-xs md:text-sm font-mono font-bold text-primary bg-primary/10 border-2 border-primary/50 pixel-corners hover:bg-primary/20 hover:border-primary transition-all cursor-default uppercase tracking-wider"
               >
                 {tag}
               </span>
@@ -166,17 +198,10 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <button
-        onClick={scrollToContent}
-        className="hidden md:flex absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-white/60 hover:text-white transition-colors duration-300 cursor-pointer group"
-        aria-label="Scroll to content"
-      >
-        <span className="text-xs uppercase tracking-wider font-light">Scroll to explore</span>
-        <div className="w-5 h-8 md:w-6 md:h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2 group-hover:border-white/60 transition-colors duration-300">
-          <div className="w-1 h-2 bg-white/60 rounded-full animate-bounce" />
-        </div>
-      </button>
+      {/* Glitch overlay */}
+      {glitchActive && (
+        <div className="absolute inset-0 bg-primary/5 pointer-events-none animate-glitch" />
+      )}
 
       <RegistrationForm open={showRegistration} onOpenChange={setShowRegistration} />
     </section>
