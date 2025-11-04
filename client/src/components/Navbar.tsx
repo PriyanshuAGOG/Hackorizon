@@ -22,6 +22,7 @@ export default function Navbar() {
     { name: "Schedule", href: "#schedule" },
     { name: "Speakers", href: "#speakers" },
     { name: "Prizes", href: "#prizes" },
+    { name: "Sponsors", href: "#sponsors" },
     { name: "FAQ", href: "#faq" },
   ];
 
@@ -35,12 +36,14 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           <div className="flex items-center gap-3 group cursor-pointer">
             <div className="relative">
-              <div className="absolute -inset-2 bg-primary/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-              <img 
-                src="/attached_assets/file_0000000055f87230863e4b71fc29a1d1_1762020347759.png"
-                alt="Hackorizon Logo" 
-                className="relative w-10 h-10 md:w-12 md:h-12 object-contain transition-transform duration-300 group-hover:scale-110"
-              />
+              <div className="absolute -inset-3 bg-primary/30 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition-opacity" />
+              <div className="relative bg-card/80 backdrop-blur-sm border-2 border-primary/50 p-1 rounded-lg group-hover:border-primary transition-all">
+                <img 
+                  src="/attached_assets/file_0000000055f87230863e4b71fc29a1d1_1762020347759.png"
+                  alt="Hackorizon Logo" 
+                  className="relative w-10 h-10 md:w-12 md:h-12 object-contain transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
             </div>
             <div className="flex flex-col">
               <span className="text-lg md:text-xl font-black font-mono text-primary tracking-wider group-hover:neon-glow transition-all" data-testid="text-logo">

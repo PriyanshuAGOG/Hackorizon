@@ -327,8 +327,8 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -20px, 0); }
 }
 
 @keyframes rotate-slow {
@@ -339,4 +339,11 @@
 @keyframes pulse-glow {
   0%, 100% { opacity: 0.6; }
   50% { opacity: 1; }
+}
+
+/* Performance optimizations */
+.animate-float,
+.animate-pulse-glow,
+.animate-spin-slow {
+  will-change: transform, opacity;
 }

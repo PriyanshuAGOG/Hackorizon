@@ -6,6 +6,7 @@ import TracksSection from "@/components/TracksSection";
 import ScheduleSection from "@/components/ScheduleSection";
 import SpeakersSection from "@/components/SpeakersSection";
 import PrizesSection from "@/components/PrizesSection";
+import SponsorsSection from "@/components/SponsorsSection";
 import FAQSection from "@/components/FAQSection";
 import FooterSection from "@/components/FooterSection";
 import { useEffect } from "react";
@@ -54,6 +55,7 @@ export default function Home() {
         <div id="prizes">
           <PrizesSection />
         </div>
+        <SponsorsSection />
         <div id="faq">
           <FAQSection />
         </div>
