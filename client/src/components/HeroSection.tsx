@@ -51,9 +51,9 @@ export default function HeroSection() {
         }} />
       </div>
 
-      {/* Floating binary code - reduced for performance */}
+      {/* Floating binary code - enhanced */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(8)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <div
             key={i}
             className="absolute text-primary/20 font-mono text-sm animate-float"
@@ -73,12 +73,22 @@ export default function HeroSection() {
         <div className="max-w-6xl mx-auto text-center space-y-6 md:space-y-10">
           
           {/* RIET Presents */}
-          <div className="space-y-2">
+          <div className="space-y-2 animate-fade-in">
             <div className="flex items-center justify-center gap-3">
+              <img
+                src="/attached_assets/1000166910-removebg-preview_1762022522986.png"
+                alt="RIET Logo"
+                className="w-8 h-8 md:w-10 md:h-10 object-contain animate-float"
+              />
               <div className="h-px w-12 md:w-20 bg-gradient-to-r from-transparent via-primary to-transparent" />
               <p className="text-sm md:text-base font-mono text-muted-foreground uppercase tracking-widest">
                 RIET Jaipur Presents
               </p>
+              <img
+                src="/attached_assets/1000166910-removebg-preview_1762022522986.png"
+                alt="RIET Logo"
+                className="w-8 h-8 md:w-10 md:h-10 object-contain animate-float"
+              />
               <div className="h-px w-12 md:w-20 bg-gradient-to-r from-transparent via-primary to-transparent" />
             </div>
           </div>
@@ -88,10 +98,10 @@ export default function HeroSection() {
             <div className="relative group">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary via-secondary to-primary rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition-opacity" />
               <div className="relative bg-card border-4 border-primary pixel-corners p-2">
-                <img 
-                  src="/attached_assets/file_0000000055f87230863e4b71fc29a1d1_1762020347759.png"
-                  alt="Hackorizon Logo" 
-                  className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain"
+                <img
+                  src="/1000167568.png"
+                  alt="Hackorizon Logo"
+                  className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
                 />
               </div>
             </div>
@@ -106,7 +116,7 @@ export default function HeroSection() {
               </span>
             </h1>
 
-            <p className="text-xl sm:text-2xl md:text-3xl font-bold text-secondary">2K25</p>
+            <p className="text-xl sm:text-2xl md:text-3xl font-bold text-secondary animate-pulse-glow">2K26</p>
 
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border-2 border-primary/50 pixel-corners neon-border">
               <Binary className="w-4 h-4 text-primary animate-pulse" />

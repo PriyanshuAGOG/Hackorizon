@@ -38,10 +38,10 @@ export default function Navbar() {
             <div className="relative">
               <div className="absolute -inset-3 bg-primary/30 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition-opacity" />
               <div className="relative bg-card/80 backdrop-blur-sm border-2 border-primary/50 p-1 rounded-lg group-hover:border-primary transition-all">
-                <img 
-                  src="/attached_assets/file_0000000055f87230863e4b71fc29a1d1_1762020347759.png"
-                  alt="Hackorizon Logo" 
-                  className="relative w-10 h-10 md:w-12 md:h-12 object-contain transition-transform duration-300 group-hover:scale-110"
+                <img
+                  src="/1000167568.png"
+                  alt="Hackorizon Logo"
+                  className="relative w-10 h-10 md:w-12 md:h-12 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
                 />
               </div>
             </div>

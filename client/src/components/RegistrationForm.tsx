@@ -49,8 +49,8 @@ export default function RegistrationForm({ open, onOpenChange }: RegistrationFor
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-card via-card/95 to-card/90 border-2 border-primary/30 shadow-[0_0_60px_rgba(255,94,0,0.3)]">
         <DialogHeader>
-          <DialogTitle className="text-3xl font-display font-bold bg-gradient-to-r from-orange-500 via-primary to-orange-500 bg-clip-text text-transparent">
-            Register for CODEVEDANS 2025
+          <DialogTitle className="text-3xl font-display font-bold bg-gradient-to-r from-orange-500 via-primary to-orange-500 bg-clip-text text-transparent animate-shimmer">
+            Register for HACKORIZON 2026
           </DialogTitle>
           <DialogDescription className="text-base text-muted-foreground">
             Step {step} of 3 - Fill in your details to join the ultimate hackathon experience
@@ -271,7 +271,7 @@ export default function RegistrationForm({ open, onOpenChange }: RegistrationFor
               <div className="space-y-2">
                 <Label htmlFor="whyJoin" className="flex items-center gap-2">
                   <Rocket className="w-4 h-4 text-primary" />
-                  Why do you want to join CODEVEDANS 2025? *
+                  Why do you want to join HACKORIZON 2026? *
                 </Label>
                 <Textarea
                   id="whyJoin"

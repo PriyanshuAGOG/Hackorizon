@@ -18,11 +18,11 @@ export default function Home() {
       const currentSequence = (window as any).konamiSequence || "";
       const newSequence = currentSequence + key;
       
-      if ("CODEVEDANS".startsWith(newSequence)) {
+      if ("HACKORIZON".startsWith(newSequence)) {
         (window as any).konamiSequence = newSequence;
-        
-        if (newSequence === "CODEVEDANS") {
-          alert("🚀 Easter Egg Unlocked! You found the secret! Welcome to the CODEVEDANS secret club! 🎉");
+
+        if (newSequence === "HACKORIZON") {
+          alert("🚀 Easter Egg Unlocked! You found the secret! Welcome to the HACKORIZON secret club! 🎉");
           (window as any).konamiSequence = "";
         }
       } else {

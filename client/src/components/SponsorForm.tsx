@@ -47,7 +47,7 @@ export default function SponsorForm({ open, onOpenChange }: SponsorFormProps) {
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-card via-card/95 to-card/90 border-2 border-primary/30 shadow-[0_0_60px_rgba(255,94,0,0.3)]">
         <DialogHeader>
           <DialogTitle className="text-3xl font-display font-bold bg-gradient-to-r from-orange-500 via-primary to-orange-500 bg-clip-text text-transparent">
-            Sponsor Hackorizon 2K25
+            Sponsor Hackorizon 2K26
           </DialogTitle>
           <DialogDescription className="text-base text-muted-foreground">
             Partner with us to reach 500+ talented developers and innovators

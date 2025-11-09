@@ -9,12 +9,12 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const faqs = [
   {
-    question: "Who can participate in CODEVEDANS 2025?",
+    question: "Who can participate in HACKORIZON 2026?",
     answer: "Any student currently enrolled in a college or university can participate. Teams can have 2-4 members. No prior hackathon experience required!",
   },
   {
     question: "Is there a participation fee?",
-    answer: "No! CODEVEDANS is completely free to attend. We provide meals, swag, mentorship, workshops, and all amenities at absolutely no cost to participants.",
+    answer: "No! HACKORIZON is completely free to attend. We provide meals, swag, mentorship, workshops, and all amenities at absolutely no cost to participants.",
   },
   {
     question: "What should I bring to the hackathon?",
@@ -79,7 +79,7 @@ export default function FAQSection() {
             Frequently Asked Questions
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to know about CODEVEDANS 2025
+            Everything you need to know about HACKORIZON 2026
           </p>
         </div>
 

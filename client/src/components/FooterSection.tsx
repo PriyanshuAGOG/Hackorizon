@@ -40,7 +40,7 @@ export default function FooterSection() {
                 <div className="absolute inset-0 bg-primary blur-xl opacity-50" />
               </div>
               <div>
-                <h3 className="text-2xl font-display font-black bg-gradient-to-r from-orange-500 to-primary bg-clip-text text-transparent">CODEVEDANS 2025</h3>
+                <h3 className="text-2xl font-display font-black bg-gradient-to-r from-orange-500 to-primary bg-clip-text text-transparent">HACKORIZON 2026</h3>
                 <p className="text-xs text-muted-foreground font-mono">Presented by RIET Jaipur</p>
               </div>
             </div>
@@ -71,8 +71,8 @@ export default function FooterSection() {
             <div className="space-y-4">
               <div className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-all p-3 rounded-lg hover:bg-primary/5">
                 <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                <a href="mailto:info@codevedans.com" className="font-medium" data-testid="link-email">
-                  info@codevedans.com
+                <a href="mailto:info@hackorizon.com" className="font-medium" data-testid="link-email">
+                  info@hackorizon.com
                 </a>
               </div>
               <div className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-all p-3 rounded-lg hover:bg-primary/5">
@@ -112,7 +112,7 @@ export default function FooterSection() {
         <div className="border-t-2 border-border/50 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center">
             <p className="text-muted-foreground">
-              © 2025 CODEVEDANS - RIET Jaipur. All rights reserved.
+              © 2026 HACKORIZON - RIET Jaipur. All rights reserved.
             </p>
             <p className="flex items-center gap-2 text-muted-foreground font-mono text-sm">
               <Code2 className="w-4 h-4 text-primary" />
