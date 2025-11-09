@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Menu, X, Terminal } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -36,16 +35,24 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           <div className="flex items-center gap-3 group cursor-pointer">
             <div className="relative">
-              <div className="absolute -inset-3 bg-primary/30 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition-opacity" />
-              <div className="relative bg-card/80 backdrop-blur-sm border-2 border-primary/50 p-1 rounded-lg group-hover:border-primary transition-all">
-                <img
-                  src="/1000167568.png"
-                  alt="Hackorizon Logo"
-                  className="relative w-10 h-10 md:w-12 md:h-12 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
-                />
-              </div>
+              <div className="absolute -inset-3 bg-primary/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <img
+                src="/1000167568.png"
+                alt="Hackorizon Logo"
+                className="relative w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 drop-shadow-[0_0_8px_rgba(139,92,246,0.5)] group-hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.8)]"
+              />
             </div>
             <div className="flex flex-col">
+              <div className="flex items-center gap-2">
+                <span className="text-[0.6rem] text-muted-foreground font-mono uppercase tracking-widest flex items-center gap-1.5">
+                  <img
+                    src="/attached_assets/1000166910-removebg-preview_1762022522986.png"
+                    alt="RIET Logo"
+                    className="w-4 h-4 object-contain transition-all duration-300 group-hover:scale-110 drop-shadow-[0_0_4px_rgba(139,92,246,0.3)] group-hover:drop-shadow-[0_0_8px_rgba(139,92,246,0.6)]"
+                  />
+                  RIET PRESENTS
+                </span>
+              </div>
               <span className="text-lg md:text-xl font-black font-mono text-primary tracking-wider group-hover:neon-glow transition-all" data-testid="text-logo">
                 HACKORIZON
               </span>
