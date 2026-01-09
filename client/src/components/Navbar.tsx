@@ -38,7 +38,7 @@ export default function Navbar() {
             <div className="flex items-center gap-3 group cursor-pointer">
               <div className="relative">
                 <img
-                  src="/1000167568.png"
+                  src="/mainlogo.png"
                   alt="Hackorizon Logo"
                   className="relative w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-300 group-hover:scale-110"
                 />
@@ -47,7 +47,7 @@ export default function Navbar() {
                 <div className="flex items-center gap-2">
                   <span className="text-[0.6rem] text-muted-foreground font-mono uppercase tracking-widest flex items-center gap-1.5">
                     <img
-                      src="/1000167568.png"
+                      src="/rietlogo.png"
                       alt="RIET Logo"
                       className="w-4 h-4 object-contain transition-all duration-300 group-hover:scale-110"
                     />

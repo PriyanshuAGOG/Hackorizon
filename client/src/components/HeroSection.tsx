@@ -64,7 +64,7 @@ export default function HeroSection() {
             <div className="relative group cursor-pointer">
               <div className="absolute -inset-4 bg-sky-500/20 rounded-full blur-2xl opacity-50 group-hover:opacity-80 transition-all duration-500" />
               <img
-                src="/1000167568.png"
+                src="/mainlogo.png"
                 alt="Hackorizon Logo"
                 className="relative w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-[0_0_20px_rgba(14,165,233,0.6)] group-hover:drop-shadow-[0_0_40px_rgba(14,165,233,0.9)] transition-all duration-500 group-hover:scale-105"
               />
