@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
-import { Building2, Mail, Phone, User, Globe, Award } from "lucide-react";
+import { Building2, Mail, User, Globe, Award } from "lucide-react";
 
 interface SponsorFormProps {
   open: boolean;
@@ -17,7 +17,6 @@ export default function SponsorForm({ open, onOpenChange }: SponsorFormProps) {
     companyName: "",
     contactPerson: "",
     email: "",
-    phone: "",
     website: "",
     tier: "",
     message: "",
@@ -86,38 +85,20 @@ export default function SponsorForm({ open, onOpenChange }: SponsorFormProps) {
               />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="email" className="flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-primary" />
-                  Email Address *
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => handleChange("email", e.target.value)}
-                  placeholder="contact@company.com"
-                  required
-                  className="border-primary/30 focus:border-primary hover:border-primary/50 transition-all"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="phone" className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-primary" />
-                  Phone Number *
-                </Label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => handleChange("phone", e.target.value)}
-                  placeholder="+91 1234567890"
-                  required
-                  className="border-primary/30 focus:border-primary hover:border-primary/50 transition-all"
-                />
-              </div>
+            <div className="space-y-2">
+              <Label htmlFor="email" className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-primary" />
+                Email Address *
+              </Label>
+              <Input
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={(e) => handleChange("email", e.target.value)}
+                placeholder="contact@company.com"
+                required
+                className="border-primary/30 focus:border-primary hover:border-primary/50 transition-all"
+              />
             </div>
 
             <div className="space-y-2">
@@ -168,7 +149,7 @@ export default function SponsorForm({ open, onOpenChange }: SponsorFormProps) {
 
             <div className="p-4 bg-primary/10 border border-primary/30 rounded-lg">
               <p className="text-sm text-muted-foreground">
-                Our team will review your application and contact you within 2-3 business days with sponsorship details and next steps.
+                For sponsorship inquiries, email us at <span className="font-semibold text-sky-400">sponsor@hackorizon.dev</span> or visit <span className="font-semibold text-sky-400">info@hackorizon.dev</span> for more details.
               </p>
             </div>
           </div>

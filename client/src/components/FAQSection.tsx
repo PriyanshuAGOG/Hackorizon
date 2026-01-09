@@ -108,7 +108,7 @@ export default function FAQSection() {
               Can't find the answer you're looking for? Reach out to our team!
             </p>
             <a 
-              href="mailto:hackoorizon@riet.ac.in" 
+              href="mailto:support@hackorizon.dev" 
               className="inline-block px-8 py-3 bg-sky-500 text-white font-semibold hover:bg-sky-600 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-sky-500/50"
             >
               Contact Us

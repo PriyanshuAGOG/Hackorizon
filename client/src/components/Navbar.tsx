@@ -47,7 +47,7 @@ export default function Navbar() {
                 <div className="flex items-center gap-2">
                   <span className="text-[0.6rem] text-muted-foreground font-mono uppercase tracking-widest flex items-center gap-1.5">
                     <img
-                      src="/rietlogo.png"
+                      src="/riet.png"
                       alt="RIET Logo"
                       className="w-4 h-4 object-contain transition-all duration-300 group-hover:scale-110"
                     />

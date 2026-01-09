@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Github, Rocket, Sparkles, Code2 } from "lucide-react";
+import { Mail, MapPin, Linkedin, Twitter, Instagram, Github, Rocket, Sparkles, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function FooterSection() {
@@ -69,21 +69,23 @@ export default function FooterSection() {
               Contact Us
             </h3>
             <div className="space-y-4">
-              <div className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-all p-3 rounded-lg hover:bg-primary/5">
-                <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                <a href="mailto:info@hackorizon.com" className="font-medium" data-testid="link-email">
-                  info@hackorizon.com
-                </a>
-              </div>
-              <div className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-all p-3 rounded-lg hover:bg-primary/5">
-                <Phone className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                <a href="tel:+911234567890" className="font-medium" data-testid="link-phone">
-                  +91 123 456 7890
-                </a>
+              <div className="group flex items-start gap-3 text-muted-foreground hover:text-primary transition-all p-3 rounded-lg hover:bg-primary/5">
+                <Mail className="w-5 h-5 mt-0.5 group-hover:scale-110 transition-transform flex-shrink-0" />
+                <div className="flex flex-col gap-2">
+                  <a href="mailto:info@hackorizon.dev" className="font-medium text-sm" data-testid="link-email">
+                    info@hackorizon.dev
+                  </a>
+                  <a href="mailto:sponsor@hackorizon.dev" className="font-medium text-sm" data-testid="link-sponsor">
+                    sponsor@hackorizon.dev
+                  </a>
+                  <a href="mailto:support@hackorizon.dev" className="font-medium text-sm" data-testid="link-support">
+                    support@hackorizon.dev
+                  </a>
+                </div>
               </div>
               <div className="group flex items-center gap-3 text-muted-foreground p-3 rounded-lg">
                 <MapPin className="w-5 h-5 text-primary" />
-                <span className="font-medium">RIET Campus, Jaipur, Rajasthan</span>
+                <span className="font-medium text-sm">RIET Campus, Jaipur, Rajasthan</span>
               </div>
             </div>
           </div>
