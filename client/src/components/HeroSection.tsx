@@ -77,7 +77,10 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-sky-950/20">
+    <section
+      id="home"
+      className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-sky-950/20 pt-16 md:pt-20 min-h-[calc(100svh-4rem)] md:min-h-[calc(100svh-5rem)] scroll-mt-20 md:scroll-mt-24"
+    >
       {/* Binary Rain Effect */}
       <canvas
         ref={canvasRef}
@@ -99,7 +102,7 @@ export default function HeroSection() {
       <div className="absolute top-32 left-5 md:left-12 lg:left-20 w-48 md:w-64 h-48 md:h-64 bg-sky-500/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-32 right-5 md:right-12 lg:right-20 w-56 md:w-72 h-56 md:h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
 
-      <div className="container mx-auto px-4 relative z-10 h-full flex items-center">
+      <div className="container mx-auto px-4 relative z-10 h-full flex items-center pb-8 md:pb-10">
         <div className="w-full">
           {/* Center Content */}
           <div className="max-w-4xl mx-auto text-center space-y-6">
@@ -243,41 +246,14 @@ export default function HeroSection() {
               ))}
             </div>
 
-            {/* Countdown Timer - Below stats */}
-            <div className="bg-gradient-to-br from-card/80 via-card/60 to-card/80 backdrop-blur-xl border-2 border-sky-500/30 rounded-2xl p-4 md:p-6 shadow-[0_0_50px_rgba(14,165,233,0.2)] hover:shadow-[0_0_80px_rgba(14,165,233,0.4)] transition-all duration-500 hover:scale-[1.02] max-w-2xl mx-auto">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <Terminal className="w-5 h-5 text-sky-400" />
-                <h3 className="text-sm md:text-base font-mono font-bold text-sky-400 uppercase tracking-widest">Event Countdown</h3>
-                <Terminal className="w-5 h-5 text-sky-400" />
-              </div>
-              <div className="grid grid-cols-4 gap-2 md:gap-3">
-                {[
-                  { value: timeLeft.days, label: 'DAYS' },
-                  { value: timeLeft.hours, label: 'HRS' },
-                  { value: timeLeft.minutes, label: 'MIN' },
-                  { value: timeLeft.seconds, label: 'SEC' }
-                ].map((item, i) => (
-                  <div key={i} className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-sky-500/30 to-blue-500/30 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                    <div className="relative bg-gradient-to-br from-sky-500/20 via-blue-500/20 to-sky-500/20 border-2 border-sky-500/40 rounded-lg p-2 md:p-3 hover:border-sky-400 hover:scale-110 transition-all duration-300 backdrop-blur-sm">
-                      <div className="text-lg md:text-2xl lg:text-3xl font-black font-mono text-sky-400 drop-shadow-[0_0_10px_rgba(14,165,233,0.8)] text-center">
-                        {String(item.value).padStart(2, '0')}
-                      </div>
-                      <div className="text-[8px] md:text-xs font-mono text-sky-300/70 uppercase tracking-wider text-center">
-                        {item.label}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            {/* Countdown removed for a cleaner, more focused hero */}
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-sky-500/50 rounded-full flex items-start justify-center p-2 hover:border-sky-400 transition-colors">
+      <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-sky-500/50 rounded-full flex items-start justify-center p-2 hover:border-sky-400 transition-colors bg-background/60 backdrop-blur-sm">
           <div className="w-1.5 h-1.5 bg-sky-500 rounded-full animate-pulse" />
         </div>
       </div>
