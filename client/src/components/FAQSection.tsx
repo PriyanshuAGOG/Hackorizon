@@ -4,114 +4,116 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { HelpCircle, Sparkles } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const faqs = [
   {
-    question: "Who can participate in HACKORIZON 2026?",
-    answer: "Any student currently enrolled in a college or university can participate. Teams can have 2-4 members. No prior hackathon experience required!",
+    question: "Who can participate in Hack Orizon?",
+    answer: "Hack Orizon is open to all students currently enrolled in any recognized educational institution. Teams can have 2-4 members, and you can also participate individually. We welcome beginners as well as experienced hackers!"
   },
   {
-    question: "Is there a participation fee?",
-    answer: "No! HACKORIZON is completely free to attend. We provide meals, swag, mentorship, workshops, and all amenities at absolutely no cost to participants.",
+    question: "What should I bring?",
+    answer: "Bring your laptop, chargers, a valid student ID, and any hardware you plan to use. We'll provide internet, power outlets, meals, and workspaces. Don't forget your enthusiasm and creativity!"
   },
   {
-    question: "What should I bring to the hackathon?",
-    answer: "Bring your laptop, chargers, student ID, and enthusiasm! We'll provide everything else including meals, WiFi, workspaces, sleeping areas, and all necessary facilities.",
+    question: "Do I need to have a team before registering?",
+    answer: "No! You can register individually and we'll help you find teammates during the team formation session. Alternatively, you can come with your pre-formed team of 2-4 members."
   },
   {
-    question: "Can I work on a project I've already started?",
-    answer: "No, all projects must be started from scratch during the hackathon to ensure fairness. However, you're free to use existing libraries, frameworks, and open-source tools.",
+    question: "Is there any registration fee?",
+    answer: "No, Hack Orizon is completely free! We believe in making innovation accessible to everyone. This includes meals, swag, and access to all workshops and mentorship sessions."
   },
   {
-    question: "Will there be mentors available?",
-    answer: "Yes! We have 20+ industry experts and technical mentors available throughout the event to provide guidance, debugging support, and technical assistance.",
+    question: "What are the judging criteria?",
+    answer: "Projects will be judged on innovation (30%), technical implementation (30%), design & user experience (20%), impact & feasibility (15%), and presentation (5%). Make sure your solution is both creative and practical!"
   },
   {
-    question: "What if I don't have a team?",
-    answer: "No problem! We'll have a team formation session at the beginning where you can meet other participants with similar interests and form teams organically.",
+    question: "Will there be food and accommodation?",
+    answer: "Yes! We'll provide all meals, snacks, and beverages throughout the 36-hour event. However, accommodation is not provided - this is an in-person event at our campus venue."
   },
   {
-    question: "What technologies can we use?",
-    answer: "You're free to use any programming language, framework, or technology stack. We encourage innovation, creativity, and exploration of new technologies!",
+    question: "What if I'm a beginner?",
+    answer: "Perfect! We encourage beginners to participate. We'll have workshops, mentors, and resources to help you learn and build your project. Every expert was once a beginner!"
   },
   {
-    question: "Will accommodation be provided?",
-    answer: "The hackathon venue will be open 24/7 during the event. Comfortable sleeping areas, refreshments, gaming zones, and relaxation spaces will be available throughout.",
+    question: "Can I start working on my project before the hackathon?",
+    answer: "No, all code must be written during the hackathon. However, you can come with ideas and do research beforehand. Any pre-written code will lead to disqualification."
   },
   {
-    question: "How will projects be judged?",
-    answer: "Projects are evaluated on innovation, technical complexity, design quality, real-world feasibility, presentation skills, and overall impact. Our expert judges will provide detailed feedback.",
+    question: "What tracks can I choose from?",
+    answer: "We have 6 exciting tracks: AI/ML, IoT, Blockchain, UI/UX Design, Data Science, and Web Development. Each track has specific problem statements you can tackle, or you can work on your own innovative idea!"
   },
   {
-    question: "Can we submit multiple projects?",
-    answer: "Each team can submit one primary project for the main competition. However, you're welcome to work on side projects, experiments, or proofs of concept for learning.",
-  },
-  {
-    question: "What happens after the hackathon?",
-    answer: "Winners receive prizes immediately. Top projects may get incubation support, seed funding opportunities, media coverage, and connections with investors and accelerators.",
-  },
-  {
-    question: "Is there a code of conduct?",
-    answer: "Yes, all participants must follow our comprehensive code of conduct ensuring a safe, inclusive, respectful, and harassment-free environment for everyone.",
-  },
+    question: "How do I submit my project?",
+    answer: "Project submissions will be done through our online portal. You'll need to submit your code repository (GitHub), a demo video (max 3 minutes), and a brief presentation. Detailed guidelines will be provided at the event."
+  }
 ];
 
 export default function FAQSection() {
   const { ref: sectionRef, isVisible } = useScrollAnimation();
 
   return (
-    <section ref={sectionRef} className="py-32 bg-gradient-to-b from-background to-card relative overflow-hidden">
-      <div className="absolute inset-0">
-        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] animate-pulse-glow" />
-        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-orange-500/5 rounded-full blur-[120px] animate-pulse-glow" style={{ animationDelay: '1s' }} />
+    <section ref={sectionRef} className="py-32 bg-card/30 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            linear-gradient(rgba(14,165,233,0.3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(14,165,233,0.3) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px'
+        }} />
       </div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
-            <HelpCircle className="w-4 h-4 text-primary animate-pulse" />
-            <span className="text-sm font-mono text-primary uppercase tracking-wider">Got Questions?</span>
+        <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="w-2 h-2 bg-sky-500 rotate-45 animate-pulse" />
+            <div className="h-px w-16 bg-sky-500/30" />
+            <div className="w-3 h-3 border-2 border-sky-500" />
+            <div className="h-px w-16 bg-sky-500/30" />
+            <div className="w-2 h-2 bg-sky-500 rotate-45 animate-pulse" />
           </div>
           
-          <h2 className="text-5xl md:text-7xl font-display font-black mb-6 bg-gradient-to-r from-orange-500 via-primary to-orange-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,94,0,0.3)]" data-testid="text-faq-title">
+          <h2 className="text-5xl md:text-7xl font-bold text-sky-500 mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to know about HACKORIZON 2026
+          <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
+            Everything you need to know about Hack Orizon
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto px-2 sm:px-0">
-          <Accordion type="single" collapsible className="space-y-3 sm:space-y-4" data-testid="accordion-faq">
+        <div className="max-w-4xl mx-auto">
+          <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
+              <AccordionItem 
+                key={index} 
                 value={`item-${index}`}
-                className={`group bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl border-2 border-card-border rounded-xl sm:rounded-2xl px-4 sm:px-6 md:px-8 py-1 sm:py-2 data-[state=open]:border-primary/70 data-[state=open]:shadow-[0_0_40px_rgba(255,94,0,0.3)] transition-all duration-300 hover:border-primary/50 overflow-hidden relative ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-                style={{ 
-                  transitionDelay: isVisible ? `${index * 0.05}s` : '0s',
-                  transitionDuration: '0.6s'
-                }}
-                data-testid={`faq-item-${index}`}
+                className="border-2 border-border hover:border-sky-500/50 px-6 py-2 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:shadow-sky-500/10"
               >
-                <div className="absolute -right-8 -top-8 w-32 h-32 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-2xl group-hover:blur-3xl transition-all" />
-                
-                <AccordionTrigger className="text-left hover:no-underline py-4 sm:py-5 md:py-6 text-sm sm:text-base md:text-lg font-bold group-hover:text-primary transition-colors relative" data-testid={`faq-question-${index}`}>
-                  <div className="flex items-start gap-2 sm:gap-3 md:gap-4 flex-1 pr-2 sm:pr-4">
-                    <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5 sm:mt-1 animate-pulse" />
-                    <span>{faq.question}</span>
-                  </div>
+                <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-sky-500 transition-colors duration-300 hover:no-underline">
+                  {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed pl-6 sm:pl-7 md:pl-9 pb-4 sm:pb-5 md:pb-6" data-testid={`faq-answer-${index}`}>
+                <AccordionContent className="text-base text-foreground/80 leading-relaxed pt-4 border-t border-sky-500/20 mt-2">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
+
+          <div className="mt-16 text-center p-8 border-2 border-sky-500/30 bg-sky-500/5 backdrop-blur-sm hover:border-sky-500/60 transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/10">
+            <h3 className="text-2xl font-bold text-sky-500 mb-3">
+              Still have questions?
+            </h3>
+            <p className="text-foreground/70 mb-6">
+              Can't find the answer you're looking for? Reach out to our team!
+            </p>
+            <a 
+              href="mailto:hackoorizon@riet.ac.in" 
+              className="inline-block px-8 py-3 bg-sky-500 text-white font-semibold hover:bg-sky-600 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-sky-500/50"
+            >
+              Contact Us
+            </a>
+          </div>
         </div>
       </div>
     </section>
