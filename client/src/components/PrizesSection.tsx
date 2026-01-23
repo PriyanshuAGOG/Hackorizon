@@ -28,7 +28,7 @@ export default function PrizesSection() {
             <h3 className="text-3xl font-bold text-foreground mb-4">Prize Pool</h3>
             <p className="text-6xl font-black text-primary mb-6">Worth ₹1 Lakh</p>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Compete for exciting cash prizes, tech gadgets, certificates, and recognition for winning teams!
+              Compete for exciting cash prizes, certificates, and recognition for winning teams!
             </p>
           </Card>
         </div>

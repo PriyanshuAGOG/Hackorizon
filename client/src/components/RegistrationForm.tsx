@@ -8,7 +8,7 @@ interface RegistrationFormProps {
   onOpenChange: (open: boolean) => void;
 }
 
-const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSe8WhPNn5GqrEhduyX8juD-kzTwGS9TJ0uDqpQs0hc4Yhwlzg/viewform?usp=dialog";
+const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSe8WhPNn5GqrEhduyX8juD-kzTwGS9TJ0uDqpQs0hc4Yhwlzg/viewform";
 
 export default function RegistrationForm({ open, onOpenChange }: RegistrationFormProps) {
   const handleRegister = () => {

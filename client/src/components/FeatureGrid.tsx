@@ -6,7 +6,7 @@ const features = [
   {
     icon: Trophy,
     title: "Win Big Prizes",
-    description: "Compete for cash prizes, tech gadgets, and exclusive opportunities. Top teams receive internships and recognition.",
+    description: "Compete for cash prizes and exclusive opportunities. Top teams receive internships and recognition.",
   },
   {
     icon: Users,

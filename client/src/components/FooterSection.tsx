@@ -77,14 +77,14 @@ export default function FooterSection() {
             <div className="space-y-4">
               <div className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-all p-3 rounded-lg hover:bg-primary/5">
                 <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                <a href="mailto:enigma@rfriet.ac.in" className="font-medium" data-testid="link-email">
-                  enigma@rfriet.ac.in
+                <a href="mailto:hackorizon@gmail.com" className="font-medium" data-testid="link-email">
+                  hackorizon@gmail.com
                 </a>
               </div>
               <div className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-all p-3 rounded-lg hover:bg-primary/5">
                 <Phone className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                <a href="tel:+911234567890" className="font-medium" data-testid="link-phone">
-                  +91 123 456 7890
+                <a href="tel:+918306440385" className="font-medium" data-testid="link-phone">
+                  +91 8306440385
                 </a>
               </div>
               <div className="group flex items-center gap-3 text-muted-foreground p-3 rounded-lg">
@@ -121,7 +121,7 @@ export default function FooterSection() {
             </h3>
             <div className="w-full h-48 rounded-lg overflow-hidden border-2 border-primary/30">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.8876!2d75.7123!3d26.8234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc9a8c65a98af%3A0x3a68e43f4c12a0ed!2sRajasthan%20Institute%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1640000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.0123456789!2d75.6825!3d26.8205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc977c6a00001%3A0x9d41e52e68c5c7c5!2sRajasthan%20Institute%20of%20Engineering%20%26%20Technology%20(RIET)!5e0!3m2!1sen!2sin!4v1737500000000!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -132,7 +132,7 @@ export default function FooterSection() {
               />
             </div>
             <a 
-              href="https://maps.google.com/?q=Rajasthan+Institute+of+Engineering+and+Technology+Bhankrota+Jaipur" 
+              href="https://maps.app.goo.gl/PT6MCh5aX6fNos2N6" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 mt-3 text-primary hover:underline text-sm font-medium"
