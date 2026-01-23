@@ -8,28 +8,20 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const faqs = [
   {
-    question: "Who can participate in Hack Orizon?",
-    answer: "Hack Orizon is open to all students currently enrolled in any recognized educational institution. Teams can have 2-4 members, and you can also participate individually. We welcome beginners as well as experienced hackers!"
+    question: "Who can participate in Enigma'26?",
+    answer: "Enigma'26 is open to all students currently enrolled in any recognized educational institution. Teams must have 2-4 members. We welcome beginners as well as experienced hackers!"
   },
   {
     question: "What should I bring?",
-    answer: "Bring your laptop, chargers, a valid student ID, and any hardware you plan to use. We'll provide internet, power outlets, meals, and workspaces. Don't forget your enthusiasm and creativity!"
-  },
-  {
-    question: "Do I need to have a team before registering?",
-    answer: "No! You can register individually and we'll help you find teammates during the team formation session. Alternatively, you can come with your pre-formed team of 2-4 members."
+    answer: "Bring your laptop, chargers, a valid student ID, and any hardware you plan to use. We'll provide internet, power outlets, and workspaces. Don't forget your enthusiasm and creativity!"
   },
   {
     question: "Is there any registration fee?",
-    answer: "No, Hack Orizon is completely free! We believe in making innovation accessible to everyone. This includes meals, swag, and access to all workshops and mentorship sessions."
+    answer: "Registrations are completely free."
   },
   {
     question: "What are the judging criteria?",
     answer: "Projects will be judged on innovation (30%), technical implementation (30%), design & user experience (20%), impact & feasibility (15%), and presentation (5%). Make sure your solution is both creative and practical!"
-  },
-  {
-    question: "Will there be food and accommodation?",
-    answer: "Yes! We'll provide all meals, snacks, and beverages throughout the 36-hour event. However, accommodation is not provided - this is an in-person event at our campus venue."
   },
   {
     question: "What if I'm a beginner?",
@@ -40,12 +32,12 @@ const faqs = [
     answer: "No, all code must be written during the hackathon. However, you can come with ideas and do research beforehand. Any pre-written code will lead to disqualification."
   },
   {
-    question: "What tracks can I choose from?",
-    answer: "We have 6 exciting tracks: AI/ML, IoT, Blockchain, UI/UX Design, Data Science, and Web Development. Each track has specific problem statements you can tackle, or you can work on your own innovative idea!"
-  },
-  {
     question: "How do I submit my project?",
     answer: "Project submissions will be done through our online portal. You'll need to submit your code repository (GitHub), a demo video (max 3 minutes), and a brief presentation. Detailed guidelines will be provided at the event."
+  },
+  {
+    question: "When and where is the event?",
+    answer: "Enigma'26 will be held on 20-21 February 2026 at Rajasthan Institute of Engineering and Technology, Bhankrota, Jaipur, Rajasthan."
   }
 ];
 
@@ -78,7 +70,7 @@ export default function FAQSection() {
             Frequently Asked Questions
           </h2>
           <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
-            Everything you need to know about Hack Orizon
+            Everything you need to know about Enigma'26
           </p>
         </div>
 
@@ -108,7 +100,7 @@ export default function FAQSection() {
               Can't find the answer you're looking for? Reach out to our team!
             </p>
             <a 
-              href="mailto:support@hackorizon.dev" 
+              href="mailto:enigma@rfriet.ac.in" 
               className="inline-block px-8 py-3 bg-sky-500 text-white font-semibold hover:bg-sky-600 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-sky-500/50"
             >
               Contact Us

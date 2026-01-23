@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, Terminal } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,7 +17,6 @@ export default function Navbar() {
 
   const navItems = [
     { name: "Home", href: "#home" },
-    { name: "Tracks", href: "#tracks" },
     { name: "Schedule", href: "#schedule" },
     { name: "Speakers", href: "#speakers" },
     { name: "Prizes", href: "#prizes" },
@@ -29,40 +27,39 @@ export default function Navbar() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled 
-        ? 'bg-background/95 backdrop-blur-xl border-b-2 border-primary/50 shadow-lg' 
+        ? 'bg-background/95 backdrop-blur-xl border-b-2 border-primary/50 shadow-lg neon-border' 
         : 'bg-background/80 backdrop-blur-sm'
     }`}>
       <div className="container mx-auto px-4 relative">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <Link href="/">
-            <div className="flex items-center gap-3 group cursor-pointer">
-              <div className="relative">
-                <img
-                  src="/mainlogo.png"
-                  alt="Hackorizon Logo"
-                  className="relative w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-300 group-hover:scale-110"
-                />
-              </div>
-              <div className="flex flex-col">
-                <div className="flex items-center gap-2">
-                  <span className="text-[0.6rem] text-muted-foreground font-mono uppercase tracking-widest flex items-center gap-1.5">
-                    <img
-                      src="/riet.png"
-                      alt="RIET Logo"
-                      className="w-4 h-4 object-contain transition-all duration-300 group-hover:scale-110"
-                    />
-                    RIET PRESENTS
-                  </span>
-                </div>
-                <span className="text-lg md:text-xl font-black font-mono text-primary tracking-wider transition-all" data-testid="text-logo">
-                  HACKORIZON
-                </span>
-                <span className="text-[0.6rem] text-muted-foreground font-mono uppercase tracking-widest">
-                  36 HR HACKATHON
-                </span>
-              </div>
+          <div className="flex items-center gap-3 group cursor-pointer">
+            <div className="relative">
+              <div className="absolute -inset-3 bg-primary/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <img
+                src="/1000167568.png"
+                alt="Enigma'26 Logo"
+                className="relative w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 drop-shadow-[0_0_8px_rgba(139,92,246,0.5)] group-hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.8)]"
+              />
             </div>
-          </Link>
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2">
+                <span className="text-[0.6rem] text-muted-foreground font-mono uppercase tracking-widest flex items-center gap-1.5">
+                  <img
+                    src="/1000167568.png"
+                    alt="RIET Logo"
+                    className="w-4 h-4 object-contain transition-all duration-300 group-hover:scale-110 drop-shadow-[0_0_4px_rgba(139,92,246,0.3)] group-hover:drop-shadow-[0_0_8px_rgba(139,92,246,0.6)]"
+                  />
+                  RIET PRESENTS
+                </span>
+              </div>
+              <span className="text-lg md:text-xl font-black font-mono text-primary tracking-wider group-hover:neon-glow transition-all" data-testid="text-logo">
+                ENIGMA'26
+              </span>
+              <span className="text-[0.6rem] text-muted-foreground font-mono uppercase tracking-widest">
+                24 HR HACKATHON
+              </span>
+            </div>
+          </div>
 
           <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
@@ -82,12 +79,10 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <Link href="/register">
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-mono font-bold uppercase tracking-wider">
-                <Terminal className="w-4 h-4 mr-2" />
-                Register
-              </Button>
-            </Link>
+            <Terminal className="w-5 h-5 text-primary animate-pulse" />
+            <span className="text-xs text-muted-foreground uppercase tracking-widest font-mono" data-testid="text-menu">
+              MENU
+            </span>
           </div>
 
           <Button
@@ -103,7 +98,7 @@ export default function Navbar() {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden border-t-2 border-primary/30 bg-background/95 backdrop-blur-md" data-testid="menu-mobile">
+        <div className="md:hidden border-t-2 border-primary/30 bg-background/95 backdrop-blur-md neon-border" data-testid="menu-mobile">
           <div className="container mx-auto px-4 py-6 space-y-2">
             {navItems.map((item) => (
               <a
@@ -116,12 +111,6 @@ export default function Navbar() {
                 {item.name}
               </a>
             ))}
-            <Link href="/register">
-              <Button className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground font-mono font-bold uppercase tracking-wider" onClick={() => setMenuOpen(false)}>
-                <Terminal className="w-4 h-4 mr-2" />
-                Register
-              </Button>
-            </Link>
           </div>
         </div>
       )}

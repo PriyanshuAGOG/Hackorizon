@@ -11,7 +11,7 @@ const features = [
   {
     icon: Users,
     title: "Global Network",
-    description: "Connect with 300+ developers, mentors, and industry leaders. Build lasting professional relationships.",
+    description: "Connect with 400+ developers, mentors, and industry leaders. Build lasting professional relationships.",
   },
   {
     icon: Cpu,
@@ -21,7 +21,7 @@ const features = [
   {
     icon: Rocket,
     title: "Launch Projects",
-    description: "Transform ideas into working prototypes in 36 hours with full infrastructure and mentor support.",
+    description: "Transform ideas into working prototypes in 24 hours with full infrastructure and mentor support.",
   },
   {
     icon: Lightbulb,

@@ -18,11 +18,11 @@ export default function Home() {
       const currentSequence = (window as any).konamiSequence || "";
       const newSequence = currentSequence + key;
       
-      if ("HACKORIZON".startsWith(newSequence)) {
+      if ("ENIGMA26".startsWith(newSequence)) {
         (window as any).konamiSequence = newSequence;
 
-        if (newSequence === "HACKORIZON") {
-          alert("🚀 Easter Egg Unlocked! You found the secret! Welcome to the HACKORIZON secret club! 🎉");
+        if (newSequence === "ENIGMA26") {
+          alert("🚀 Easter Egg Unlocked! You found the secret! Welcome to the ENIGMA'26 secret club! 🎉");
           (window as any).konamiSequence = "";
         }
       } else {

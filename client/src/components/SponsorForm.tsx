@@ -46,10 +46,10 @@ export default function SponsorForm({ open, onOpenChange }: SponsorFormProps) {
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-card via-card/95 to-card/90 border-2 border-primary/30 shadow-[0_0_60px_rgba(255,94,0,0.3)]">
         <DialogHeader>
           <DialogTitle className="text-3xl font-display font-bold bg-gradient-to-r from-orange-500 via-primary to-orange-500 bg-clip-text text-transparent">
-            Sponsor Hackorizon 2K26
+            Sponsor Enigma'26
           </DialogTitle>
           <DialogDescription className="text-base text-muted-foreground">
-            Partner with us to reach 500+ talented developers and innovators
+            Partner with us to reach 400+ talented developers and innovators
           </DialogDescription>
         </DialogHeader>
 
@@ -149,7 +149,7 @@ export default function SponsorForm({ open, onOpenChange }: SponsorFormProps) {
 
             <div className="p-4 bg-primary/10 border border-primary/30 rounded-lg">
               <p className="text-sm text-muted-foreground">
-                For sponsorship inquiries, email us at <span className="font-semibold text-sky-400">sponsor@hackorizon.dev</span> or visit <span className="font-semibold text-sky-400">info@hackorizon.dev</span> for more details.
+                For sponsorship inquiries, email us at <span className="font-semibold text-sky-400">enigma@rfriet.ac.in</span>
               </p>
             </div>
           </div>

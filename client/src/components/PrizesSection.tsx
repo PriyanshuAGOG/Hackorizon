@@ -26,10 +26,9 @@ export default function PrizesSection() {
           <Card className="p-12 text-center border-2 border-primary/20 bg-card/50 backdrop-blur">
             <Trophy className="w-16 h-16 text-primary mx-auto mb-6" />
             <h3 className="text-3xl font-bold text-foreground mb-4">Prize Pool</h3>
-            <p className="text-6xl font-black text-primary mb-6">To Be Announced</p>
+            <p className="text-6xl font-black text-primary mb-6">Worth ₹1 Lakh</p>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We're working on bringing together an exciting prize pool for our winners.
-              Stay tuned for updates on cash prizes, tech gadgets, internship opportunities, and more!
+              Compete for exciting cash prizes, tech gadgets, certificates, and recognition for winning teams!
             </p>
           </Card>
         </div>

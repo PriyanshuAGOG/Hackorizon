@@ -26,13 +26,6 @@ const schedule = [
     day: "Day 1",
   },
   {
-    time: "01:00 PM",
-    title: "Lunch & Networking",
-    description: "Refreshments and team bonding",
-    location: "Cafeteria",
-    day: "Day 1",
-  },
-  {
     time: "03:00 PM",
     title: "Technical Workshops",
     description: "Hands-on sessions with industry experts",
@@ -47,14 +40,7 @@ const schedule = [
     day: "Day 1",
   },
   {
-    time: "09:00 PM",
-    title: "Midnight Snacks",
-    description: "Refreshments and relaxation",
-    location: "Common Area",
-    day: "Day 1",
-  },
-  {
-    time: "11:00 AM",
+    time: "09:00 AM",
     title: "Final Submissions",
     description: "Submit your completed projects",
     location: "Online Portal",
@@ -62,14 +48,14 @@ const schedule = [
     highlight: true,
   },
   {
-    time: "02:00 PM",
+    time: "11:00 AM",
     title: "Project Presentations",
     description: "Showcase your innovations",
     location: "Main Auditorium",
     day: "Day 2",
   },
   {
-    time: "05:00 PM",
+    time: "02:00 PM",
     title: "Winner Announcement",
     description: "Prize distribution and closing ceremony",
     location: "Main Stage",
@@ -87,7 +73,7 @@ export default function ScheduleSection() {
         <div className="text-center mb-10 sm:mb-12 md:mb-16 px-4">
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/10 border border-primary/30 rounded-full mb-4 sm:mb-6">
             <Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
-            <span className="text-xs sm:text-sm font-mono text-primary uppercase tracking-wider">36 Hours</span>
+            <span className="text-xs sm:text-sm font-mono text-primary uppercase tracking-wider">24 Hours | 20-21 Feb 2026</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display font-black mb-4 sm:mb-6 text-foreground">

@@ -1,4 +1,4 @@
-import { Mail, MapPin, Linkedin, Twitter, Instagram, Github, Rocket, Sparkles, Code2 } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Rocket, Sparkles, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function FooterSection() {
@@ -32,7 +32,7 @@ export default function FooterSection() {
       </div>
 
       <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-12">
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="relative">
@@ -40,26 +40,32 @@ export default function FooterSection() {
                 <div className="absolute inset-0 bg-primary blur-xl opacity-50" />
               </div>
               <div>
-                <h3 className="text-2xl font-display font-black bg-gradient-to-r from-orange-500 to-primary bg-clip-text text-transparent">HACKORIZON 2026</h3>
+                <h3 className="text-2xl font-display font-black text-primary">ENIGMA'26</h3>
                 <p className="text-xs text-muted-foreground font-mono">Presented by RIET Jaipur</p>
               </div>
             </div>
-            <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-              Join us for the ultimate hackathon experience. Build the future, one line of code at a time.
+            <p className="text-muted-foreground text-lg mb-4 leading-relaxed">
+              24-Hour Hackathon | 20-21 February 2026
+            </p>
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Prize Pool Worth ₹1 Lakh | 400+ Developers
             </p>
             <div className="flex gap-3">
-              <Button size="icon" className="rounded-full bg-gradient-to-br from-primary/20 to-orange-500/20 hover:from-primary/40 hover:to-orange-500/40 border-2 border-primary/30 hover:border-primary/70 shadow-lg hover:scale-110 transition-all" data-testid="link-footer-linkedin">
-                <Linkedin className="w-5 h-5 text-primary" />
-              </Button>
-              <Button size="icon" className="rounded-full bg-gradient-to-br from-primary/20 to-orange-500/20 hover:from-primary/40 hover:to-orange-500/40 border-2 border-primary/30 hover:border-primary/70 shadow-lg hover:scale-110 transition-all" data-testid="link-footer-twitter">
-                <Twitter className="w-5 h-5 text-primary" />
-              </Button>
-              <Button size="icon" className="rounded-full bg-gradient-to-br from-primary/20 to-orange-500/20 hover:from-primary/40 hover:to-orange-500/40 border-2 border-primary/30 hover:border-primary/70 shadow-lg hover:scale-110 transition-all" data-testid="link-footer-instagram">
-                <Instagram className="w-5 h-5 text-primary" />
-              </Button>
-              <Button size="icon" className="rounded-full bg-gradient-to-br from-primary/20 to-orange-500/20 hover:from-primary/40 hover:to-orange-500/40 border-2 border-primary/30 hover:border-primary/70 shadow-lg hover:scale-110 transition-all" data-testid="link-footer-github">
-                <Github className="w-5 h-5 text-primary" />
-              </Button>
+              <a href="https://www.linkedin.com/school/riet-jaipur/" target="_blank" rel="noopener noreferrer">
+                <Button size="icon" className="rounded-full bg-gradient-to-br from-primary/20 to-orange-500/20 hover:from-primary/40 hover:to-orange-500/40 border-2 border-primary/30 hover:border-primary/70 shadow-lg hover:scale-110 transition-all" data-testid="link-footer-linkedin">
+                  <Linkedin className="w-5 h-5 text-primary" />
+                </Button>
+              </a>
+              <a href="https://x.com/RIET_JAIPUR" target="_blank" rel="noopener noreferrer">
+                <Button size="icon" className="rounded-full bg-gradient-to-br from-primary/20 to-orange-500/20 hover:from-primary/40 hover:to-orange-500/40 border-2 border-primary/30 hover:border-primary/70 shadow-lg hover:scale-110 transition-all" data-testid="link-footer-twitter">
+                  <Twitter className="w-5 h-5 text-primary" />
+                </Button>
+              </a>
+              <a href="https://www.instagram.com/riet_official?igsh=MmJobzltNHd3cXJu" target="_blank" rel="noopener noreferrer">
+                <Button size="icon" className="rounded-full bg-gradient-to-br from-primary/20 to-orange-500/20 hover:from-primary/40 hover:to-orange-500/40 border-2 border-primary/30 hover:border-primary/70 shadow-lg hover:scale-110 transition-all" data-testid="link-footer-instagram">
+                  <Instagram className="w-5 h-5 text-primary" />
+                </Button>
+              </a>
             </div>
           </div>
 
@@ -69,23 +75,21 @@ export default function FooterSection() {
               Contact Us
             </h3>
             <div className="space-y-4">
-              <div className="group flex items-start gap-3 text-muted-foreground hover:text-primary transition-all p-3 rounded-lg hover:bg-primary/5">
-                <Mail className="w-5 h-5 mt-0.5 group-hover:scale-110 transition-transform flex-shrink-0" />
-                <div className="flex flex-col gap-2">
-                  <a href="mailto:info@hackorizon.dev" className="font-medium text-sm" data-testid="link-email">
-                    info@hackorizon.dev
-                  </a>
-                  <a href="mailto:sponsor@hackorizon.dev" className="font-medium text-sm" data-testid="link-sponsor">
-                    sponsor@hackorizon.dev
-                  </a>
-                  <a href="mailto:support@hackorizon.dev" className="font-medium text-sm" data-testid="link-support">
-                    support@hackorizon.dev
-                  </a>
-                </div>
+              <div className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-all p-3 rounded-lg hover:bg-primary/5">
+                <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <a href="mailto:enigma@rfriet.ac.in" className="font-medium" data-testid="link-email">
+                  enigma@rfriet.ac.in
+                </a>
+              </div>
+              <div className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-all p-3 rounded-lg hover:bg-primary/5">
+                <Phone className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <a href="tel:+911234567890" className="font-medium" data-testid="link-phone">
+                  +91 123 456 7890
+                </a>
               </div>
               <div className="group flex items-center gap-3 text-muted-foreground p-3 rounded-lg">
                 <MapPin className="w-5 h-5 text-primary" />
-                <span className="font-medium text-sm">RIET Campus, Jaipur, Rajasthan</span>
+                <span className="font-medium">Rajasthan Institute of Engineering and Technology, Bhankrota, Jaipur, Rajasthan</span>
               </div>
             </div>
           </div>
@@ -96,7 +100,7 @@ export default function FooterSection() {
               Quick Links
             </h3>
             <div className="grid grid-cols-2 gap-3">
-              {["Home", "Tracks", "Schedule", "Speakers", "Prizes", "FAQ"].map((link) => (
+              {["Home", "Schedule", "Speakers", "Prizes", "FAQ"].map((link) => (
                 <a
                   key={link}
                   href={`#${link.toLowerCase()}`}
@@ -109,12 +113,40 @@ export default function FooterSection() {
               ))}
             </div>
           </div>
+
+          <div>
+            <h3 className="text-2xl font-display font-bold mb-6 text-foreground flex items-center gap-2">
+              <MapPin className="w-6 h-6 text-primary" />
+              Venue
+            </h3>
+            <div className="w-full h-48 rounded-lg overflow-hidden border-2 border-primary/30">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.8876!2d75.7123!3d26.8234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc9a8c65a98af%3A0x3a68e43f4c12a0ed!2sRajasthan%20Institute%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1640000000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="RIET Jaipur Location"
+              />
+            </div>
+            <a 
+              href="https://maps.google.com/?q=Rajasthan+Institute+of+Engineering+and+Technology+Bhankrota+Jaipur" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-3 text-primary hover:underline text-sm font-medium"
+            >
+              <MapPin className="w-4 h-4" />
+              Open in Google Maps
+            </a>
+          </div>
         </div>
 
         <div className="border-t-2 border-border/50 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center">
             <p className="text-muted-foreground">
-              © 2026 HACKORIZON - RIET Jaipur. All rights reserved.
+              © 2026 ENIGMA'26 - RIET Jaipur. All rights reserved.
             </p>
             <p className="flex items-center gap-2 text-muted-foreground font-mono text-sm">
               <Code2 className="w-4 h-4 text-primary" />

@@ -28,7 +28,7 @@ if (typeof window !== 'undefined') {
   (window as any).checkLoading = checkLoadingScreenStatus;
   
   console.log(`
-  🎬 HACKORIZON Loading Screen Utils
+  🎬 ENIGMA'26 Loading Screen Utils
   ═══════════════════════════════════
   
   Available commands:

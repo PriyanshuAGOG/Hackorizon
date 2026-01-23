@@ -1,13 +1,10 @@
 import { Card } from "@/components/ui/card";
 import { Building2, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import SponsorForm from "./SponsorForm";
 
 export default function SponsorsSection() {
   const { ref: sectionRef, isVisible } = useScrollAnimation();
-  const [showSponsorForm, setShowSponsorForm] = useState(false);
 
   return (
     <section id="sponsors" ref={sectionRef} className="py-32 bg-background relative overflow-hidden">
@@ -32,21 +29,23 @@ export default function SponsorsSection() {
             <h3 className="text-3xl font-bold text-foreground mb-4">Sponsorship Packages</h3>
             <p className="text-xl text-sky-500 font-semibold mb-6">Available Now</p>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              We offer various sponsorship tiers to help you reach and engage with 300+ talented developers,
+              We offer various sponsorship tiers to help you reach and engage with 400+ talented developers,
               students, and tech enthusiasts. Get in touch to learn about our partnership opportunities.
             </p>
-            <Button
-              size="lg"
-              onClick={() => setShowSponsorForm(true)}
-              className="bg-sky-500 hover:bg-sky-600 text-white font-bold px-8 py-6 text-lg transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(14,165,233,0.4)] group/btn"
+            <a
+              href="mailto:enigma@rfriet.ac.in"
+              className="inline-block"
             >
-              <Mail className="w-5 h-5 mr-3 group-hover/btn:rotate-12 transition-transform" />
-              Get Sponsorship Details
-            </Button>
+              <Button
+                size="lg"
+                className="bg-sky-500 hover:bg-sky-600 text-white font-bold px-8 py-6 text-lg transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(14,165,233,0.4)] group/btn"
+              >
+                <Mail className="w-5 h-5 mr-3 group-hover/btn:rotate-12 transition-transform" />
+                Contact for Sponsorship
+              </Button>
+            </a>
           </Card>
         </div>
-
-        <SponsorForm open={showSponsorForm} onOpenChange={setShowSponsorForm} />
       </div>
     </section>
   );
