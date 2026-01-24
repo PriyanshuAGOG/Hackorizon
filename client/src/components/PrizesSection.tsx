@@ -1,36 +1,46 @@
-import { Card } from "@/components/ui/card";
-import { Trophy } from "lucide-react";
+import { Trophy, Star } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { TechCorner, FloatingDots } from "./TechDecorations";
 
 export default function PrizesSection() {
   const { ref: sectionRef, isVisible } = useScrollAnimation();
 
   return (
-    <section ref={sectionRef} className="py-32 bg-card relative overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
-            <Trophy className="w-4 h-4 text-primary" />
-            <span className="text-sm font-mono text-primary uppercase tracking-wider">Rewards</span>
-          </div>
+    <section ref={sectionRef} className="py-16 sm:py-20 lg:py-24 bg-background relative overflow-hidden">
+      {/* Tech decorations - hidden on mobile */}
+      <div className="hidden sm:block">
+        <TechCorner position="tl" />
+        <TechCorner position="br" />
+      </div>
+      <FloatingDots count={5} />
+      
+      {/* Side lines - hidden on mobile */}
+      <div className="hidden lg:block">
+        <div className="absolute left-8 top-0 w-px h-full bg-border" />
+        <div className="absolute right-8 top-0 w-px h-full bg-border" />
+      </div>
 
-          <h2 className={`text-5xl md:text-7xl font-display font-black mb-6 text-foreground transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Prizes & Awards
-          </h2>
-          <p className="text-xl text-muted-foreground">
-            Exciting prizes and recognition for winning teams
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className={`text-center transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}>
+          <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] sm:tracking-[0.3em] text-muted-foreground mb-2 sm:mb-3">
+            <span className="text-primary">$</span> Rewards
           </p>
-        </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-black text-foreground mb-6 sm:mb-8">Prizes & Awards</h2>
 
-        <div className="max-w-4xl mx-auto">
-          <Card className="p-12 text-center border-2 border-primary/20 bg-card/50 backdrop-blur">
-            <Trophy className="w-16 h-16 text-primary mx-auto mb-6" />
-            <h3 className="text-3xl font-bold text-foreground mb-4">Prize Pool</h3>
-            <p className="text-6xl font-black text-primary mb-6">Worth ₹1 Lakh</p>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Compete for exciting cash prizes, certificates, and recognition for winning teams!
-            </p>
-          </Card>
+          <div className="max-w-md mx-auto border border-border p-6 sm:p-10 bg-background group hover-lift cursor-default transition-all">
+            <div className="relative inline-block">
+              <Trophy className="w-8 h-8 sm:w-10 sm:h-10 text-primary mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform" />
+              {/* Small decorative stars - hidden on mobile */}
+              <Star className="hidden sm:block w-3 h-3 text-primary/50 absolute -top-1 -right-2 pulse-dot" />
+              <Star className="hidden sm:block w-2 h-2 text-primary/30 absolute -bottom-1 -left-2 pulse-dot" style={{ animationDelay: '0.5s' }} />
+            </div>
+            <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground mb-1 sm:mb-2">Prize Pool</p>
+            <p className="text-4xl sm:text-5xl font-serif font-black text-primary group-hover:scale-105 transition-transform">₹1 Lakh</p>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-3 sm:mt-4">Cash prizes, certificates, and recognition for winning teams.</p>
+            
+            {/* Decorative line */}
+            <div className="h-px w-0 bg-primary mx-auto mt-4 sm:mt-6 group-hover:w-20 transition-all duration-500" />
+          </div>
         </div>
       </div>
     </section>

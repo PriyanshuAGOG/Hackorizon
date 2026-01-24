@@ -1,125 +1,70 @@
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Rocket, Sparkles, Code2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Terminal } from "lucide-react";
 
 export default function FooterSection() {
   return (
-    <footer className="bg-gradient-to-b from-card to-background border-t-2 border-primary/30 relative overflow-hidden">
-      <div className="absolute inset-0">
-        <svg className="absolute bottom-0 w-full h-64 opacity-10" viewBox="0 0 1200 100" preserveAspectRatio="none">
-          <path
-            d="M0,50 L100,40 L200,60 L300,45 L400,55 L500,40 L600,65 L700,50 L800,55 L900,45 L1000,60 L1100,50 L1200,55 L1200,100 L0,100 Z"
-            fill="currentColor"
-            className="text-primary animate-pulse-glow"
-          />
-        </svg>
-        
-        {[...Array(30)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full animate-pulse-glow"
-            style={{
-              width: `${Math.random() * 3 + 1}px`,
-              height: `${Math.random() * 3 + 1}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              backgroundColor: i % 2 === 0 ? '#ff5e00' : '#fbbf24',
-              boxShadow: `0 0 ${Math.random() * 20 + 10}px currentColor`,
-              animationDelay: `${Math.random() * 2}s`,
-              opacity: 0.3,
-            }}
-          />
-        ))}
+    <footer className="bg-background border-t border-border relative">
+      {/* Subtle grid pattern - hidden on mobile for cleaner look */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none hidden sm:block">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)',
+          backgroundSize: '40px 40px'
+        }} />
       </div>
-
-      <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-12">
+      
+      <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-12 lg:py-16 relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-8 sm:mb-12">
+          {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="relative">
-                <Rocket className="w-10 h-10 text-primary" />
-                <div className="absolute inset-0 bg-primary blur-xl opacity-50" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-display font-black text-primary">ENIGMA'26</h3>
-                <p className="text-xs text-muted-foreground font-mono">Presented by RIET Jaipur</p>
-              </div>
+            <div className="flex items-center gap-2 mb-2">
+              <Terminal className="w-3 h-3 sm:w-4 sm:h-4 text-muted-foreground" />
+              <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground">ENIGMA'26</h3>
             </div>
-            <p className="text-muted-foreground text-lg mb-4 leading-relaxed">
-              24-Hour Hackathon | 20-21 February 2026
-            </p>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
-              Prize Pool Worth ₹1 Lakh | 400+ Developers
-            </p>
-            <div className="flex gap-3">
-              <a href="https://www.linkedin.com/school/riet-jaipur/" target="_blank" rel="noopener noreferrer">
-                <Button size="icon" className="rounded-full bg-gradient-to-br from-primary/20 to-orange-500/20 hover:from-primary/40 hover:to-orange-500/40 border-2 border-primary/30 hover:border-primary/70 shadow-lg hover:scale-110 transition-all" data-testid="link-footer-linkedin">
-                  <Linkedin className="w-5 h-5 text-primary" />
-                </Button>
+            <p className="text-[10px] sm:text-xs font-mono text-muted-foreground mb-3 sm:mb-4">Presented by RIET Jaipur</p>
+            <p className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-2">24-Hour Hackathon · 20-21 Feb 2026</p>
+            <p className="text-xs sm:text-sm text-muted-foreground">Prize Pool Worth ₹1 Lakh</p>
+            <div className="flex gap-4 mt-4">
+              <a href="https://www.linkedin.com/school/riet-jaipur/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors touch-target">
+                <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://x.com/RIET_JAIPUR" target="_blank" rel="noopener noreferrer">
-                <Button size="icon" className="rounded-full bg-gradient-to-br from-primary/20 to-orange-500/20 hover:from-primary/40 hover:to-orange-500/40 border-2 border-primary/30 hover:border-primary/70 shadow-lg hover:scale-110 transition-all" data-testid="link-footer-twitter">
-                  <Twitter className="w-5 h-5 text-primary" />
-                </Button>
+              <a href="https://x.com/RIET_JAIPUR" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors touch-target">
+                <Twitter className="w-5 h-5" />
               </a>
-              <a href="https://www.instagram.com/riet_official?igsh=MmJobzltNHd3cXJu" target="_blank" rel="noopener noreferrer">
-                <Button size="icon" className="rounded-full bg-gradient-to-br from-primary/20 to-orange-500/20 hover:from-primary/40 hover:to-orange-500/40 border-2 border-primary/30 hover:border-primary/70 shadow-lg hover:scale-110 transition-all" data-testid="link-footer-instagram">
-                  <Instagram className="w-5 h-5 text-primary" />
-                </Button>
+              <a href="https://www.instagram.com/riet_official?igsh=MmJobzltNHd3cXJu" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors touch-target">
+                <Instagram className="w-5 h-5" />
               </a>
             </div>
           </div>
 
+          {/* Contact */}
           <div>
-            <h3 className="text-2xl font-display font-bold mb-6 text-foreground flex items-center gap-2">
-              <Mail className="w-6 h-6 text-primary" />
-              Contact Us
-            </h3>
-            <div className="space-y-4">
-              <div className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-all p-3 rounded-lg hover:bg-primary/5">
-                <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                <a href="mailto:hackorizon@gmail.com" className="font-medium" data-testid="link-email">
-                  hackorizon@gmail.com
-                </a>
-              </div>
-              <div className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-all p-3 rounded-lg hover:bg-primary/5">
-                <Phone className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                <a href="tel:+918306440385" className="font-medium" data-testid="link-phone">
-                  +91 8306440385
-                </a>
-              </div>
-              <div className="group flex items-center gap-3 text-muted-foreground p-3 rounded-lg">
-                <MapPin className="w-5 h-5 text-primary" />
-                <span className="font-medium">Rajasthan Institute of Engineering and Technology, Bhankrota, Jaipur, Rajasthan</span>
-              </div>
+            <h4 className="text-xs sm:text-sm font-semibold text-foreground mb-3 sm:mb-4">Contact</h4>
+            <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-muted-foreground">
+              <a href="mailto:hackorizon@gmail.com" className="flex items-center gap-2 hover:text-foreground transition-colors touch-target">
+                <Mail className="w-4 h-4 flex-shrink-0" /> 
+                <span className="break-all">hackorizon@gmail.com</span>
+              </a>
+              <a href="tel:+918306440385" className="flex items-center gap-2 hover:text-foreground transition-colors touch-target">
+                <Phone className="w-4 h-4 flex-shrink-0" /> +91 8306440385
+              </a>
             </div>
           </div>
 
+          {/* Links */}
           <div>
-            <h3 className="text-2xl font-display font-bold mb-6 text-foreground flex items-center gap-2">
-              <Code2 className="w-6 h-6 text-primary" />
-              Quick Links
-            </h3>
-            <div className="grid grid-cols-2 gap-3">
+            <h4 className="text-xs sm:text-sm font-semibold text-foreground mb-3 sm:mb-4">Quick Links</h4>
+            <div className="space-y-2 text-xs sm:text-sm">
               {["Home", "Schedule", "Speakers", "Prizes", "FAQ"].map((link) => (
-                <a
-                  key={link}
-                  href={`#${link.toLowerCase()}`}
-                  className="group flex items-center gap-2 text-muted-foreground hover:text-primary transition-all p-3 rounded-lg hover:bg-primary/5 font-medium"
-                  data-testid={`link-footer-${link.toLowerCase()}`}
-                >
-                  <Sparkles className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-primary" />
+                <a key={link} href={`#${link.toLowerCase()}`} className="block text-muted-foreground hover:text-foreground transition-colors touch-target py-1">
                   {link}
                 </a>
               ))}
             </div>
           </div>
 
+          {/* Venue */}
           <div>
-            <h3 className="text-2xl font-display font-bold mb-6 text-foreground flex items-center gap-2">
-              <MapPin className="w-6 h-6 text-primary" />
-              Venue
-            </h3>
-            <div className="w-full h-48 rounded-lg overflow-hidden border-2 border-primary/30">
+            <h4 className="text-xs sm:text-sm font-semibold text-foreground mb-3 sm:mb-4">Venue</h4>
+            <div className="w-full h-28 sm:h-32 border border-border overflow-hidden mb-2">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.0123456789!2d75.6825!3d26.8205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc977c6a00001%3A0x9d41e52e68c5c7c5!2sRajasthan%20Institute%20of%20Engineering%20%26%20Technology%20(RIET)!5e0!3m2!1sen!2sin!4v1737500000000!5m2!1sen!2sin"
                 width="100%"
@@ -131,29 +76,19 @@ export default function FooterSection() {
                 title="RIET Jaipur Location"
               />
             </div>
-            <a 
-              href="https://maps.app.goo.gl/PT6MCh5aX6fNos2N6" 
-              target="_blank" 
+            <a
+              href="https://maps.app.goo.gl/PT6MCh5aX6fNos2N6"
+              target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-3 text-primary hover:underline text-sm font-medium"
+              className="inline-flex items-center gap-1 text-[10px] sm:text-xs text-muted-foreground hover:text-foreground transition-colors touch-target"
             >
-              <MapPin className="w-4 h-4" />
-              Open in Google Maps
+              <MapPin className="w-3 h-3" /> Open in Maps
             </a>
           </div>
         </div>
 
-        <div className="border-t-2 border-border/50 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center">
-            <p className="text-muted-foreground">
-              © 2026 ENIGMA'26 - RIET Jaipur. All rights reserved.
-            </p>
-            <p className="flex items-center gap-2 text-muted-foreground font-mono text-sm">
-              <Code2 className="w-4 h-4 text-primary" />
-              Built with passion and innovation
-              <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-            </p>
-          </div>
+        <div className="border-t border-border pt-4 sm:pt-6 text-center text-[10px] sm:text-xs text-muted-foreground">
+          <p>© 2026 ENIGMA'26 – RIET Jaipur. All rights reserved.</p>
         </div>
       </div>
     </footer>

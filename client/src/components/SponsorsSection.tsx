@@ -1,36 +1,45 @@
-import { Card } from "@/components/ui/card";
-import { Building2 } from "lucide-react";
+import { Building2, Mail } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { TechCorner, FloatingDots } from "./TechDecorations";
 
 export default function SponsorsSection() {
   const { ref: sectionRef, isVisible } = useScrollAnimation();
 
   return (
-    <section id="sponsors" ref={sectionRef} className="py-32 bg-background relative overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-sky-500/10 border border-sky-500/30 rounded-full mb-6 hover:bg-sky-500/20 hover:border-sky-500 transition-all group">
-            <Building2 className="w-4 h-4 text-sky-500 group-hover:scale-110 transition-transform" />
-            <span className="text-sm font-mono text-sky-500 uppercase tracking-wider font-semibold">Partnership Opportunities</span>
-          </div>
+    <section id="sponsors" ref={sectionRef} className="py-16 sm:py-20 lg:py-24 bg-background relative overflow-hidden">
+      {/* Tech decorations - hidden on mobile */}
+      <div className="hidden sm:block">
+        <TechCorner position="tl" />
+        <TechCorner position="br" />
+      </div>
+      <FloatingDots count={4} />
+      
+      {/* Side lines - hidden on mobile */}
+      <div className="hidden lg:block">
+        <div className="absolute left-8 top-0 w-px h-full bg-border" />
+        <div className="absolute right-8 top-0 w-px h-full bg-border" />
+      </div>
 
-          <h2 className={`text-5xl md:text-7xl font-display font-black mb-6 text-foreground transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Become Our Sponsor
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Partner with us to connect with talented developers and innovators
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className={`text-center transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}>
+          <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] sm:tracking-[0.3em] text-muted-foreground mb-2 sm:mb-3">
+            <span className="text-primary">{"{ "}</span>Partnership<span className="text-primary">{" }"}</span>
           </p>
-        </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-black text-foreground mb-6 sm:mb-8">Become Our Sponsor</h2>
 
-        <div className="max-w-4xl mx-auto">
-          <Card className="p-12 text-center border-2 border-sky-500/20 bg-card/50 backdrop-blur hover:border-sky-500/50 transition-all duration-300 group hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(14,165,233,0.2)]">
-            <Building2 className="w-20 h-20 text-sky-500 mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300" />
-            <h3 className="text-3xl font-bold text-foreground mb-4">Sponsorship Packages</h3>
-            <p className="text-4xl text-sky-500 font-black mb-6">Coming Soon</p>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We're working on exciting sponsorship opportunities. Stay tuned for updates!
-            </p>
-          </Card>
+          <div className="max-w-md mx-auto border border-border p-6 sm:p-10 bg-background group hover-lift transition-all cursor-default">
+            <Building2 className="w-8 h-8 sm:w-10 sm:h-10 text-primary mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform" />
+            <p className="text-xl sm:text-2xl font-semibold text-foreground mb-2">Sponsorship Packages</p>
+            <p className="text-base sm:text-lg text-primary mb-3 sm:mb-4">Coming Soon</p>
+            <p className="text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-6">Partner with us to connect with talented developers and innovators.</p>
+            
+            <a 
+              href="mailto:hackorizon@gmail.com" 
+              className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono uppercase tracking-[0.1em] sm:tracking-[0.15em] text-muted-foreground hover:text-primary transition-colors touch-target"
+            >
+              <Mail className="w-4 h-4" /> Contact for Sponsorship
+            </a>
+          </div>
         </div>
       </div>
     </section>

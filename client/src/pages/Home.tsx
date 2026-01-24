@@ -9,6 +9,8 @@ import PrizesSection from "@/components/PrizesSection";
 import SponsorsSection from "@/components/SponsorsSection";
 import FAQSection from "@/components/FAQSection";
 import FooterSection from "@/components/FooterSection";
+import RocketScroll from "@/components/RocketScroll";
+import { LeftSideDecoration, RightSideDecoration } from "@/components/SideDecorations";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -37,6 +39,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <RocketScroll />
+      
+      {/* Side decorations - only visible on xl screens */}
+      <LeftSideDecoration />
+      <RightSideDecoration />
+      
       <main>
         <div id="home">
           <HeroSection />
