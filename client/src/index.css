@@ -700,3 +700,123 @@ body {
     min-width: 48px;
   }
 }
+
+/* ==========================================
+   LOADING SCREEN ANIMATIONS
+   ========================================== */
+
+/* Scanlines effect */
+.bg-scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 0, 0.03) 2px,
+    rgba(0, 255, 0, 0.03) 4px
+  );
+  animation: scanlines-move 8s linear infinite;
+}
+
+@keyframes scanlines-move {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(4px); }
+}
+
+/* Fade out animation */
+.animate-fade-out {
+  animation: fade-out 0.4s ease-out forwards;
+}
+
+@keyframes fade-out {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Fade in animation */
+.animate-fade-in {
+  animation: fade-in-smooth 0.5s ease-out forwards;
+}
+
+@keyframes fade-in-smooth {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Access granted glow */
+.animate-access-glow {
+  animation: access-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes access-glow {
+  0%, 100% { 
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5), 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  50% { 
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.8), 0 0 40px hsl(var(--primary) / 0.5), 0 0 60px hsl(var(--primary) / 0.3);
+  }
+}
+
+/* Pulse line animation for side decorations */
+@keyframes pulse-line {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+/* Pulse opacity animation */
+@keyframes pulse-opacity {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.6; }
+}
+
+/* Pulse height animation for audio visualizer bars */
+@keyframes pulse-height {
+  0%, 100% { transform: scaleY(0.5); }
+  50% { transform: scaleY(1.5); }
+}
+
+/* Custom scrollbar for terminal */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.3);
+  border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
+
+/* Terminal text glow on hover */
+.terminal-glow:hover {
+  text-shadow: 0 0 8px currentColor;
+}
+
+/* Typing cursor */
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: currentColor;
+  animation: blink 1s step-end infinite;
+}
+
+/* CRT screen effect for desktop */
+@media (min-width: 1024px) {
+  .crt-effect::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
+      linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.03));
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+    z-index: 100;
+  }
+}
