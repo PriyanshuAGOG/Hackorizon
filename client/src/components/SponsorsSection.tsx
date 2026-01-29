@@ -7,14 +7,14 @@ const sponsors = [
     name: "OpenAI",
     role: "API Sponsor",
     description: "Providing OpenAI API credits for winners and participants. Access to powerful AI models and tools for development.",
-    logo: "/openai.jpg",
+    logo: "/openai.png",
     color: "from-purple-500 to-pink-500",
   },
   {
     name: ".xyz",
     role: "Domain Partner",
     description: "Free domains and perks for participants. Modern, innovative domain extensions for your projects.",
-    logo: "/xyz.jpg",
+    logo: "/xyz.png",
     color: "from-blue-500 to-cyan-500",
   },
 ];
