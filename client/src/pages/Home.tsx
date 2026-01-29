@@ -7,6 +7,7 @@ import ScheduleSection from "@/components/ScheduleSection";
 import SpeakersSection from "@/components/SpeakersSection";
 import PrizesSection from "@/components/PrizesSection";
 import SponsorsSection from "@/components/SponsorsSection";
+import ContactSection from "@/components/ContactSection";
 import FAQSection from "@/components/FAQSection";
 import FooterSection from "@/components/FooterSection";
 import RocketScroll from "@/components/RocketScroll";
@@ -64,6 +65,7 @@ export default function Home() {
           <PrizesSection />
         </div>
         <SponsorsSection />
+        <ContactSection />
         <div id="faq">
           <FAQSection />
         </div>

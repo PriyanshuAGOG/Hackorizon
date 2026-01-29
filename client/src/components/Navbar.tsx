@@ -32,9 +32,9 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex items-center gap-3">
             <img
-              src="/1000167568.png"
+              src="/mainlogo.png"
               alt="ENIGMA'26 Logo"
-              className="w-9 h-9 object-contain"
+              className="w-11 h-11 sm:w-12 sm:h-12 object-cover scale-105 hover:scale-110 transition-transform duration-300"
             />
             <div className="flex flex-col">
               <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-muted-foreground">

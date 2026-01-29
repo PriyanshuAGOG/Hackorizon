@@ -11,7 +11,7 @@ const terminalCommands = [
   { cmd: '> connect --server enigma.hackathon.io', output: 'Establishing secure connection...', delay: 500 },
   { cmd: '> auth.verify(credentials)', output: 'Verifying hacker credentials...', delay: 400 },
   { cmd: '> load.module("hackathon_core")', output: 'Loading hackathon modules...', delay: 350 },
-  { cmd: '> fetch.data("prize_pool")', output: 'Prize pool: ₹1,00,000+ loaded', delay: 300 },
+  { cmd: '> fetch.data("prize_pool")', output: 'Prize pool: cash + swags + certificates + perks loaded', delay: 300 },
   { cmd: '> fetch.data("speakers")', output: 'Industry experts database synced', delay: 300 },
   { cmd: '> init.tracks()', output: 'Problem statements: [CLASSIFIED]', delay: 350 },
   { cmd: '> set.date("20-21 Feb 2026")', output: 'Event timeline configured', delay: 300 },

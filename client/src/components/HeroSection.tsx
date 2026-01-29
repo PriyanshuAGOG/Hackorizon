@@ -44,18 +44,18 @@ export default function HeroSection() {
           </div>
           
           {/* Tagline */}
-          <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.3em] sm:tracking-[0.4em] text-muted-foreground mb-4 sm:mb-6">
+          <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.3em] sm:tracking-[0.4em] text-muted-foreground mb-4 sm:mb-6 animate-pulse">
             24-Hour Hackathon · Jaipur · Feb 2026
           </p>
 
           {/* Main title with subtle animation - responsive sizing */}
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-black text-foreground tracking-tight leading-none mb-3 sm:mb-4">
-            <span className="inline-block hover:text-primary transition-colors duration-300">E</span>
-            <span className="inline-block hover:text-primary transition-colors duration-300">N</span>
-            <span className="inline-block hover:text-primary transition-colors duration-300">I</span>
-            <span className="inline-block hover:text-primary transition-colors duration-300">G</span>
-            <span className="inline-block hover:text-primary transition-colors duration-300">M</span>
-            <span className="inline-block hover:text-primary transition-colors duration-300">A</span>
+            <span className="inline-block hover:text-primary hover:scale-110 transition-all duration-300 hover:-translate-y-1">E</span>
+            <span className="inline-block hover:text-primary hover:scale-110 transition-all duration-300 hover:-translate-y-1">N</span>
+            <span className="inline-block hover:text-primary hover:scale-110 transition-all duration-300 hover:-translate-y-1">I</span>
+            <span className="inline-block hover:text-primary hover:scale-110 transition-all duration-300 hover:-translate-y-1">G</span>
+            <span className="inline-block hover:text-primary hover:scale-110 transition-all duration-300 hover:-translate-y-1">M</span>
+            <span className="inline-block hover:text-primary hover:scale-110 transition-all duration-300 hover:-translate-y-1">A</span>
             <span className="inline-block text-primary">'26</span>
           </h1>
 
@@ -95,7 +95,7 @@ export default function HeroSection() {
               { icon: <Calendar className="w-4 h-4" />, label: "Date", value: "20-21 Feb" },
               { icon: <MapPin className="w-4 h-4" />, label: "Venue", value: "RIET Jaipur" },
               { icon: <Users className="w-4 h-4" />, label: "Hackers", value: "400+" },
-              { icon: <Trophy className="w-4 h-4" />, label: "Prizes", value: "₹1 Lakh" },
+              { icon: <Trophy className="w-4 h-4" />, label: "Prizes", value: "Cash + Perks" },
             ].map((item, idx) => (
               <div
                 key={idx}

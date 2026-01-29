@@ -38,7 +38,7 @@ export default function RegistrationForm({ open, onOpenChange }: RegistrationFor
               Ready to showcase your skills and win exciting prizes?
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
-              <span className="px-3 py-1 bg-primary/10 rounded-full">Prize Pool Worth ₹1 Lakh</span>
+              <span className="px-3 py-1 bg-primary/10 rounded-full">Cash + Swags + Certificates + Perks</span>
               <span className="px-3 py-1 bg-primary/10 rounded-full">400+ Developers</span>
               <span className="px-3 py-1 bg-primary/10 rounded-full">24 Hours</span>
             </div>

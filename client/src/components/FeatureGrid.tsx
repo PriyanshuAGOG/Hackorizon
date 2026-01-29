@@ -63,10 +63,10 @@ export default function FeatureGrid() {
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] sm:tracking-[0.3em] text-muted-foreground mb-2 sm:mb-3">
+          <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] sm:tracking-[0.3em] text-muted-foreground mb-2 sm:mb-3 animate-pulse">
             <span className="text-primary">&lt;</span> Why Attend <span className="text-primary">/&gt;</span>
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-black text-foreground">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-black text-foreground gradient-text">
             Why Enigma'26?
           </h2>
         </div>
@@ -76,20 +76,25 @@ export default function FeatureGrid() {
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className={`bg-background p-6 sm:p-8 transition-all duration-500 group hover-lift cursor-default ${
+              className={`bg-background p-6 sm:p-8 transition-all duration-500 group hover-lift cursor-default relative overflow-hidden ${
                 isVisible ? "opacity-100" : "opacity-0"
               }`}
               style={{ transitionDelay: isVisible ? `${index * 50}ms` : "0ms" }}
             >
-              <feature.icon className="w-5 h-5 text-primary mb-3 sm:mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-base sm:text-lg font-serif font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                {feature.title}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {feature.description}
-              </p>
-              {/* Subtle underline on hover */}
-              <div className="h-px w-0 bg-primary mt-3 sm:mt-4 group-hover:w-12 transition-all duration-300" />
+              {/* Spotlight effect on hover */}
+              <div className="absolute inset-0 spotlight pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity" />
+              
+              <div className="relative z-10">
+                <feature.icon className="w-5 h-5 text-primary mb-3 sm:mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all duration-300" />
+                <h3 className="text-base sm:text-lg font-serif font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  {feature.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
+                  {feature.description}
+                </p>
+                {/* Animated underline on hover */}
+                <div className="h-px w-0 bg-gradient-to-r from-transparent via-primary to-transparent mt-3 sm:mt-4 group-hover:w-full transition-all duration-300" />
+              </div>
             </div>
           ))}
         </div>

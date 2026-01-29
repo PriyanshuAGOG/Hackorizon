@@ -21,7 +21,7 @@ export default function FooterSection() {
             </div>
             <p className="text-[10px] sm:text-xs font-mono text-muted-foreground mb-3 sm:mb-4">Presented by RIET Jaipur</p>
             <p className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-2">24-Hour Hackathon · 20-21 Feb 2026</p>
-            <p className="text-xs sm:text-sm text-muted-foreground">Prize Pool Worth ₹1 Lakh</p>
+            <p className="text-xs sm:text-sm text-muted-foreground">Cash + Swags + Certificates + Perks</p>
             <div className="flex gap-4 mt-4">
               <a href="https://www.linkedin.com/school/riet-jaipur/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors touch-target">
                 <Linkedin className="w-5 h-5" />
