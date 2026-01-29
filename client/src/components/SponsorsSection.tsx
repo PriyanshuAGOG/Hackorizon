@@ -58,15 +58,15 @@ export default function SponsorsSection() {
                 style={{ transitionDelay: isVisible ? `${idx * 100}ms` : "0ms" }}
               >
                 <div className="group cursor-default">
-                  {/* Logo - minimal, no box */}
-                  <div className="mb-5 sm:mb-7 flex items-center justify-start">
-                    <div className="relative">
+                  {/* Logo display */}
+                  <div className="mb-6 sm:mb-8 flex items-center justify-start">
+                    <div className="relative h-24 sm:h-28 md:h-32 flex items-center justify-center bg-muted/30 border border-border group-hover:border-primary/50 transition-colors duration-300 px-4 rounded">
                       {/* Subtle glow on hover */}
-                      <div className={`absolute inset-0 blur-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-br ${sponsor.color}`} />
+                      <div className={`absolute inset-0 blur-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-br ${sponsor.color} rounded`} />
                       <img
                         src={sponsor.logo}
                         alt={sponsor.name}
-                        className={`h-12 sm:h-14 md:h-16 w-auto object-contain relative z-10 transition-all duration-300 ${
+                        className={`max-h-full max-w-full object-contain relative z-10 transition-all duration-300 ${
                           isHovered ? "scale-105" : "scale-100"
                         }`}
                       />
