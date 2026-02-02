@@ -14,7 +14,6 @@ const schedule = [
   // Day 2 - 21 Feb
   { time: "8:00 AM", endTime: "9:00 AM", title: "Breakfast", description: "Start your final day with energy and enthusiasm.", location: "Food Court", day: "Day 2 (21 Feb)", highlight: false, color: "from-amber-500" },
   { time: "9:00 AM", endTime: "1:00 PM", title: "Final Coding Sprint & Submissions", description: "Last hours to polish your project and submit. Make it count!", location: "Code Rooms", day: "Day 2 (21 Feb)", highlight: true, color: "from-red-500" },
-  { time: "1:00 PM", endTime: "2:00 PM", title: "Lunch Break", description: "Relax and enjoy lunch while we prepare judging.", location: "Food Court", day: "Day 2 (21 Feb)", highlight: false, color: "from-green-500" },
   { time: "2:00 PM", endTime: "3:30 PM", title: "Project Evaluation & Judging", description: "Expert panel evaluates all submissions based on innovation, design, and impact.", location: "Main Ground", day: "Day 2 (21 Feb)", highlight: true, color: "from-indigo-500" },
   { time: "3:30 PM", endTime: "5:00 PM", title: "Winner Announcements, Prize Ceremony & Closing", description: "Celebrate achievements! Winner announcements, awards, and closing remarks.", location: "Main Ground", day: "Day 2 (21 Feb)", highlight: true, color: "from-violet-500" },
 ];

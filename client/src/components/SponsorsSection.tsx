@@ -25,6 +25,13 @@ const sponsors = [
     color: "from-amber-500 to-orange-500",
     link: "https://eventopia.in",
   },
+  {
+    name: "SheKunj",
+    role: "In-kind Sponsor",
+    description: "Supporting the hackathon with in-kind contributions and community support.",
+    logo: "/shekunj.png",
+    color: "from-pink-500 to-rose-500",
+  },
 ];
 
 export default function SponsorsSection() {
