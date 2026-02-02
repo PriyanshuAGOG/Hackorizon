@@ -17,6 +17,14 @@ const sponsors = [
     logo: "/xyz.png",
     color: "from-blue-500 to-cyan-500",
   },
+  {
+    name: "Eventopia",
+    role: "Media Partner",
+    description: "Amplifying tech culture and innovation through media coverage. Bringing the hackathon story to a wider audience.",
+    logo: "/eventopia.png",
+    color: "from-amber-500 to-orange-500",
+    link: "https://eventopia.in",
+  },
 ];
 
 export default function SponsorsSection() {
@@ -42,8 +50,8 @@ export default function SponsorsSection() {
           </h2>
         </div>
 
-        {/* Sponsors grid - minimal two column layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 max-w-4xl mx-auto">
+        {/* Sponsors grid - responsive layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-16 max-w-6xl mx-auto">
           {sponsors.map((sponsor, idx) => {
             const isHovered = hoveredSponsor === sponsor.name;
             
@@ -70,9 +78,16 @@ export default function SponsorsSection() {
 
                   {/* Sponsor info - minimal and clean */}
                   <div className="space-y-2 sm:space-y-3">
-                    <h3 className="text-lg sm:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                      {sponsor.name}
-                    </h3>
+                    <a
+                      href={sponsor.link || "#"}
+                      target={sponsor.link ? "_blank" : undefined}
+                      rel={sponsor.link ? "noopener noreferrer" : undefined}
+                      className="group/link"
+                    >
+                      <h3 className="text-lg sm:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                        {sponsor.name}
+                      </h3>
+                    </a>
                     <p className="text-xs sm:text-sm font-mono uppercase tracking-[0.1em] text-muted-foreground group-hover:text-primary/70 transition-colors">
                       {sponsor.role}
                     </p>

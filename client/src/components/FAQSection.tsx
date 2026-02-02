@@ -3,7 +3,7 @@ import { TechCorner } from "./TechDecorations";
 import { ChevronRight } from "lucide-react";
 
 const faqs = [
-  { question: "Who can participate in Enigma'26?", answer: "Enigma'26 is open to all students currently enrolled in any recognized educational institution. Teams must have 2-4 members. We welcome beginners as well as experienced hackers!" },
+  { question: "Who can participate in Enigma'26?", answer: "Enigma'26 is open to all students currently enrolled in any recognized educational institution. Teams must have 1-6 members. We welcome beginners as well as experienced hackers!" },
   { question: "What should I bring?", answer: "Bring your laptop, chargers, a valid student ID, and any hardware you plan to use. We'll provide internet, power outlets, and workspaces. Don't forget your enthusiasm and creativity!" },
   { question: "Is there any registration fee?", answer: "Registrations are completely free." },
   { question: "What are the judging criteria?", answer: "Projects will be judged on innovation (30%), technical implementation (30%), design & user experience (20%), impact & feasibility (15%), and presentation (5%). Make sure your solution is both creative and practical!" },

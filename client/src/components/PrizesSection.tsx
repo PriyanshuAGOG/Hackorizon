@@ -86,10 +86,10 @@ export default function PrizesSection() {
             </div>
             <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground mb-1 sm:mb-2">Prize Pool</p>
             <p className="text-base sm:text-lg font-semibold text-primary group-hover:text-secondary transition-colors">
-              Cash + Swags + Certificates + Perks
+              ₹1 Lac+ Prize Pool
             </p>
             <p className="text-xs sm:text-sm text-muted-foreground mt-3 sm:mt-4">
-              Includes OpenAI API credits for winners and participants.
+              Cash + Swags + Certificates + Perks. Includes OpenAI API credits for winners and participants.
             </p>
             
             {/* Animated decorative line */}
