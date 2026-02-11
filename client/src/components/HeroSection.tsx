@@ -89,8 +89,8 @@ export default function HeroSection() {
             </Button>
           </div>
 
-          {/* Stats row - 2 cols on mobile, 3 cols on larger */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-px bg-border max-w-2xl mx-auto">
+          {/* Stats row - 1 col on mobile, 3 cols on larger */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-border max-w-2xl mx-auto">
             {[
               { icon: <MapPin className="w-4 h-4" />, label: "Venue", value: "RIET Jaipur" },
               { icon: <Users className="w-4 h-4" />, label: "Hackers", value: "800+" },
