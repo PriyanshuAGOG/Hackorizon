@@ -66,18 +66,18 @@ export default function HeroSection() {
 
           {/* Description - responsive */}
           <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed mb-8 sm:mb-10 px-2">
-            Join 400+ developers for an unforgettable experience of building, learning, and competing at Rajasthan's premier hackathon.
+            Join 800+ developers for an unforgettable experience of building, learning, and competing at Rajasthan's premier hackathon.
           </p>
 
           {/* CTAs - stack on mobile */}
           <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mb-12 sm:mb-16 px-4 sm:px-0">
             <Button
               size="lg"
-              onClick={handleRegister}
-              className="w-full sm:w-auto bg-primary text-primary-foreground font-mono uppercase tracking-[0.1em] sm:tracking-[0.15em] px-6 sm:px-8 py-3 rounded-none hover:bg-foreground hover:text-background transition-colors text-sm sm:text-base"
+              disabled
+              className="w-full sm:w-auto bg-muted text-muted-foreground font-mono uppercase tracking-[0.1em] sm:tracking-[0.15em] px-6 sm:px-8 py-3 rounded-none cursor-not-allowed opacity-60 text-sm sm:text-base"
             >
               <ExternalLink className="w-4 h-4 mr-2" />
-              Register Now
+              Registrations Closed
             </Button>
             <Button
               size="lg"
@@ -92,9 +92,8 @@ export default function HeroSection() {
           {/* Stats row - 2x2 on mobile, 4 cols on larger */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-border max-w-2xl mx-auto">
             {[
-              { icon: <Calendar className="w-4 h-4" />, label: "Date", value: "20-21 Feb" },
               { icon: <MapPin className="w-4 h-4" />, label: "Venue", value: "RIET Jaipur" },
-              { icon: <Users className="w-4 h-4" />, label: "Hackers", value: "400+" },
+              { icon: <Users className="w-4 h-4" />, label: "Hackers", value: "800+" },
               { icon: <Trophy className="w-4 h-4" />, label: "Prizes", value: "Cash + Perks" },
             ].map((item, idx) => (
               <div

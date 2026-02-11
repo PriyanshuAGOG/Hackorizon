@@ -32,13 +32,13 @@ export default function SpeakersSection() {
             <Award className="w-6 h-6 sm:w-8 sm:h-8 text-primary mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform" />
             <h3 className="text-base sm:text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">Judges</h3>
             <p className="text-xs sm:text-sm text-primary mb-2">To Be Announced</p>
-            <p className="text-xs sm:text-sm text-muted-foreground">Industry leaders to evaluate your projects.</p>
+            <p className="text-xs sm:text-sm text-muted-foreground">Industry experts from MNCs</p>
           </div>
           <div className="bg-background p-6 sm:p-8 text-center group hover-lift cursor-default transition-all">
             <Users className="w-6 h-6 sm:w-8 sm:h-8 text-primary mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform" />
             <h3 className="text-base sm:text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">Mentors</h3>
             <p className="text-xs sm:text-sm text-primary mb-2">To Be Announced</p>
-            <p className="text-xs sm:text-sm text-muted-foreground">Experienced developers to guide you.</p>
+            <p className="text-xs sm:text-sm text-muted-foreground">Mentors from Industry</p>
           </div>
         </div>
       </div>

@@ -39,7 +39,8 @@ export default function RegistrationForm({ open, onOpenChange }: RegistrationFor
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
               <span className="px-3 py-1 bg-primary/10 rounded-full">Cash + Swags + Certificates + Perks</span>
-              <span className="px-3 py-1 bg-primary/10 rounded-full">400+ Developers</span>
+              <span className="px-3 py-1 bg-primary/10 rounded-full">800+ Developers</span>
+              <span className="px-3 py-1 bg-primary/10 rounded-full">1500+ Registrations Done</span>
               <span className="px-3 py-1 bg-primary/10 rounded-full">24 Hours</span>
             </div>
           </div>

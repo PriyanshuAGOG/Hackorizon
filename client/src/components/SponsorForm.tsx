@@ -49,7 +49,7 @@ export default function SponsorForm({ open, onOpenChange }: SponsorFormProps) {
             Sponsor Enigma'26
           </DialogTitle>
           <DialogDescription className="text-base text-muted-foreground">
-            Partner with us to reach 400+ talented developers and innovators
+            Partner with us to reach 800+ talented developers and innovators
           </DialogDescription>
         </DialogHeader>
 

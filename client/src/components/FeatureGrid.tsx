@@ -11,7 +11,7 @@ const features = [
   {
     icon: Users,
     title: "Global Network",
-    description: "Connect with 400+ developers, mentors, and industry leaders. Build lasting professional relationships.",
+    description: "Connect with 800+ developers, mentors, and industry leaders. Build lasting professional relationships.",
   },
   {
     icon: Cpu,
