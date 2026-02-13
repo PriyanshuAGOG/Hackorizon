@@ -52,7 +52,8 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
-            {nitem.isRoute ? (
+            {navItems.map((item) =>
+              item.isRoute ? (
                 <Link
                   key={item.name}
                   href={item.href}
@@ -70,9 +71,8 @@ export default function Navbar() {
                 >
                   {item.name}
                 </a>
-              )tem.name}
-              </a>
-            ))}
+              )
+            )}
           </div>
 
           {/* Mobile toggle */}
@@ -81,7 +81,17 @@ export default function Navbar() {
             size="icon"
             className="md:hidden"
             onClick={() => setMenuOpen((prev) => !prev)}
-            daitem.isRoute ? (
+          >
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </Button>
+        </div>
+      </div>
+
+      {menuOpen && (
+        <div className="md:hidden border-t border-border bg-background">
+          <div className="px-6 py-4 space-y-3">
+            {navItems.map((item) =>
+              item.isRoute ? (
                 <Link
                   key={item.name}
                   href={item.href}
@@ -101,20 +111,8 @@ export default function Navbar() {
                 >
                   {item.name}
                 </a>
-              ) (
-        <div className="md:hidden border-t border-border bg-background">
-          <div className="px-6 py-4 space-y-3">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className="block text-sm font-mono uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground py-2 border-b border-border"
-                data-testid={`link-mobile-${item.name.toLowerCase()}`}
-              >
-                {item.name}
-              </a>
-            ))}
+              )
+            )}
           </div>
         </div>
       )}
