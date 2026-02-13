@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
 
 const navItems = [
   { name: "Home", href: "#home" },
+  { name: "Campaign", href: "/campaign", isRoute: true },
+  { name: "Rules", href: "/rules", isRoute: true },
   { name: "Schedule", href: "#schedule" },
   { name: "Speakers", href: "#speakers" },
   { name: "Prizes", href: "#prizes" },
@@ -14,6 +17,7 @@ const navItems = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [location] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 12);
@@ -30,7 +34,7 @@ export default function Navbar() {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3 cursor-pointer">
             <img
               src="/mainlogo.png"
               alt="ENIGMA'26 Logo"
@@ -44,18 +48,29 @@ export default function Navbar() {
                 ENIGMA'26
               </span>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors"
-                data-testid={`link-nav-${item.name.toLowerCase()}`}
-              >
-                {item.name}
+            {nitem.isRoute ? (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors"
+                  data-testid={`link-nav-${item.name.toLowerCase()}`}
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors"
+                  data-testid={`link-nav-${item.name.toLowerCase()}`}
+                >
+                  {item.name}
+                </a>
+              )tem.name}
               </a>
             ))}
           </div>
@@ -66,15 +81,27 @@ export default function Navbar() {
             size="icon"
             className="md:hidden"
             onClick={() => setMenuOpen((prev) => !prev)}
-            data-testid="button-menu-toggle"
-          >
-            {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </Button>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
-      {menuOpen && (
+            daitem.isRoute ? (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="block text-sm font-mono uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground py-2 border-b border-border"
+                  data-testid={`link-mobile-${item.name.toLowerCase()}`}
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="block text-sm font-mono uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground py-2 border-b border-border"
+                  data-testid={`link-mobile-${item.name.toLowerCase()}`}
+                >
+                  {item.name}
+                </a>
+              ) (
         <div className="md:hidden border-t border-border bg-background">
           <div className="px-6 py-4 space-y-3">
             {navItems.map((item) => (

@@ -6,6 +6,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/Home";
 import Register from "@/pages/Register";
+import Campaign from "@/pages/Campaign";
+import Rules from "@/pages/Rules";
 import NotFound from "@/pages/not-found";
 import EnhancedLoadingScreen from "@/components/EnhancedLoadingScreen";
 
@@ -17,6 +19,8 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/register" component={Register} />
+      <Route path="/campaign" component={Campaign} />
+      <Route path="/rules" component={Rules} />
       <Route component={NotFound} />
     </Switch>
   );
