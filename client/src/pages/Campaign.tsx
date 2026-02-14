@@ -140,8 +140,8 @@ export default function Campaign() {
             <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-12 animate-fadeInUp" style={{ animationDelay: "0.3s" }}>
               You're at one of India's craziest hackathons. You're building something wild.
               Now <span className="text-foreground font-semibold">capture the madness</span>, drop a reel, and
-              get featured as a <span className="text-primary font-bold">collaborator on Hack With You</span> — with
-              your content hitting thousands of people. This is your shot.
+              get featured as a <span className="text-primary font-bold">collaborator on Hack With India</span> — with
+              your content hitting thousands of builders across the country. This is your shot.
             </p>
 
             {/* CTA */}
@@ -149,7 +149,7 @@ export default function Campaign() {
               <Button
                 size="lg"
                 className="font-mono uppercase tracking-wider bg-primary text-primary-foreground hover:bg-primary/90 rounded-none px-8 py-6 group relative overflow-hidden card-hover text-base"
-                onClick={() => window.open('https://instagram.com/hackwithyou', '_blank')}
+                onClick={() => window.open('https://instagram.com/hackwithindia', '_blank')}
               >
                 <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-500"></div>
                 <Rocket className="w-5 h-5 mr-2 group-hover:animate-float" />
@@ -195,10 +195,10 @@ export default function Campaign() {
 
             <div className="grid sm:grid-cols-2 gap-5">
               {[
-                { icon: <Crown className="w-6 h-6" />, title: "Get Featured on Hack With You", desc: "Your reel gets posted as an official collab — your face, your content, on a page with MASSIVE reach." },
+                { icon: <Crown className="w-6 h-6" />, title: "Get Featured on Hack With India", desc: "The absolute best reels get collabed and reposted on Hack With India — national-level exposure to thousands of builders." },
                 { icon: <Flame className="w-6 h-6" />, title: "Turn Your Grind Into Clout", desc: "48 hours of building something insane? That's content gold. Show the world what you built." },
                 { icon: <Users className="w-6 h-6" />, title: "Show Off Your Squad", desc: "The teamwork, the 3AM energy, the breakthroughs — capture your crew in their element." },
-                { icon: <TrendingUp className="w-6 h-6" />, title: "Real Reach, Not Fake Promises", desc: "We're talking collab posts that hit your followers AND ours. Actual eyeballs, not just a certificate." },
+                { icon: <TrendingUp className="w-6 h-6" />, title: "Real Reach, Not Fake Promises", desc: "Your reel goes up on Hack With You as a collab — and the best ones climb to Hack With India, Enigma, even RIET's page." },
                 { icon: <Sparkles className="w-6 h-6" />, title: "Portfolio Flex", desc: "A featured reel on a national hackathon page? That's LinkedIn gold and resume fire." },
                 { icon: <Target className="w-6 h-6" />, title: "Zero Cost, All Upside", desc: "You're already at the hackathon. Just pull out your phone, shoot the vibe, and drop it." }
               ].map((item, idx) => (
@@ -342,26 +342,26 @@ export default function Campaign() {
               {[
                 {
                   title: "Collab Post on Hack With You",
-                  description: "THE big one. Your reel gets published as a collaboration post on the Hack With You Instagram page. It shows up on YOUR profile AND theirs. Dual reach. Dual clout. National-level exposure.",
+                  description: "All selected reels get published as collaboration posts on Hack With You's Instagram page. Your reel, on their page, with your name as collaborator. Dual reach. Dual clout.",
+                  icon: <Rocket className="w-8 h-8" />,
+                  tag: "ALL SELECTED"
+                },
+                {
+                  title: "Featured on Hack With India",
+                  description: "THE big one. The absolute best reels get featured, collabed, and reposted on the Hack With India page — national-level exposure to thousands of builders, hackers, and tech enthusiasts across the country.",
                   icon: <Crown className="w-8 h-8" />,
                   highlight: true,
-                  tag: "GRAND PRIZE"
+                  tag: "TOP FEW"
                 },
                 {
-                  title: "Enigma Instagram Feature",
-                  description: "Your reel gets reposted or featured on the official Enigma Instagram page. Your content on the main event page. That's bragging rights forever.",
+                  title: "Enigma Page Feature",
+                  description: "Some of the best reels get featured and reposted on the official Enigma Instagram page. Your content on the main event page — bragging rights that last forever.",
                   icon: <Instagram className="w-8 h-8" />,
-                  tag: "TOP ENTRIES"
+                  tag: "BEST ONES"
                 },
                 {
-                  title: "Official Website Spotlight",
-                  description: "Outstanding reels get embedded on the Enigma'26 website under Event Highlights. Your content, immortalized on the official site.",
-                  icon: <Star className="w-8 h-8" />,
-                  tag: "BEST CONTENT"
-                },
-                {
-                  title: "RIET Platform Shoutout",
-                  description: "Exceptional creators get highlighted on RIET's official platforms. Your work, recognized by the institution itself.",
+                  title: "RIET Page Repost",
+                  description: "A select few exceptional reels get featured and reposted on RIET's official page. Your work, recognized by the institution itself. That's a different level.",
                   icon: <Award className="w-8 h-8" />,
                   tag: "EXCEPTIONAL"
                 },
@@ -413,22 +413,22 @@ export default function Campaign() {
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="p-6 bg-card border border-card-border glow-card">
                 <Rocket className="w-8 h-8 text-primary mb-4" />
-                <h3 className="font-semibold text-foreground mb-3 text-lg">Instagram Collab Posts</h3>
+                <h3 className="font-semibold text-foreground mb-3 text-lg">How Your Reel Gets Posted</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  Selected reels get posted on <span className="text-foreground font-semibold">Hack With You's page</span> using Instagram's collaboration feature. That means:
+                  You share your reel with the Enigma team. We post the selected ones on <span className="text-foreground font-semibold">Hack With You's page</span> as a collab with you. The best ones climb higher:
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                    <span>The post shows on <span className="text-foreground font-medium">both profiles</span></span>
+                    <span><span className="text-foreground font-medium">Hack With You</span> — all selected reels get collabed here</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Both audiences see it — double the reach</span>
+                    <span><span className="text-foreground font-medium">Hack With India</span> — top few get featured & reposted here</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Your name is right there as a collaborator</span>
+                    <span><span className="text-foreground font-medium">Enigma & RIET pages</span> — best ones get featured here too</span>
                   </li>
                 </ul>
               </div>
@@ -483,7 +483,7 @@ export default function Campaign() {
                 { emoji: "\uD83D\uDD25", label: "Day 2 — Keep Creating", detail: "The best content comes from the grind. All-nighter energy = viral energy." },
                 { emoji: "\uD83D\uDCE4", label: "Up to 48hrs After Event", detail: "Submission form closes. Post your reel & submit the link before the deadline." },
                 { emoji: "\uD83D\uDC40", label: "Days 3–5 Post-Event", detail: "Our team reviews all submissions. The best ones get shortlisted." },
-                { emoji: "\uD83D\uDE80", label: "Days 5–15 Post-Event", detail: "Featured reels start dropping as collab posts. Check your DMs." }
+                { emoji: "\uD83D\uDE80", label: "Days 5–15 Post-Event", detail: "Featured reels start dropping on Hack With You, top ones on Hack With India, Enigma & RIET. Check your DMs." }
               ].map((phase, idx) => (
                 <div key={idx} className={`flex items-start gap-5 p-6 ${phase.highlight ? 'bg-primary/5 border border-primary/30' : 'bg-card border border-card-border'} hover:border-primary/50 transition-colors glow-card`}>
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 text-2xl">
@@ -529,7 +529,7 @@ export default function Campaign() {
 
             <div className="space-y-3 text-sm text-muted-foreground">
               {[
-                "By submitting, you give Enigma'26 and Hack With You permission to repost your reel as a collab post with proper credit.",
+                "By submitting, you give Enigma'26 permission to post your reel on Hack With You, Hack With India, Enigma, and RIET pages as collab/repost with proper credit.",
                 "Your content may be lightly edited (captions, hashtags) for consistency — but the reel stays yours.",
                 "You keep full ownership of your original content. We just get to share it.",
                 "The organizing team can disqualify content that's offensive, harmful, or doesn't meet basic quality standards.",
@@ -587,10 +587,10 @@ export default function Campaign() {
                 size="lg"
                 variant="outline"
                 className="font-mono uppercase tracking-wider border-2 border-primary/50 hover:border-primary hover:bg-primary/5 rounded-none px-10 py-7 text-base"
-                onClick={() => window.open('https://instagram.com/hackwithyou', '_blank')}
+                onClick={() => window.open('https://instagram.com/hackwithindia', '_blank')}
               >
                 <Instagram className="w-5 h-5 mr-2" />
-                Follow Hack With You
+                Follow Hack With India
               </Button>
             </div>
 
