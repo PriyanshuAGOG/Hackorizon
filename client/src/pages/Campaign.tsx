@@ -94,87 +94,82 @@ export default function Campaign() {
       </div>
 
       {/* ==================== HERO SECTION ==================== */}
-      <section ref={heroRef} className="relative pt-40 pb-32 sm:pt-56 sm:pb-40 overflow-hidden">
-        <div className="absolute inset-0 -z-10" style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl opacity-20 animate-blob"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
+      <section ref={heroRef} className="relative pt-32 pb-24 sm:pt-44 sm:pb-32 overflow-hidden">
+        {/* Subtle geometric background */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.03] via-transparent to-transparent"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/[0.04] rounded-full blur-3xl"></div>
+          <div className="absolute top-20 right-[15%] w-64 h-64 bg-accent/[0.06] rounded-full blur-3xl"></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
-          <div className={`max-w-5xl mx-auto text-center ${heroVisible ? "opacity-100" : "opacity-0"} transition-opacity duration-700`}>
+          <div className={`max-w-5xl mx-auto ${heroVisible ? "opacity-100" : "opacity-0"} transition-opacity duration-700`}>
 
-            <div className="hidden sm:block mb-8">
-              <CodeLine className="justify-center" />
+            {/* Top bar - minimal */}
+            <div className="flex items-center justify-between mb-16 animate-fadeInUp">
+              <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent"></div>
+              <div className="px-6">
+                <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-muted-foreground">Enigma'26 — Official Reel Campaign</span>
+              </div>
+              <div className="h-px flex-1 bg-gradient-to-l from-border to-transparent"></div>
             </div>
 
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-primary/30 bg-primary/10 mb-10 animate-fadeInUp hover:border-primary/60 transition-all cursor-pointer group">
-              <Flame className="w-4 h-4 text-primary icon-hover" />
-              <span className="text-xs font-mono uppercase tracking-wider text-primary">The Reel Challenge is HERE</span>
-              <Zap className="w-3 h-3 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+            {/* Title block */}
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-3 px-5 py-2.5 border border-primary/20 bg-primary/[0.06] mb-10 animate-fadeInUp">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
+                <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-primary font-medium">Now Live</span>
+              </div>
+
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-black tracking-tight leading-[0.9] mb-8 animate-slideInRight">
+                <span className="text-gradient block">Hack The</span>
+                <span className="text-foreground block mt-2">Moment</span>
+              </h1>
+
+              <div className="w-16 h-[2px] bg-primary mx-auto mb-8 animate-fadeInUp" style={{ animationDelay: "0.15s" }}></div>
+
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-6 animate-fadeInUp font-light" style={{ animationDelay: "0.2s" }}>
+                Capture the energy of India's most exciting hackathon. Create a reel.
+                Get featured as a <span className="text-foreground font-medium">collaborator on Hack With India</span> — reaching
+                thousands of builders, creators, and tech enthusiasts nationwide.
+              </p>
+
+              <p className="text-sm text-muted-foreground/70 font-mono uppercase tracking-widest animate-fadeInUp" style={{ animationDelay: "0.3s" }}>
+                Your content. Our platform. Massive reach.
+              </p>
             </div>
-
-            {/* Title */}
-            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-serif font-black tracking-tighter leading-none mb-6 animate-slideInRight">
-              <span className="text-gradient">HACK</span>
-              <span className="block text-foreground">THE MOMENT</span>
-            </h1>
-
-            {/* Tagline */}
-            <p className="text-2xl sm:text-3xl md:text-4xl font-mono uppercase tracking-widest text-primary mb-4 animate-slideInLeft font-bold">
-              Shoot. Ship. Go Viral.
-            </p>
-            <p className="text-lg sm:text-xl text-muted-foreground mb-8 animate-fadeInUp font-medium" style={{ animationDelay: "0.15s" }}>
-              Enigma'26's official reel campaign — your content, our stage, insane reach.
-            </p>
-
-            {/* Divider */}
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="w-12 h-px bg-gradient-to-r from-transparent to-primary"></div>
-              <Flame className="w-5 h-5 text-primary animate-pulse" />
-              <div className="w-12 h-px bg-gradient-to-l from-transparent to-primary"></div>
-            </div>
-
-            {/* Hero Description */}
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-12 animate-fadeInUp" style={{ animationDelay: "0.3s" }}>
-              You're at one of India's craziest hackathons. You're building something wild.
-              Now <span className="text-foreground font-semibold">capture the madness</span>, drop a reel, and
-              get featured as a <span className="text-primary font-bold">collaborator on Hack With India</span> — with
-              your content hitting thousands of builders across the country. This is your shot.
-            </p>
 
             {/* CTA */}
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16 animate-fadeInUp stagger-animation" style={{ animationDelay: "0.4s" }}>
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-20 animate-fadeInUp" style={{ animationDelay: "0.4s" }}>
               <Button
                 size="lg"
-                className="font-mono uppercase tracking-wider bg-primary text-primary-foreground hover:bg-primary/90 rounded-none px-8 py-6 group relative overflow-hidden card-hover text-base"
+                className="font-mono uppercase tracking-wider bg-primary text-primary-foreground hover:bg-primary/90 rounded-none px-10 py-6 group relative overflow-hidden text-sm"
                 onClick={() => window.open('https://instagram.com/hackwithindia', '_blank')}
               >
-                <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-500"></div>
-                <Rocket className="w-5 h-5 mr-2 group-hover:animate-float" />
-                I'm In — Let's Go
+                <div className="absolute inset-0 bg-white/10 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                <ArrowRight className="w-4 h-4 mr-2" />
+                Start Creating
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="font-mono uppercase tracking-wider border-2 border-primary/50 hover:border-primary hover:text-primary hover:bg-primary/5 rounded-none px-8 py-6 card-hover text-base"
+                className="font-mono uppercase tracking-wider border border-border hover:border-primary hover:text-primary rounded-none px-10 py-6 text-sm"
                 onClick={() => document.getElementById("how-to-enter")?.scrollIntoView({ behavior: "smooth" })}
               >
-                How Do I Enter?
+                Learn More
               </Button>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto">
+            {/* Stats - clean grid */}
+            <div className="grid grid-cols-3 max-w-xl mx-auto border border-border divide-x divide-border">
               {[
-                { value: "100+", label: "Reels Expected" },
-                { value: "20-30", label: "Get Featured" },
-                { value: "1000s", label: "Eyes On You" }
+                { value: "100+", label: "Reels" },
+                { value: "20-30", label: "Featured" },
+                { value: "1000s", label: "Reach" }
               ].map((stat, idx) => (
-                <div key={idx} className="p-4 animate-fadeInUp" style={{ animationDelay: `${0.5 + idx * 0.1}s` }}>
-                  <div className="text-2xl sm:text-3xl font-bold text-gradient mb-2">{stat.value}</div>
-                  <div className="text-xs sm:text-sm font-mono text-muted-foreground uppercase tracking-wider">{stat.label}</div>
+                <div key={idx} className="py-6 px-4 text-center animate-fadeInUp" style={{ animationDelay: `${0.5 + idx * 0.1}s` }}>
+                  <div className="text-xl sm:text-2xl font-bold text-foreground mb-1 font-mono">{stat.value}</div>
+                  <div className="text-[10px] font-mono text-muted-foreground uppercase tracking-[0.2em]">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -196,7 +191,7 @@ export default function Campaign() {
             <div className="grid sm:grid-cols-2 gap-5">
               {[
                 { icon: <Crown className="w-6 h-6" />, title: "Get Featured on Hack With India", desc: "The absolute best reels get collabed and reposted on Hack With India — national-level exposure to thousands of builders." },
-                { icon: <Flame className="w-6 h-6" />, title: "Turn Your Grind Into Clout", desc: "48 hours of building something insane? That's content gold. Show the world what you built." },
+                { icon: <Flame className="w-6 h-6" />, title: "Turn Your Grind Into Clout", desc: "24 hours of building something insane? That's content gold. Show the world what you built." },
                 { icon: <Users className="w-6 h-6" />, title: "Show Off Your Squad", desc: "The teamwork, the 3AM energy, the breakthroughs — capture your crew in their element." },
                 { icon: <TrendingUp className="w-6 h-6" />, title: "Real Reach, Not Fake Promises", desc: "Your reel goes up on Hack With You as a collab — and the best ones climb to Hack With India, Enigma, even RIET's page." },
                 { icon: <Sparkles className="w-6 h-6" />, title: "Portfolio Flex", desc: "A featured reel on a national hackathon page? That's LinkedIn gold and resume fire." },
@@ -297,9 +292,9 @@ export default function Campaign() {
 
             <div className="space-y-4">
               {[
-                { step: "1", icon: <Instagram className="w-6 h-6" />, title: "Follow @enigma_riet + @hackwithindia", desc: "Both pages. Non-negotiable. This is how we find you." },
+                { step: "1", icon: <Instagram className="w-6 h-6" />, title: "Follow @enigma_2k26, @hackwith.you & @hackwithindia", desc: "All three pages. Non-negotiable. This is how we find you." },
                 { step: "2", icon: <Camera className="w-6 h-6" />, title: "Shoot Your Reel During Enigma'26", desc: "Capture the energy, the build, the chaos, the vibes — whatever hits different." },
-                { step: "3", icon: <Hash className="w-6 h-6" />, title: "Post It With the Right Tags", desc: "Tag @enigma_riet, @raboriet, and @hackwithindia. Use #Enigma26 #HackWithIndia #HackWithYou" },
+                { step: "3", icon: <Hash className="w-6 h-6" />, title: "Post It With the Right Tags", desc: "Tag @enigma_2k26, @riet_official, and @hackwithindia. Use #Enigma26 #HackWithIndia #HackWithYou" },
                 { step: "4", icon: <Send className="w-6 h-6" />, title: "Submit Through the Official Form", desc: "Drop your reel link in our submission form. Make sure your account is PUBLIC." },
                 { step: "5", icon: <Sparkles className="w-6 h-6" />, title: "Wait for the DM", desc: "If you're selected, we'll hit you up for the collab post. Then you're officially featured." }
               ].map((item, idx) => (
